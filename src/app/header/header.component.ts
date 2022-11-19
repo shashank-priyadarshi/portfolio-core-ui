@@ -34,11 +34,11 @@ export class HeaderComponent implements OnInit {
   fetchDetails() {
     this.sharedService.getSharedData().subscribe((data) => {
       this.headerDetails =
-        data.details.name +
+        data.header.name +
         ' | ' +
-        data.details.role[0] +
+        data.header.role[0] +
         ' | ' +
-        data.details.role[1] +
+        data.header.role[1] +
         ' | ' +
         (this.calculateExperience() / 31557600000).toFixed(2) +
         ' years';

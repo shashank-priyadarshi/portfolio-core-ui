@@ -1,9 +1,9 @@
 {
-  "details": {
+  "header": {
     "name": "Shashank Priyadarshi",
-    "role": ["Systems Engineer", "Software Developer"],
-    "email": "shashank9163882019@gmail.com",
-    "phone": "+91 74882 91328",
+    "role": ["Systems Engineer", "Software Developer"]
+  },
+  "footer": {
     "links": [
       {
         "linkedin": "https://linkedin.com/in/lalilalox2",
@@ -11,51 +11,64 @@
       }
     ]
   },
-  "summary": [
-    "Systems Engineer with 1.1 years of experience having good exposure into various domain.",
-    "Worked on Angular and Go coupled with Micro-frontend and restful web services.",
-    "Co-operative & enthusiastic team member.",
-    "Apt analytical & interpersonal skills, self-driven."
-  ],
-  "career_objective": "Seeking a responsible position as a Software Developer in IT Industry that enables me to continue to work in a challenging and fast-paced environment, leveraging my current knowledge and fostering creativity with many learning opportunities.",
-  "skillset": {
-    "technical_skill_grid": [
-      {
-        "language": ["Angular 10", "Golang"]
-      },
-      {
-        "database": ["MongoDB"]
-      },
-      {
-        "server_side_technologies": ["Micro Frontend", "Restful webservices"]
-      },
-      {
-        "servers": ["Tomcat"]
-      },
-      {
-        "data_access_technologies": ["MySQL", "GraphQL"]
-      },
-      {
-        "ide": ["VSCode"]
-      },
-      {
-        "tools": [
-          "GIT",
-          "SonarQube",
-          "BlackDuck",
-          "Fortify",
-          "Atlassian Jira & Confluence"
-        ]
+  "body": [
+    {
+      "Summary": "Systems Engineer with 1.1 years of experience having good exposure into various domain.\nWorked on Angular and Go coupled with Micro-frontend and restful web services.\nCo-operative & enthusiastic team member.\nApt analytical & interpersonal skills, self-driven."
+    },
+    {
+      "Career Objective": "Seeking a responsible position as a Software Developer in IT Industry that enables me to continue to work in a challenging and fast-paced environment, leveraging my current knowledge and fostering creativity with many learning opportunities."
+    },
+    {
+      "Skillsets": {
+        "Technical Skill Grid": {
+          "Programming Languages": "Angular 10, Golang",
+          "Database": "MongoDB",
+          "Server Side Technologies": "Micro Frontend, Restful webservices",
+          "Servers": "Tomcat",
+          "Data Access Technologies": "MySQL, GraphQL",
+          "IDE": "VSCode",
+          "Tools": "GIT, SonarQube, BlackDuck, Fortify, Atlassian Jira & Confluence"
+        }
       }
-    ]
-  },
-  "education": {
-    "college": [
-      "B.Tech in Information Technology from Techno International Newtown session 2017-21"
-    ],
-    "higher_secondary": "",
-    "secondary": ""
-  },
+    },
+    {
+      "Education": {
+        "College": {
+          "Bachelors": "B.Tech in Information Technology from Techno International Newtown session 2017-21"
+        },
+        "Higher Secondary": {},
+        "Secondary": {}
+      }
+    },
+    {
+      "Employment Profile": {
+        "Current Employer": {
+          "Employer": "Infosys Ltd",
+          "Designation": "Systems Engineer",
+          "Date of Joining": "2021-09-21",
+          "Office Location": "Bengaluru",
+          "Description": "Worked on Angular and Go coupled with Micro-frontend and restful web services."
+        },
+        "Previous Employer": []
+      }
+    },
+    {
+      "projects": [
+        {
+          "Company": "Infosys",
+          "Type": "Application Development",
+          "Role": "Software Developer",
+          "Platform": "Angular, Golang, GIT, SonarQube, BlackDuck, Fortify",
+          "Methodology": "Agile Development",
+          "Project Description": "Intent of the Live Engineering project is to fetch, analyze and display Developer’s metrices like LOC, code churn, stories delivered with and without defects, etc., using Angular for frontend development, and Go for backend plugin development. Plugins used several ALM tools to aggregate developer analytics data and storing the data in NoSQL DB like MongoDB. Thus enabling the upper management to take data driven relevant business decisions.",
+          "Domain": "Web Development",
+          "Responsibilities": "Responsible for development and implementation of small to medium complex components of a project module.\nResponsible for development of Micro-Frontends.\nImplement new enhancements in above applications as requested by the product owners.\nResolving security vulnerabilities and efficiency of code as per Fortify, BlackDuck and SonaQube.\nLearning on the job towards developing domain knowledge.\nCommunicating and coordinating with teammates on technical and functional areas."
+        }
+      ]
+    },
+    { "Certifications": [] }
+  ],
+  "assets": [],
   "employment_profile": {
     "current_employer": {
       "employer": "Infosys Ltd",
@@ -65,24 +78,5 @@
       "description": "Worked on Angular and Go coupled with Micro-frontend and restful web services."
     },
     "previous_employer": []
-  },
-  "projects": {
-    "company": "Infosys",
-    "type": "Application Development",
-    "role": "Software Developer",
-    "paltform": "Angular, Golang, GIT, SonarQube, BlackDuck, Fortify",
-    "methodology": "Agile Development",
-    "project_description": "Intent of the Live Engineering project is to fetch, analyze and display Developer’s metrices like LOC, code churn, stories delivered with and without defects, etc., using Angular for frontend development, and Go for backend plugin development. Plugins used several ALM tools to aggregate developer analytics data and storing the data in NoSQL DB like MongoDB. Thus enabling the upper management to take data driven relevant business decisions.",
-    "domain": "Web Development",
-    "responsibilities": [
-      "Responsible for development and implementation of small to medium complex components of a project module.",
-      "Responsible for development of Micro-Frontends.",
-      "Implement new enhancements in above applications as requested by the product owners.",
-      "Resolving security vulnerabilities and efficiency of code as per Fortify, BlackDuck and SonaQube.",
-      "Learning on the job towards developing domain knowledge.",
-      "Communicating and coordinating with teammates on technical and functional areas."
-    ]
-  },
-  "certifications": {},
-  "assets": {}
+  }
 }
