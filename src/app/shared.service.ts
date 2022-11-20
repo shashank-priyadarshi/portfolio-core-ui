@@ -11,4 +11,7 @@ export class SharedService {
   public getSharedData(): Observable<any> {
     return this.http.get('assets/data/data_format.json');
   }
+  public getData(): Observable<any> {
+    return this.http.get('assets/data/data.json');
+  }
 }

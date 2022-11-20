@@ -1,10 +1,111 @@
 <style>
-  .subtopic {
-    font-weight: bold;
-    color: #000;
+  .body {
     margin: 0 auto;
+    text-align: center;
+  }
+  .header {
+    font-weight: bolder;
+    font-size: large;
+  }
+  .table {
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>
-<app-header></app-header><br /><br />
-<div [innerHTML]="body"></div>
-<app-footer></app-footer>
+<div class="body">
+  <div>
+    <div class="header">Summary</div>
+    <ul>
+      <li *ngFor="let x of summary">{{ x }}</li>
+    </ul>
+  </div>
+  <div>
+    <div class="header">Career Objectives</div>
+    <p>{{ career_objective }}</p>
+  </div>
+  <div>
+    <div class="header">Skillsets</div>
+    <table class="table">
+      <thead>
+        <th>Technical Skill Grid</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of skillGridKeys; let i = index">
+          <td>{{ key }}</td>
+          <td>{{ skills[i] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <div class="header">Education</div>
+    <table class="table">
+      <div>
+        <thead>
+          <th class="sub-header">College</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of college_keys; let i = index">
+            <td>{{ x }}</td>
+            <td>{{ college[i] }}</td>
+          </tr>
+        </tbody>
+      </div>
+      <div>
+        <thead>
+          <th class="sub-header">Higher Secondary</th>
+        </thead>
+        <tbody></tbody>
+      </div>
+      <div>
+        <thead>
+          <th class="sub-header">Secondary</th>
+        </thead>
+        <tbody></tbody>
+      </div>
+    </table>
+  </div>
+  <div>
+    <div class="header">Employment Profile</div>
+    <table class="table">
+      <div>
+        <thead>
+          <th class="sub-header">Current Employer</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of employment_keys; let i = index">
+            <td>{{ x }}</td>
+            <td>{{ current_employer[i] }}</td>
+          </tr>
+        </tbody>
+      </div>
+      <div>
+        <thead>
+          <th class="sub-header">Past Employers</th>
+        </thead>
+        <tbody></tbody>
+      </div>
+    </table>
+  </div>
+  <div>
+    <div class="header">Projects</div>
+    <div *ngFor="let x of projects; let i = index">
+      <table class="table">
+        <thead>
+          {{
+            i + 1
+          }}
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of project_keys; let _i = index">
+            <td>{{ key }}</td>
+            <td>{{ x[_i] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="header">
+    <div>Certifications</div>
+  </div>
+</div>

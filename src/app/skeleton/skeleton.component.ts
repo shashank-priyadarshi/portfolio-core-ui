@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -8,38 +7,35 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./skeleton.component.sass'],
 })
 export class SkeletonComponent implements OnInit {
-  body!: SafeHtml;
-  innerHTML!: string;
+  career_objective!: string;
+  skillGridKeys!: string[];
+  skills!: string[];
+  summary: any;
+  college: any;
+  college_keys: any;
+  current_employer: any;
+  employment_keys: any;
+  project_keys: any;
+  projects: any;
 
-  constructor(
-    private sharedService: SharedService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
     this.fetchBody();
   }
 
   fetchBody() {
-    this.sharedService.getSharedData().subscribe((data) => {
-      this.unroll(data.body);
-    });
-    setTimeout(() => {
-      this.body = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML);
-    }, 100);
-  }
-
-  unroll(data: any) {
-    const keys = Object.keys(data);
-    keys.forEach((key) => {
-      if (typeof data[key] === 'object') {
-        if (isNaN(+key)) {
-          this.innerHTML += '<div style="margin: 0 auto;">' + key + '<div>';
-        }
-        this.unroll(data[key]);
-      } else {
-        this.innerHTML += '<div>' + key + ': ' + data[key] + '</div>';
-      }
+    this.sharedService.getData().subscribe((data) => {
+      this.summary = data.body.summary;
+      this.career_objective = data.body.career_objective;
+      this.skills = data.body.skillsets.technical_skill_grid;
+      this.skillGridKeys = data.keys.body.skillsets[0].technical_skill_grid;
+      this.college_keys = data.keys.body.education[0].college;
+      this.college = data.body.education.college;
+      this.current_employer = data.body.employment_profile.current_employer;
+      this.employment_keys = data.keys.body.employment_profile.employer;
+      this.project_keys = data.keys.body.projects;
+      this.projects = data.body.projects;
     });
   }
 }
