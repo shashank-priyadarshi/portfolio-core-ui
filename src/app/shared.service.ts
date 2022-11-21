@@ -8,9 +8,6 @@ import { Observable } from 'rxjs';
 export class SharedService {
   constructor(private http: HttpClient) {}
 
-  public getSharedData(): Observable<any> {
-    return this.http.get('assets/data/data_format.json');
-  }
   public getData(): Observable<any> {
     return this.http.get('assets/data/data.json');
   }

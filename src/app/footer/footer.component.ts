@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   }
 
   fetchSMLinks() {
-    this.sharedService.getSharedData().subscribe((data) => {
+    this.sharedService.getData().subscribe((data) => {
       this.linkedInURL = data.footer.links[0].linkedin;
       this.gitHubURL = data.footer.links[0].github;
     });

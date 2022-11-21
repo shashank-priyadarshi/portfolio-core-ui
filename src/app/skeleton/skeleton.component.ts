@@ -17,6 +17,8 @@ export class SkeletonComponent implements OnInit {
   employment_keys: any;
   project_keys: any;
   projects: any;
+  secondary: any;
+  secondary_keys: any;
 
   constructor(private sharedService: SharedService) {}
 
@@ -36,6 +38,8 @@ export class SkeletonComponent implements OnInit {
       this.employment_keys = data.keys.body.employment_profile.employer;
       this.project_keys = data.keys.body.projects;
       this.projects = data.body.projects;
+      this.secondary = data.body.education.secondary;
+      this.secondary_keys = data.keys.body.education[1].secondary;
     });
   }
 }

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   calculateExperience() {
-    this.sharedService.getSharedData().subscribe((data) => {
+    this.sharedService.getData().subscribe((data) => {
       let previousEmployer = data.employment_profile.previous_employer;
       if (!previousEmployer.length) {
         this.startTime =
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   }
 
   fetchDetails() {
-    this.sharedService.getSharedData().subscribe((data) => {
+    this.sharedService.getData().subscribe((data) => {
       this.headerDetails =
         data.header.name +
         ' | ' +

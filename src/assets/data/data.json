@@ -34,7 +34,7 @@
       "college": [
         "B.Tech in Information Technology from Techno International Newtown session 2017-21"
       ],
-      "secondary": []
+      "secondary": ["ISc from LN Intermediate School, Bhagalpur, session of 2014-16", "Matriculation from St Paul's School, Bhagalpur, in the year 2014"]
     },
     "employment_profile": {
       "current_employer": [
@@ -49,12 +49,12 @@
     "projects": [
       [
         "Infosys",
-        "Application Development",
         "Software Developer",
-        "Angular, Golang, GIT, SonarQube, BlackDuck, Fortify",
-        "Agile Development",
-        "Intent of the Live Engineering project is to fetch, analyze and display Developer’s metrices like LOC, code churn, stories delivered with and without defects, etc., using Angular for frontend development, and Go for backend plugin development. Plugins used several ALM tools to aggregate developer analytics data and storing the data in NoSQL DB like MongoDB. Thus enabling the upper management to take data driven relevant business decisions.",
+        "Application Development",
         "Web Development",
+        "Agile Development",
+        "Angular, Golang, GIT, SonarQube, BlackDuck, Fortify",
+        "Intent of the Live Engineering project is to fetch, analyze and display Developer’s metrices like LOC, code churn, stories delivered with and without defects, etc., using Angular for frontend development, and Go for backend plugin development. Plugins used several ALM tools to aggregate developer analytics data and storing the data in NoSQL DB like MongoDB. Thus enabling the upper management to take data driven relevant business decisions.",
         "Responsible for development and implementation of small to medium complex components of a project module.\nResponsible for development of Micro-Frontends.\nImplement new enhancements in above applications as requested by the product owners.\nResolving security vulnerabilities and efficiency of code as per Fortify, BlackDuck and SonaQube.\nLearning on the job towards developing domain knowledge.\nCommunicating and coordinating with teammates on technical and functional areas."
       ]
     ],
@@ -78,24 +78,27 @@
           ]
         }
       ],
-      "education": [{ "college": ["Bachelors"] }, { "secondary": [] }],
+      "education": [
+        { "college": ["Bachelors"] },
+        { "secondary": ["Intermediate", "Matriculation"] }
+      ],
       "employment_profile": {
         "employer": [
           "Employer",
           "Designation",
-          "Date of Joining",
-          "Office Location",
+          "DOJ",
+          "Location",
           "Description"
         ]
       },
       "projects": [
         "Organization",
-        "Type",
         "Role",
-        "Platform",
-        "Methodology",
-        "Project Description",
+        "Type",
         "Domain",
+        "Methodology",
+        "Platform",
+        "Project Description",
         "Responsibilities"
       ],
       "Certifications": {}
