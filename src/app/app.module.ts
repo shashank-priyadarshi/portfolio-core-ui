@@ -9,8 +9,6 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { AuthModule } from './auth/auth.module';
-import { FormModule } from './form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -26,15 +24,13 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
-      { path: 'newsletter', loadChildren: () => import('./form/form.module').then(m => m.FormModule) },
+      // { path: 'newsletter', loadChildren: () => import('./form/form.module').then(m => m.FormModule) },
     ]),
     HttpClientModule,
     ReactiveFormsModule,
-    AuthModule,
-    FormModule,
   ],
-  exports: [AuthModule, FormModule],
-  providers: [],
+  // exports: [AuthModule, FormModule],
+  // providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
