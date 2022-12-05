@@ -23,23 +23,41 @@ export class SkeletonComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    this.fetchBody();
+    let biodata: any;
+    this.sharedService.fetchData('biodata').subscribe((data) => {
+      biodata = data;
+    });
+    setTimeout(() => {
+      this.fetchBody(biodata);
+    }, 200);
   }
 
-  fetchBody() {
-    this.sharedService.getData().subscribe((data) => {
-      this.summary = data.body.summary;
-      this.career_objective = data.body.career_objective;
-      this.skills = data.body.skillsets.technical_skill_grid;
-      this.skillGridKeys = data.keys.body.skillsets[0].technical_skill_grid;
-      this.college_keys = data.keys.body.education[0].college;
-      this.college = data.body.education.college;
-      this.current_employer = data.body.employment_profile.current_employer;
-      this.employment_keys = data.keys.body.employment_profile.employer;
-      this.project_keys = data.keys.body.projects;
-      this.projects = data.body.projects;
-      this.secondary = data.body.education.secondary;
-      this.secondary_keys = data.keys.body.education[1].secondary;
-    });
+  fetchBody(biodata: any) {
+    let dataObj = biodata[0];
+
+    // Setting keys for tables
+    let keys = dataObj[4].Value[3].Value;
+
+    let temp_key = keys[0].Value[0];
+    this.skillGridKeys = temp_key[0].Value;
+
+    temp_key = keys[1].Value[0];
+    this.college_keys = temp_key[0].Value;
+    temp_key = keys[1].Value[1];
+
+    this.secondary_keys = temp_key[0].Value;
+    temp_key = keys[2].Value[0];
+    this.employment_keys = temp_key.Value;
+    this.project_keys = keys[3].Value;
+
+    // Setting values
+    let body = dataObj[3].Value;
+    this.summary = body[0].Value;
+    this.career_objective = body[1].Value;
+    this.skills = body[2].Value[0].Value;
+    this.college = body[3].Value[0].Value;
+    this.secondary = body[3].Value[1].Value;
+    this.current_employer = body[4].Value[0].Value;
+    this.projects = body[5].Value;
   }
 }
