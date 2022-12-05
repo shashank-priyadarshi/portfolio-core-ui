@@ -13,35 +13,37 @@ export class HeaderComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    this.calculateExperience();
+    let biodata: any;
+    this.sharedService.fetchData('biodata').subscribe((data) => {
+      biodata = data;
+    });
     setTimeout(() => {
-      this.fetchDetails();
+      this.calculateExperience(biodata[0]);
+      this.fetchDetails(biodata[0]);
     }, 100);
   }
 
-  calculateExperience() {
-    this.sharedService.getData().subscribe((data) => {
-      let previousEmployer = data.employment_profile.previous_employer;
-      if (!previousEmployer.length) {
-        this.startTime =
-          data.employment_profile.current_employer.date_of_joining;
-      } else {
-      }
-    });
+  calculateExperience(dojdata: any) {
+    // let previousEmployer = doj[3].Value[4].Value;
+    // if (!previousEmployer.length) {
+    //   this.startTime = doj[3].Value[4].Value[0].Value[2];
+    // }
+    this.startTime = dojdata[3].Value[4].Value[0].Value[2];
     return new Date().getTime() - new Date(this.startTime).getTime();
   }
 
-  fetchDetails() {
-    this.sharedService.getData().subscribe((data) => {
-      this.headerDetails =
-        data.header.name +
-        ' | ' +
-        data.header.role[0] +
-        ' | ' +
-        data.header.role[1] +
-        ' | ' +
-        (this.calculateExperience() / 31557600000).toFixed(2) +
-        ' years';
-    });
+  fetchDetails(biodata: any) {
+    let header = biodata[1].Value;
+    let name = header[0].Value;
+    let role = header[1].Value;
+    this.headerDetails =
+      name +
+      ' | ' +
+      role[0] +
+      ' | ' +
+      role[1] +
+      ' | ' +
+      (this.calculateExperience(biodata) / 31557600000).toFixed(2) +
+      ' years';
   }
 }
