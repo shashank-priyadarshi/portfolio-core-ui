@@ -11,6 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { RouterModule } from '@angular/router';
     SkeletonComponent,
     HeaderComponent,
     FooterComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,8 @@ import { RouterModule } from '@angular/router';
     ]),
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   // exports: [AuthModule, FormModule],
   // providers: [],
