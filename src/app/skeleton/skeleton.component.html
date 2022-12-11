@@ -1,5 +1,6 @@
 <style>
   .body {
+    margin: 0 0 0 0;
     text-align: center;
     word-wrap: break-word;
   }
@@ -10,7 +11,7 @@
   .table {
     width: 50%;
     height: fit-content;
-    margin:15px;
+    margin: 15px;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid;
@@ -18,14 +19,18 @@
   .table th {
     display: flex;
     justify-content: center;
-    margin:5px;
+    margin: 5px;
   }
   .table td {
     border: 1px solid;
     padding: 5px;
   }
+  .mat-card-header {
+    font-size: large;
+    margin-bottom: 15px;
+  }
 </style>
-<div class="body">
+<!-- <div class="body">
   <div>
     <div class="header">Summary</div>
     <ul>
@@ -116,4 +121,13 @@
   <div class="header">
     <div>Certifications</div>
   </div>
+</div> -->
+
+<div style="text-align: center; font-size: large">
+  <div style="margin: 15px 5px;"><mat-card-header>Summary</mat-card-header></div>
+  <div style="margin: 15px 5px;"><mat-card-header>Skillsets</mat-card-header></div>
+  <div style="margin: 15px 5px;"><mat-card-header>Education</mat-card-header></div>
+  <div style="margin: 15px 5px;"><mat-card-header>Employment Profile</mat-card-header></div>
+  <div style="margin: 15px 5px;"><mat-card-header>Projects</mat-card-header></div>
+  <div style="margin: 15px 5px;"><mat-card-header>Certifications</mat-card-header></div>
 </div>

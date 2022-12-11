@@ -7,13 +7,15 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
+  opened = false;
   headerDetails!: string;
   startTime!: string;
+  name!: string;
 
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    this.sharedService.fetchData('biodata').subscribe(async(data) => {
+    this.sharedService.fetchData('biodata').subscribe(async (data) => {
       await data;
       this.calculateExperience(data[0]);
       this.fetchDetails(data[0]);
@@ -31,11 +33,9 @@ export class HeaderComponent implements OnInit {
 
   fetchDetails(biodata: any) {
     let header = biodata[1].Value;
-    let name = header[0].Value;
+    this.name = header[0].Value;
     let role = header[1].Value;
     this.headerDetails =
-      name +
-      ' | ' +
       role[0] +
       ' | ' +
       role[1] +

@@ -1,21 +1,20 @@
-<style>
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #060606;
-    color: white;
-    font-weight: 600;
-  }
-  .header {
-    margin: 0 auto;
-  }
-</style>
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <div class="header">{{ headerDetails }}</div>
+<div>
+  <mat-toolbar color="accent">
+    <mat-toolbar-row style="font-size: 55px; justify-content: center">{{
+      name
+    }}</mat-toolbar-row>
+
+    <button
+      style="width: 5%; background-color: #fbc02d"
+      mat-icon-button
+      (click)="opened = !opened"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-toolbar-row style="justify-content: center; font-size: 30px">{{
+      headerDetails
+    }}</mat-toolbar-row>
+  </mat-toolbar>
 </div>

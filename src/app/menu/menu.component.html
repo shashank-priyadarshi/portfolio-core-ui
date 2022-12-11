@@ -1,1 +1,18 @@
-<p>menu works!</p>
+<mat-sidenav-container>
+  <!-- <div style="padding: 15px"> -->
+  <mat-sidenav
+    style="
+      width: 250px;
+      background-color: rgb(237, 109, 17);
+      text-align: center;
+    "
+    mode="push"
+    [(opened)]="opened"
+    >Todos</mat-sidenav
+  >
+  <mat-sidenav-content>
+    <button (click)="opened = !opened">Menu</button>
+    <app-header> </app-header>
+  </mat-sidenav-content>
+  <!-- </div> -->
+</mat-sidenav-container>
