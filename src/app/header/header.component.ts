@@ -13,14 +13,11 @@ export class HeaderComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    let biodata: any;
-    this.sharedService.fetchData('biodata').subscribe((data) => {
-      biodata = data;
+    this.sharedService.fetchData('biodata').subscribe(async(data) => {
+      await data;
+      this.calculateExperience(data[0]);
+      this.fetchDetails(data[0]);
     });
-    setTimeout(() => {
-      this.calculateExperience(biodata[0]);
-      this.fetchDetails(biodata[0]);
-    }, 100);
   }
 
   calculateExperience(dojdata: any) {

@@ -14,13 +14,10 @@ export class FooterComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    let biodata: any;
-    this.sharedService.fetchData('biodata').subscribe((data) => {
-      biodata = data;
+    this.sharedService.fetchData('biodata').subscribe(async (data) => {
+      await data;
+      this.fetchSMLinks(data[0]);
     });
-    setTimeout(() => {
-      this.fetchSMLinks(biodata[0]);
-    }, 150);
   }
 
   fetchSMLinks(footer: any) {

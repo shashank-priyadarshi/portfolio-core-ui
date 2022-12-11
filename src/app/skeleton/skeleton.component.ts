@@ -23,13 +23,10 @@ export class SkeletonComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    let biodata: any;
-    this.sharedService.fetchData('biodata').subscribe((data) => {
-      biodata = data;
+    this.sharedService.fetchData('biodata').subscribe(async (data) => {
+      await data;
+      this.fetchBody(data);
     });
-    setTimeout(() => {
-      this.fetchBody(biodata);
-    }, 200);
   }
 
   fetchBody(biodata: any) {

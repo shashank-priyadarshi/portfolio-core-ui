@@ -15,10 +15,4 @@ export class SharedService {
       headers: headers,
     });
   }
-
-  public async delay(milliseconds: number) {
-    return new Promise<void>((resolve) => {
-      setTimeout(resolve, milliseconds);
-    });
-  }
 }
