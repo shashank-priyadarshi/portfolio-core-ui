@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.sass'],
 })
 export class MenuComponent implements OnInit {
-  opened = false;
-  constructor() {}
+  opened!: boolean;
+  constructor(private sharedService: SharedService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sharedService.opened.subscribe((data) => {
+      this.opened = data;
+    });
+  }
 }

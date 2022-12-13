@@ -1,18 +1,29 @@
 <mat-sidenav-container>
-  <!-- <div style="padding: 15px"> -->
   <mat-sidenav
     style="
-      width: 250px;
-      background-color: rgb(237, 109, 17);
+      width: 150px;
+      background-color: #fbc02d;
       text-align: center;
+      font-size: medium;
     "
     mode="push"
     [(opened)]="opened"
-    >Todos</mat-sidenav
   >
+    <ul
+      style="
+        list-style-type: none;
+        padding-inline-start: 0px;
+        font-size: medium;
+        padding-bottom: 10px;
+      "
+    >
+      <li>Todos</li>
+      <p></p>
+      <li>Articles</li>
+      <p></p>
+    </ul>
+  </mat-sidenav>
   <mat-sidenav-content>
-    <button (click)="opened = !opened">Menu</button>
     <app-header> </app-header>
   </mat-sidenav-content>
-  <!-- </div> -->
 </mat-sidenav-container>
