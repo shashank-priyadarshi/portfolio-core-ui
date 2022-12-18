@@ -14,6 +14,9 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { MenuComponent } from './menu/menu.component';
+import { TechBlogComponent } from './tech-blog/tech-blog.component';
+import { TodosComponent } from './todos/todos.component';
+import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { MenuComponent } from './menu/menu.component';
     HeaderComponent,
     FooterComponent,
     MenuComponent,
+    TechBlogComponent,
+    TodosComponent,
+    PageNotExistComponent,
   ],
   imports: [
     BrowserModule,

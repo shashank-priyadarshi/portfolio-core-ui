@@ -50,6 +50,7 @@ export class SkeletonComponent implements OnInit {
     // Setting values
     let body = dataObj[3].Value;
     this.summary = body[0].Value;
+
     this.career_objective = body[1].Value;
     this.skills = body[2].Value[0].Value;
     this.college = body[3].Value[0].Value;

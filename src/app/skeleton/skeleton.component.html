@@ -11,19 +11,34 @@
   .table {
     width: 50%;
     height: fit-content;
-    margin: 15px;
+    margin: 5px;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid;
   }
   .table th {
     display: flex;
-    justify-content: center;
-    margin: 5px;
   }
   .table td {
-    border: 1px solid;
-    padding: 5px;
+    border: 0.1px solid;
+    border-top: 0;
+  }
+  .table tr td:first-child {
+    border-left: 0;
+  }
+  .table tr:last-child td {
+    border-bottom: 0;
+  }
+  .table tr td:last-child {
+    border-right: 0;
+  }
+  td span {
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: -8px;
+    margin-top: 2px;
+  }
+  th p {
+    margin: 5px -10px;
   }
   .mat-card-header {
     font-size: large;
@@ -45,11 +60,16 @@
     <mat-card-content>
       <div class="table">
         <table>
-          <th style="display: table-caption">Technical Skill Grid</th>
           <tbody>
             <tr *ngFor="let key of skillGridKeys; let i = index">
-              <td>{{ key }}</td>
-              <td>{{ skills[i] }}</td>
+              <td style="width: 50%">
+                <span
+                  >{{ key }}:
+                  <p style="margin-right: 3px">
+                    {{ skills[i] }}
+                  </p></span
+                >
+              </td>
             </tr>
           </tbody>
         </table>
@@ -62,20 +82,26 @@
       <div class="table">
         <table>
           <div>
-            <th class="sub-header">College</th>
-            <tbody>
-              <tr *ngFor="let x of college_keys; let i = index">
-                <td>{{ x }}</td>
-                <td>{{ college[i] }}</td>
-              </tr>
-            </tbody>
-          </div>
-          <div>
-            <th class="sub-header">Secondary</th>
             <tbody>
               <tr *ngFor="let x of secondary_keys; let i = index">
-                <td>{{ x }}</td>
-                <td>{{ secondary[i] }}</td>
+                <td style="width: 50%">
+                  {{ x }}:
+                  <span>
+                    <p>
+                      {{ secondary[i] }}
+                    </p></span
+                  >
+                </td>
+              </tr>
+              <tr *ngFor="let x of college_keys; let i = index">
+                <td style="width: 50%">
+                  {{ x }}:
+                  <span>
+                    <p>
+                      {{ college[i] }}
+                    </p></span
+                  >
+                </td>
               </tr>
             </tbody>
           </div>
@@ -84,21 +110,26 @@
     </mat-card-content>
   </div>
   <div style="margin: 15px 5px">
-    <mat-card-header>Employment Profile</mat-card-header>
+    <mat-card-header>Current Employer</mat-card-header>
     <mat-card-content>
       <div class="table">
         <table>
           <div>
-            <th class="sub-header">Current Employer</th>
             <tbody>
               <tr *ngFor="let x of employment_keys; let i = index">
-                <td>{{ x }}</td>
-                <td>{{ current_employer[i] }}</td>
+                <td style="width: 50%">
+                  {{ x }}:
+                  <span>
+                    <p>
+                      {{ current_employer[i] }}
+                    </p></span
+                  >
+                </td>
               </tr>
             </tbody>
           </div>
           <div>
-            <th class="sub-header">Past Employers</th>
+            <!-- <th class="sub-header">Past Employers</th> -->
             <tbody></tbody>
           </div>
         </table>
@@ -111,13 +142,16 @@
       <div *ngFor="let x of projects; let i = index">
         <div class="table">
           <table>
-            <th style="display: table-caption">
-              {{ i + 1 }}
-            </th>
             <tbody>
               <tr *ngFor="let key of project_keys; let _i = index">
-                <td>{{ key }}</td>
-                <td>{{ x[_i] }}</td>
+                <td style="width: 50%">
+                  {{ key }}:
+                  <span>
+                    <p>
+                      {{ x[_i] }}
+                    </p></span
+                  >
+                </td>
               </tr>
             </tbody>
           </table>
