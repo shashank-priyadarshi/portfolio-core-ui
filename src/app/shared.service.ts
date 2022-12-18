@@ -18,7 +18,7 @@ export class SharedService {
   public fetchData(endpoint: string): Observable<any> {
     let headers = new HttpHeaders({ 'Referrer-Policy': 'no-referrer' });
 
-    return this.http.get('https://devapi.ssnk.in/' + endpoint, {
+    return this.http.get('https://api.ssnk.in/' + endpoint, {
       headers: headers,
     });
   }
