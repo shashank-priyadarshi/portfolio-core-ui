@@ -1,1 +1,38 @@
-<p>todos works!</p>
+<style>
+  .sub-block {
+    margin: 15px 5px;
+  }
+  mat-card-header {
+    font-size: large;
+    display: flex;
+    justify-content: center;
+  }
+  ul {
+    padding: 0;
+  }
+  ul li {
+    justify-content: center;
+    display: flex;
+    align-items: baseline;
+  }
+</style>
+<app-menu></app-menu>
+<div *ngFor="let task of todoList; let i = index">
+  <div *ngIf="i == 0">
+    <mat-card-header class="sub-block">TODO</mat-card-header>
+    <ul>
+      <li *ngFor="let todo of task[i + 1].Value">
+        <input type="checkbox" [checked]="false" />
+        <span [ngClass]="{ done: todo.done }">{{ todo }}</span>
+      </li>
+    </ul>
+    <mat-card-header class="sub-block">DONE</mat-card-header>
+    <ul>
+      <li *ngFor="let todo of task[i + 2].Value">
+        <input type="checkbox" [checked]="true" />
+        <span [ngClass]="{ done: todo.done }">{{ todo }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>

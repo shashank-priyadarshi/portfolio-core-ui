@@ -17,6 +17,8 @@ import { MenuComponent } from './menu/menu.component';
 import { TechBlogComponent } from './tech-blog/tech-blog.component';
 import { TodosComponent } from './todos/todos.component';
 import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
+import { HomeComponent } from './home/home.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { PageNotExistComponent } from './page-not-exist/page-not-exist.component
     TechBlogComponent,
     TodosComponent,
     PageNotExistComponent,
+    HomeComponent,
+    UnderConstructionComponent,
   ],
   imports: [
     BrowserModule,
