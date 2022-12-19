@@ -1,0 +1,46 @@
+<style>
+  .mat-sidenav {
+    width: 150px;
+    background-color: #fbc02d;
+    text-align: center;
+    font-size: medium;
+  }
+  li a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    font-size: medium;
+    padding-bottom: 10px;
+  }
+</style>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="push" [(opened)]="opened">
+    <ul>
+      <li>
+        <a
+          routerLink="/todos"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Todos</a
+        >
+      </li>
+      <p></p>
+      <li>
+        <a
+          routerLink="/techblog"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Articles</a
+        >
+      </li>
+      <p></p>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header> </app-header>
+  </mat-sidenav-content>
+</mat-sidenav-container>

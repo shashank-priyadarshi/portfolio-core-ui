@@ -19,17 +19,16 @@ export class SkeletonComponent implements OnInit {
   projects: any;
   secondary: any;
   secondary_keys: any;
+  certifications: any;
+  certification_keys: any;
 
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    let biodata: any;
-    this.sharedService.fetchData('biodata').subscribe((data) => {
-      biodata = data;
+    this.sharedService.fetchData('biodata').subscribe(async (data) => {
+      await data;
+      this.fetchBody(data);
     });
-    setTimeout(() => {
-      this.fetchBody(biodata);
-    }, 200);
   }
 
   fetchBody(biodata: any) {
@@ -49,15 +48,18 @@ export class SkeletonComponent implements OnInit {
     temp_key = keys[2].Value[0];
     this.employment_keys = temp_key.Value;
     this.project_keys = keys[3].Value;
+    this.certification_keys = keys[4].Value;
 
     // Setting values
     let body = dataObj[3].Value;
     this.summary = body[0].Value;
+
     this.career_objective = body[1].Value;
     this.skills = body[2].Value[0].Value;
     this.college = body[3].Value[0].Value;
     this.secondary = body[3].Value[1].Value;
     this.current_employer = body[4].Value[0].Value;
     this.projects = body[5].Value;
+    this.certifications = body[6].Value;
   }
 }

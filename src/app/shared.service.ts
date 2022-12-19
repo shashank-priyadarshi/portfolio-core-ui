@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
+  private menuOpenedSource = new BehaviorSubject<boolean>(false);
+  opened = this.menuOpenedSource.asObservable();
+
   constructor(private http: HttpClient) {}
 
+  menu(opened: boolean) {
+    this.menuOpenedSource.next(opened);
+  }
+
   public fetchData(endpoint: string): Observable<any> {
-    return this.http.get('http://api.ssnk.in/' + endpoint);
+    let headers = new HttpHeaders({ 'Referrer-Policy': 'no-referrer' });
+
+    return this.http.get('https://api.ssnk.in/' + endpoint, {
+      headers: headers,
+    });
   }
 }
