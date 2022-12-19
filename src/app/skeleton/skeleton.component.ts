@@ -19,6 +19,8 @@ export class SkeletonComponent implements OnInit {
   projects: any;
   secondary: any;
   secondary_keys: any;
+  certifications: any;
+  certification_keys: any;
 
   constructor(private sharedService: SharedService) {}
 
@@ -46,6 +48,7 @@ export class SkeletonComponent implements OnInit {
     temp_key = keys[2].Value[0];
     this.employment_keys = temp_key.Value;
     this.project_keys = keys[3].Value;
+    this.certification_keys = keys[4].Value;
 
     // Setting values
     let body = dataObj[3].Value;
@@ -57,5 +60,6 @@ export class SkeletonComponent implements OnInit {
     this.secondary = body[3].Value[1].Value;
     this.current_employer = body[4].Value[0].Value;
     this.projects = body[5].Value;
+    this.certifications = body[6].Value;
   }
 }

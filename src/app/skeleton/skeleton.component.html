@@ -1,4 +1,8 @@
 <style>
+  .mat-card-header {
+    font-size: large;
+    margin-bottom: 15px;
+  }
   .body {
     margin: 0 0 0 0;
     text-align: center;
@@ -31,6 +35,9 @@
   .table tr td:last-child {
     border-right: 0;
   }
+  .sub-block {
+    margin: 15px 5px;
+  }
   td span {
     display: inline-flex;
     justify-content: center;
@@ -40,14 +47,10 @@
   th p {
     margin: 5px -10px;
   }
-  .mat-card-header {
-    font-size: large;
-    margin-bottom: 15px;
-  }
 </style>
 
 <div style="text-align: center; font-size: large">
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Summary</mat-card-header>
     <mat-card-content>
       <ul>
@@ -55,7 +58,7 @@
       </ul>
     </mat-card-content>
   </div>
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Skillsets</mat-card-header>
     <mat-card-content>
       <div class="table">
@@ -76,7 +79,7 @@
       </div>
     </mat-card-content>
   </div>
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Education</mat-card-header>
     <mat-card-content>
       <div class="table">
@@ -109,7 +112,7 @@
       </div>
     </mat-card-content>
   </div>
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Current Employer</mat-card-header>
     <mat-card-content>
       <div class="table">
@@ -117,7 +120,7 @@
           <div>
             <tbody>
               <tr *ngFor="let x of employment_keys; let i = index">
-                <td style="width: 50%">
+                <td style="width: 5%">
                   {{ x }}:
                   <span>
                     <p>
@@ -136,7 +139,7 @@
       </div>
     </mat-card-content>
   </div>
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Projects</mat-card-header>
     <mat-card-content>
       <div *ngFor="let x of projects; let i = index">
@@ -159,7 +162,36 @@
       </div>
     </mat-card-content>
   </div>
-  <div style="margin: 15px 5px">
+  <div class="sub-block">
     <mat-card-header>Certifications</mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let x of certifications; let i = index">
+        <div class="table">
+          <table>
+            <tbody>
+              <tr *ngFor="let key of certification_keys; let _i = index">
+                <td style="width: 10%">
+                  <span>
+                    <p *ngIf="_i > 0">{{ key }}:</p>
+                    <p *ngIf="_i == 0">
+                      <a
+                        href="{{ x[_i + 2] }}"
+                        target="_blank"
+                        style="text-decoration: none; cursor: pointer"
+                      >
+                        {{ x[_i] }}
+                      </a>
+                    </p>
+                    <p *ngIf="_i > 0">
+                      {{ x[_i] }}
+                    </p>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </mat-card-content>
   </div>
 </div>
