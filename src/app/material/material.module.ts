@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -23,6 +25,8 @@ let MATERIAL_MODULES = [
   MatInputModule,
   MatProgressSpinnerModule,
   MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({
