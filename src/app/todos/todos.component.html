@@ -9,28 +9,25 @@
   }
   ul {
     padding: 0;
-  }
-  ul li {
-    justify-content: center;
-    display: flex;
-    align-items: baseline;
+    margin-left: 38%;
+    list-style: none;
   }
 </style>
-<app-menu></app-menu>
+<app-header></app-header>
 <div *ngFor="let task of todoList; let i = index">
   <div *ngIf="i == 0">
     <mat-card-header class="sub-block">TODO</mat-card-header>
     <ul>
       <li *ngFor="let todo of task[i + 1].Value">
-        <input type="checkbox" [checked]="false" />
-        <span [ngClass]="{ done: todo.done }">{{ todo }}</span>
+        <input type="checkbox" (click)="initSnackBar($event)" />
+        <span>{{ todo }}</span>
       </li>
     </ul>
     <mat-card-header class="sub-block">DONE</mat-card-header>
     <ul>
       <li *ngFor="let todo of task[i + 2].Value">
-        <input type="checkbox" [checked]="true" />
-        <span [ngClass]="{ done: todo.done }">{{ todo }}</span>
+        <input type="checkbox" checked (click)="initSnackBar($event)" />
+        <span>{{ todo }}</span>
       </li>
     </ul>
   </div>

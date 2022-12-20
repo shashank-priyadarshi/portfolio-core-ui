@@ -7,7 +7,6 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
-  opened!: boolean;
   headerDetails!: string;
   startTime!: string;
   name!: string;
@@ -15,10 +14,6 @@ export class HeaderComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    this.sharedService.opened.subscribe((data) => {
-      this.opened = data;
-    });
-
     this.sharedService.fetchData('biodata').subscribe(async (data) => {
       await data;
       this.calculateExperience(data[0]);
@@ -33,10 +28,6 @@ export class HeaderComponent implements OnInit {
     // }
     this.startTime = dojdata[3].Value[4].Value[0].Value[2];
     return new Date().getTime() - new Date(this.startTime).getTime();
-  }
-
-  menuOpened(value: boolean) {
-    this.sharedService.menu(!value);
   }
 
   fetchDetails(biodata: any) {

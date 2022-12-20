@@ -17,19 +17,10 @@
     height: 100%;
   }
 
-  .progress-wrapper {
-    width: 100%;
-    background: #2f2b2bc7;
-    display: flex;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
-
   .top {
     display: flex;
     align-items: center;
     font-weight: 900;
-    margin: 10px;
     margin-top: 20%;
   }
   .top p {
@@ -39,7 +30,7 @@
   }
 
   hr {
-    width: 100px;
+    width: 125px;
     color: white;
     border-radius: 5px;
     margin: 0 15px;
@@ -62,13 +53,14 @@
   <div class="top">
     <hr />
     <p>
-      This part of the website is still under construction. Please bear with us(me)!
+      This part of the website is still under construction. Please bear with
+      us(me)!
     </p>
     <hr />
   </div>
-  <div style="align-items: center; width: 100%">
+  <div style="align-items: center; width: 70%; margin: 5% 0 20% 0">
     <span>
-      <svg viewBox="0, 0, 100, 3">
+      <svg viewBox="0, 0, 65, 5">
         <g>
           <rect [attr.width]="progressValue" height="5" fill="#fbc02d"></rect>
           <text
@@ -76,7 +68,7 @@
             y="1"
             fill="blue"
             font-size="2.5"
-            transform="rotate(0.1 -850,40)"
+            transform="rotate(0.1 -1250,40)"
           >
             {{ progressValue }}%
           </text>

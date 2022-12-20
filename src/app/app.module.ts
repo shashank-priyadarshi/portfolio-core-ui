@@ -19,6 +19,8 @@ import { TodosComponent } from './todos/todos.component';
 import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 import { HomeComponent } from './home/home.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UnderConstructionComponent } from './under-construction/under-construct
     PageNotExistComponent,
     HomeComponent,
     UnderConstructionComponent,
+    ProgressSpinnerComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,

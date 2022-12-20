@@ -21,6 +21,7 @@ export class SkeletonComponent implements OnInit {
   secondary_keys: any;
   certifications: any;
   certification_keys: any;
+  dataLoaded = false;
 
   constructor(private sharedService: SharedService) {}
 
@@ -28,6 +29,7 @@ export class SkeletonComponent implements OnInit {
     this.sharedService.fetchData('biodata').subscribe(async (data) => {
       await data;
       this.fetchBody(data);
+      this.dataLoaded = true;
     });
   }
 

@@ -12,46 +12,56 @@
   ul {
     list-style-type: none;
     padding-inline-start: 0px;
-    font-size: medium;
-    padding-bottom: 10px;
+    /* font-size: medium; */
+    /* padding-bottom: 10px; */
+  }
+  li {
+    height: 30px;
+    line-height: 30px;
   }
 </style>
 
-<mat-sidenav-container>
-  <mat-sidenav mode="push" [(opened)]="opened">
-    <ul>
-      <li>
-        <a
-          routerLink="/home"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Home</a
-        >
-      </li>
-      <br />
-
-      <li>
-        <a
-          routerLink="/todos"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Todos</a
-        >
-      </li>
-      <br />
-
-      <li>
-        <a
-          routerLink="/techblog"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Articles</a
-        >
-      </li>
-      <br />
-    </ul>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-header> </app-header>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-menu #menu="matMenu" xPosition="after">
+  <ul style="padding: 0">
+    <li mat-menu-item>
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Home</a
+      >
+    </li>
+    <li mat-menu-item>
+      <a
+        routerLink="/todos"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Todos</a
+      >
+    </li>
+    <li mat-menu-item>
+      <a
+        routerLink="/techblog"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Articles</a
+      >
+    </li>
+  </ul>
+</mat-menu>
+<button
+  style="
+    width: 4%;
+    margin: 5px 0 0 10px !important;
+    position: relative;
+    z-index: 0;
+    padding: 0.2em;
+    margin: -0.05em;
+    margin-left: 6px;
+  "
+  color="primary"
+  mat-icon-button
+  [mat-menu-trigger-for]="menu"
+>
+  <mat-icon>menu</mat-icon>
+</button>

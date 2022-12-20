@@ -7,12 +7,7 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./menu.component.sass'],
 })
 export class MenuComponent implements OnInit {
-  opened!: boolean;
   constructor(private sharedService: SharedService) {}
 
-  ngOnInit(): void {
-    this.sharedService.opened.subscribe((data) => {
-      this.opened = data;
-    });
-  }
+  ngOnInit(): void {}
 }
