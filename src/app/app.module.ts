@@ -6,8 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
@@ -22,6 +24,8 @@ import { UnderConstructionComponent } from './under-construction/under-construct
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ChartsComponent } from './charts/charts.component';
+import { IframeComponent } from './iframe/iframe.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     ProgressSpinnerComponent,
     SnackBarComponent,
     CalendarComponent,
+    ChartsComponent,
+    IframeComponent,
 
     // DpDatePickerModule
   ],
@@ -51,6 +57,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    // NgxChartsModule,
     MaterialModule,
     FormsModule,
   ],

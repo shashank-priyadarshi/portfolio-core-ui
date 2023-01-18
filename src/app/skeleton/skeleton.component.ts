@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CalendarComponent } from '../calendar/calendar.component';
+import { IframeComponent } from '../iframe/iframe.component';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -23,7 +26,10 @@ export class SkeletonComponent implements OnInit {
   certification_keys: any;
   dataLoaded = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private matDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.sharedService.fetchData('biodata').subscribe(async (data) => {
@@ -31,6 +37,17 @@ export class SkeletonComponent implements OnInit {
       this.fetchBody(data);
       this.dataLoaded = true;
     });
+  }
+
+  loadIFrame() {
+    this.matDialog.open(IframeComponent, {
+      height: '600px',
+      width: '1200px',
+    });
+  }
+
+  loadCallSchedule() {
+    this.matDialog.open(CalendarComponent);
   }
 
   fetchBody(biodata: any) {

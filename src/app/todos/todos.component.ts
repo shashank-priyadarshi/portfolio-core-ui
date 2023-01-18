@@ -12,14 +12,16 @@ export class TodosComponent implements OnInit {
   action: string = 'Dismiss';
   todoList!: Array<any>;
   snackBar!: boolean;
+  dataLoaded: boolean = false;
   constructor(
     private sharedSvc: SharedService,
     public matSnackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.sharedSvc.fetchData('todos').subscribe((data) => {
       this.todoList = data;
+      this.dataLoaded = true;
     });
   }
   initSnackBar(event: any) {

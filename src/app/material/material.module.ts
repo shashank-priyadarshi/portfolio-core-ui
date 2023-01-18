@@ -12,6 +12,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -27,6 +29,8 @@ let MATERIAL_MODULES = [
   MatSnackBarModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatTooltipModule,
+  MatDialogModule,
 ];
 
 @NgModule({

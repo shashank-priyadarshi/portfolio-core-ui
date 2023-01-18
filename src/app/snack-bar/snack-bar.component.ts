@@ -16,7 +16,7 @@ export class SnackBarComponent implements OnInit {
 
   openSnackBar() {
     this.snackBar.open(this.snack, this.action, {
-      duration: 2000,
+      duration: 3000,
     });
   }
 }

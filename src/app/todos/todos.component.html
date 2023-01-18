@@ -2,8 +2,14 @@
   .sub-block {
     margin: 15px 5px;
   }
-  mat-card-header {
-    font-size: large;
+  .mat-card {
+    margin-top: 5%;
+    min-height: 350px;
+    width: 0 auto;
+  }
+  .mat-card-header {
+    font-size: 25px;
+    font-weight: 410;
     display: flex;
     justify-content: center;
   }
@@ -14,22 +20,41 @@
   }
 </style>
 <app-header></app-header>
-<div *ngFor="let task of todoList; let i = index">
-  <div *ngIf="i == 0">
-    <mat-card-header class="sub-block">TODO</mat-card-header>
-    <ul>
-      <li *ngFor="let todo of task[i + 1].Value">
-        <input type="checkbox" (click)="initSnackBar($event)" />
-        <span>{{ todo }}</span>
-      </li>
-    </ul>
-    <mat-card-header class="sub-block">DONE</mat-card-header>
-    <ul>
-      <li *ngFor="let todo of task[i + 2].Value">
-        <input type="checkbox" checked (click)="initSnackBar($event)" />
-        <span>{{ todo }}</span>
-      </li>
-    </ul>
-  </div>
+
+<div>
+  <mat-card
+    ><mat-card-header class="sub-block">TODO</mat-card-header>
+    <mat-card-content>
+      <div
+        style="justify-content: center; display: flex; margin-top: 6%"
+        *ngIf="!dataLoaded"
+      >
+        <mat-spinner diameter="60"></mat-spinner>
+      </div>
+      <ul *ngFor="let task of todoList; let i = index">
+        <li *ngFor="let todo of task[i + 1].Value">
+          <input type="checkbox" (click)="initSnackBar($event)" />
+          <span>{{ todo }}</span>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <mat-card
+    ><mat-card-header class="sub-block">DONE</mat-card-header>
+    <mat-card-content>
+      <div
+        style="justify-content: center; display: flex; margin-top: 6%"
+        *ngIf="!dataLoaded"
+      >
+        <mat-spinner diameter="60"></mat-spinner>
+      </div>
+      <ul *ngFor="let task of todoList; let i = index">
+        <li *ngFor="let todo of task[i + 2].Value">
+          <input type="checkbox" checked (click)="initSnackBar($event)" />
+          <span>{{ todo }}</span>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
 </div>
 <app-footer></app-footer>
