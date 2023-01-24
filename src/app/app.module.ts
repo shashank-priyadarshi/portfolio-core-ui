@@ -12,38 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
-import { SkeletonComponent } from './skeleton/skeleton.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from './menu/menu.component';
-import { TechBlogComponent } from './tech-blog/tech-blog.component';
-import { TodosComponent } from './todos/todos.component';
-import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 import { HomeComponent } from './home/home.component';
-import { UnderConstructionComponent } from './under-construction/under-construction.component';
-import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { ChartsComponent } from './charts/charts.component';
-import { IframeComponent } from './iframe/iframe.component';
+import { SkeletonModule } from './skeleton/skeleton.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SkeletonComponent,
-    HeaderComponent,
-    FooterComponent,
-    MenuComponent,
-    TechBlogComponent,
-    TodosComponent,
-    PageNotExistComponent,
     HomeComponent,
-    UnderConstructionComponent,
-    ProgressSpinnerComponent,
-    SnackBarComponent,
-    CalendarComponent,
-    ChartsComponent,
-    IframeComponent,
 
     // DpDatePickerModule
   ],
@@ -60,6 +35,7 @@ import { IframeComponent } from './iframe/iframe.component';
     // NgxChartsModule,
     MaterialModule,
     FormsModule,
+    SkeletonModule,
   ],
   // exports: [AuthModule, FormModule],
   // providers: [],

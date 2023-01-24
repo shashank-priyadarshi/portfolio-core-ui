@@ -1,0 +1,47 @@
+<style>
+  .container {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70%;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    margin: 10px;
+    margin-top: 20%;
+  }
+  .top p {
+    font-size: 16px;
+    width: 160px;
+    text-align: center;
+  }
+  hr {
+    width: 100px;
+    color: white;
+    border-radius: 5px;
+    margin: 0 15px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .container {
+      width: 90%;
+    }
+  }
+  @media screen and (max-width: 400px) {
+  }
+</style>
+
+<div class="container">
+  <div class="top">
+    <hr />
+    <p>
+      You have navigated to a page that does not exist. Please use the menu to
+      navigate to a valid page!
+    </p>
+    <hr />
+  </div>
+</div>
