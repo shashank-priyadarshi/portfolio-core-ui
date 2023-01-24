@@ -12,13 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { SkeletonModule } from './skeleton/skeleton.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
 
     // DpDatePickerModule
   ],
