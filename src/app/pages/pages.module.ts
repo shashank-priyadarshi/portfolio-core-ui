@@ -6,9 +6,16 @@ import { ArticlesComponent } from './articles/articles.component';
 import { MaterialModule } from '../material/material.module';
 import { ModalModule } from '../modal/modal.module';
 import { SharedModule } from '../shared/shared.module';
+import { PagesRoutingModule } from './pages-routing.module';
 
 @NgModule({
   declarations: [HomeComponent, TodosComponent, ArticlesComponent],
-  imports: [CommonModule, MaterialModule, ModalModule, SharedModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ModalModule,
+    SharedModule,
+    PagesRoutingModule,
+  ],
 })
 export class PagesModule {}

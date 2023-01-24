@@ -8,5 +8,6 @@ import { MaterialModule } from '../material/material.module';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, MenuComponent],
   imports: [CommonModule, MaterialModule],
+  exports: [HeaderComponent, FooterComponent, MenuComponent],
 })
 export class SkeletonModule {}

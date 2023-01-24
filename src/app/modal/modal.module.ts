@@ -15,5 +15,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReposComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
+  exports: [
+    CalendarComponent,
+    ResumeComponent,
+    IssuesComponent,
+    ReposComponent,
+  ],
 })
 export class ModalModule {}
