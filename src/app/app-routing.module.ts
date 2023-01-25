@@ -8,9 +8,16 @@ const routes: Routes = [
       import('./pages/pages.module').then((m) => m.PagesModule),
   },
   {
-    path: '**',
+    path: 'page',
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./shared/shared-routing.module').then(
+        (m) => m.SharedRoutingModule
+      ),
   },
 ];
 

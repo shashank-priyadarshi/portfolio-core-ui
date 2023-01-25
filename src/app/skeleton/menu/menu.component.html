@@ -1,21 +1,20 @@
 <mat-toolbar class="container" color="accent">
-  <a
-    routerLink="/techblog"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    class="container__button"
+  <!-- [routerLink]="['/page', 'articles']"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page" -->
+  <a href="https://blog.ssnk.in" target="_blank" class="container__button"
     >Articles</a
   >
   <button
     class="container__button"
     mat-icon-button
-    routerLink="/home"
+    [routerLink]="['/page', 'home']"
     routerLinkActive="active"
   >
     <mat-icon>home</mat-icon>
   </button>
   <a
-    routerLink="/todos"
+    [routerLink]="['/page', 'todos']"
     routerLinkActive="active"
     ariaCurrentWhenActive="page"
     class="container__button"

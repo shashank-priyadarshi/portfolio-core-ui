@@ -10,13 +10,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'todos', component: TodosComponent },
   { path: 'articles', component: ArticlesComponent },
-  {
-    path: '**',
-    loadChildren: () =>
-      import('../shared/shared-routing.module').then(
-        (m) => m.SharedRoutingModule
-      ),
-  },
 ];
 
 @NgModule({
