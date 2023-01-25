@@ -1,19 +1,24 @@
-<mat-toolbar style="height: 20px; justify-content: space-around; font: black">
+<mat-toolbar class="container" color="accent">
   <a
     routerLink="/techblog"
     routerLinkActive="active"
     ariaCurrentWhenActive="page"
-    style="text-decoration: none"
+    class="container__button"
     >Articles</a
   >
-  <button mat-icon-button routerLink="/home" routerLinkActive="active">
+  <button
+    class="container__button"
+    mat-icon-button
+    routerLink="/home"
+    routerLinkActive="active"
+  >
     <mat-icon>home</mat-icon>
   </button>
   <a
     routerLink="/todos"
     routerLinkActive="active"
     ariaCurrentWhenActive="page"
-    style="text-decoration: none"
+    class="container__button"
     >Todos</a
   >
 </mat-toolbar>
