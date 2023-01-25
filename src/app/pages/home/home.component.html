@@ -97,11 +97,11 @@
         <mat-card
           class="container__bottom-card__content__button__card"
           (click)="loadIFrame()"
+          matTooltip="View Resume"
+          [matTooltipPosition]="'left'"
         >
           <div class="container__bottom-card__content__button__card__info-icon">
-            <mat-icon matTooltip="View Resume" [matTooltipPosition]="'left'"
-              >view_carousel</mat-icon
-            >
+            <mat-icon>view_carousel</mat-icon>
           </div>
         </mat-card>
       </mat-card-content>
@@ -110,11 +110,11 @@
           class="container__bottom-card__content__button__card"
           color="primary"
           (click)="loadCallSchedule()"
+          matTooltip="Schedule a call"
+          [matTooltipPosition]="'left'"
         >
           <div class="container__bottom-card__content__button__card__info-icon">
-            <mat-icon matTooltip="Schedule a call" [matTooltipPosition]="'left'"
-              >calendar_today</mat-icon
-            >
+            <mat-icon>calendar_today</mat-icon>
           </div></mat-card
         >
       </mat-card-content>
