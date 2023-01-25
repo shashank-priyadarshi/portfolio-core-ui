@@ -34,21 +34,4 @@
       </ul>
     </mat-card-content>
   </mat-card>
-  <mat-card class="container"
-    ><mat-card-header class="sub-block">DONE</mat-card-header>
-    <mat-card-content>
-      <div
-        style="justify-content: center; display: flex; margin-top: 6%"
-        *ngIf="!dataLoaded"
-      >
-        <mat-spinner diameter="60"></mat-spinner>
-      </div>
-      <ul *ngFor="let task of todoList; let i = index">
-        <li *ngFor="let todo of task[i + 2].Value">
-          <input type="checkbox" checked (click)="initSnackBar($event)" />
-          <span>{{ todo }}</span>
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
 </div>
