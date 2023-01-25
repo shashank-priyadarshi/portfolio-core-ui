@@ -1,14 +1,12 @@
-<div>
-  <div>
-    <mat-card class="top-card">
-      <mat-card-header>GitHub Activity</mat-card-header>
-    </mat-card>
-  </div>
-  <div class="container">
-    <mat-card class="container__bottom-card">
+<div class="container">
+  <mat-card class="container__card container__github-card">
+    <mat-card-header>GitHub Activity</mat-card-header>
+  </mat-card>
+  <div style="width: 30%">
+    <mat-card class="container__card container__other-cards">
       <mat-card-header>Projects</mat-card-header>
       <mat-card-content style="margin: 5px 0 0 0">
-        <table *ngIf="dataLoaded">
+        <table>
           <tr>
             <td>Infosys-Quality Automation</td>
             <button
@@ -40,84 +38,71 @@
             </button>
           </tr>
         </table>
-        <mat-spinner
-          class="container__bottom-card__content__spinner"
-          *ngIf="!dataLoaded"
-          diameter="60"
-        ></mat-spinner>
       </mat-card-content>
     </mat-card>
-    <mat-card class="container__bottom-card">
+    <mat-card class="container__card container__other-cards">
       <mat-card-header>Hobbies</mat-card-header>
-      <mat-card-content
-        *ngIf="!dataLoaded"
-        class="container__bottom-card__content__spinner"
-      >
-        <mat-spinner diameter="60"></mat-spinner>
-      </mat-card-content>
-      <mat-card-content *ngIf="dataLoaded" style="margin: 5px 0 0 0">
-        <ul class="container__bottom-card__content__list">
-          <table>
-            <tr>
-              <td>Reading</td>
-              <button
-                mat-icon-button
-                matTooltip="Info about the action"
-                [matTooltipPosition]="'right'"
-              >
-                <mat-icon>info</mat-icon>
-              </button>
-            </tr>
-            <tr>
-              <td>Writing</td>
-              <button
-                mat-icon-button
-                matTooltip="Info about the action"
-                [matTooltipPosition]="'right'"
-              >
-                <mat-icon>info</mat-icon>
-              </button>
-            </tr>
-            <tr>
-              <td>Horticulture</td>
-              <button
-                mat-icon-button
-                matTooltip="Info about the action"
-                [matTooltipPosition]="'right'"
-              >
-                <mat-icon>info</mat-icon>
-              </button>
-            </tr>
-          </table>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="container__bottom-card__button-container">
-      <mat-card-content>
-        <mat-card
-          class="container__bottom-card__content__button__card"
-          (click)="loadIFrame()"
-          matTooltip="View Resume"
-          [matTooltipPosition]="'left'"
-        >
-          <div class="container__bottom-card__content__button__card__info-icon">
-            <mat-icon>view_carousel</mat-icon>
-          </div>
-        </mat-card>
-      </mat-card-content>
-      <mat-card-content>
-        <mat-card
-          class="container__bottom-card__content__button__card"
-          color="primary"
-          (click)="loadCallSchedule()"
-          matTooltip="Schedule a call"
-          [matTooltipPosition]="'left'"
-        >
-          <div class="container__bottom-card__content__button__card__info-icon">
-            <mat-icon>calendar_today</mat-icon>
-          </div></mat-card
-        >
+      <mat-card-content style="margin: 5px 0 0 0">
+        <table>
+          <tr>
+            <td>Reading</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Writing</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Horticulture</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+        </table>
       </mat-card-content>
     </mat-card>
   </div>
+  <mat-card class="container__card container__button-card">
+    <mat-card-content>
+      <mat-card
+        class="container__button-card__buttons__card"
+        (click)="loadIFrame()"
+        matTooltip="View Resume"
+        [matTooltipPosition]="'left'"
+      >
+        <div class="container__button-card__buttons__card__info-icon">
+          <mat-icon>view_carousel</mat-icon>
+        </div>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-card
+        class="container__button-card__buttons__card"
+        color="primary"
+        (click)="loadCallSchedule()"
+        matTooltip="Schedule a call"
+        [matTooltipPosition]="'left'"
+      >
+        <div class="container__button-card__buttons__card__info-icon">
+          <mat-icon>calendar_today</mat-icon>
+        </div></mat-card
+      >
+    </mat-card-content>
+  </mat-card>
 </div>

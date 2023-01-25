@@ -9,68 +9,50 @@
     justify-content: center
     margin-top: 5%
 
-.mat-card
-    height: 350px
-    width: 0 auto
-
-.top-card
-    width: 95%
-    margin: 15px
-    border-radius: 15px
-
-    &:hover
-        box-shadow: 2px 15px 30px 3px #ffd740
-
 .container
     display: flex
     flex-direction: row
 
-    &__bottom-card
+    &__card
         margin: 15px 5px 0 15px
-        width: 50%
-        height: 250px
         border-radius: 15px
 
         &:hover
             box-shadow: 2px 15px 30px 3px #ffd740
 
-        &__button-container
-            width: 5px
-            margin: 15px 15px 0 3px
-            height: 250px
-            border-radius: 15px
+    &__github-card
+        width: 70%
+        height: 450px
 
-            &:hover
-                background-color: #ffd740
-                box-shadow: 2px 15px 30px 3px #ffd740
+    &__other-cards
+        width: 85%
+        height: 200px
 
-        &__content
-            display: flex
-            justify-content: center
+    &__button-card
+        width: 5px
+        margin: 210px 15px 0 3px
+        height: 250px
 
-            &__list
-                margin-top: 15px
-                list-style: none
+        &:hover
+            background-color: #ffd740
+            box-shadow: 2px 15px 30px 3px #ffd740
 
-            &__spinner
-                margin-top: 5% !important
+        &__buttons
+            position: absolute
+            justify-content: left
 
-            &__button
-                position: absolute
-                justify-content: left
+            &__card
+                background: #ffd740
+                height: 85px
+                width: -webkit-fill-available
+                cursor: pointer
+                border-radius: 15px
 
-                &__card
-                    background: #ffd740
-                    height: 85px
-                    width: -webkit-fill-available
-                    cursor: pointer
-                    border-radius: 15px
+                &:hover
+                    background: #f5f5f5
+                    color: #e65c11
+                    box-shadow: 2px 15px 30px 3px #ffd740
 
-                    &:hover
-                        background: #f5f5f5
-                        color: #e65c11
-                        box-shadow: 2px 15px 30px 3px #ffd740
-
-                    ::ng-deep
-                        .container__bottom-card__content__button__card__info-icon mat-icon
-                            margin: 30px 0 0 -11px
+                ::ng-deep
+                    .container__button-card__buttons__card__info-icon mat-icon
+                        margin: 30px 0 0 -11px
