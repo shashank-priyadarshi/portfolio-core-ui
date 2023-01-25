@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 import { ApiNotWorkingComponent } from './api-not-working/api-not-working.component';
+import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { ApiNotWorkingComponent } from './api-not-working/api-not-working.compon
     PageNotExistComponent,
     ApiNotWorkingComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedRoutingModule],
   exports: [UnderConstructionComponent, PageNotExistComponent],
 })
 export class SharedModule {}
