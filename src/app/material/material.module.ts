@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -31,6 +32,7 @@ let MATERIAL_MODULES = [
   MatNativeDateModule,
   MatTooltipModule,
   MatDialogModule,
+  MatChipsModule,
 ];
 
 @NgModule({

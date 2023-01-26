@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkresume=self.webpackChunkresume||[]).push([[592],{6488:(M,n,o)=>{o.r(n),o.d(n,{SharedRoutingModule:()=>d});var t=o(9808),r=o(8330),e=o(5e3);const a=[];let d=(()=>{class u{}return u.\u0275fac=function(s){return new(s||u)},u.\u0275mod=e.oAB({type:u}),u.\u0275inj=e.cJS({imports:[[t.ez,r.Bz.forChild(a)],r.Bz]}),u})()}}]);
