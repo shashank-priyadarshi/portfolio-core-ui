@@ -18,7 +18,9 @@
         <ng-template matTooltipContent>
           <ul>
             <li *ngFor="let repo of starredRepos">
-              <a href="{{ repo.link }}" target="_blank">{{ repo.name }}</a>
+              <a href="{{ repo[0].Value }}" target="_blank">{{
+                repo[1].Value
+              }}</a>
             </li>
           </ul>
         </ng-template>

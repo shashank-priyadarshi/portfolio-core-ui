@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -38,7 +39,7 @@ let MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  imports: [MATERIAL_MODULES, NgxChartsModule],
-  exports: [MATERIAL_MODULES, NgxChartsModule],
+  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
+  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
 })
 export class MaterialModule {}

@@ -5,10 +5,6 @@ import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
 import { SharedService } from 'src/app/shared.service';
 
-interface Repo {
-  name: string;
-  link: string;
-}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,7 +12,7 @@ interface Repo {
 })
 export class HomeComponent implements OnInit {
   openIssues: string[] = [];
-  starredRepos: Repo[] = [];
+  starredRepos: any;
   repoData: any;
   repoDataPromise = false;
   constructor(
@@ -47,7 +43,11 @@ export class HomeComponent implements OnInit {
         resolve(data);
         this.repoDataPromise = true;
       });
-      console.log(data);
+      let rawDataObj = data[0];
+      this.starredRepos = rawDataObj[3].Value[1].Value;
+      this.openIssues = rawDataObj[4].Value;
+      console.log(data[0]);
+      console.log(this.starredRepos);
     });
   }
 }
