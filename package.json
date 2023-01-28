@@ -25,7 +25,6 @@
     "@swimlane/ngx-charts": "^20.1.2",
     "rxjs": "~7.5.0",
     "source-map-explorer": "^2.5.3",
-    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "tslib": "^2.5.0",
     "typescript": "~4.9.4"
   }
 }

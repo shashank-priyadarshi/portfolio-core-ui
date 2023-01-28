@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { Title } from '@angular/platform-browser';
 import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
 import { SharedService } from 'src/app/shared.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
