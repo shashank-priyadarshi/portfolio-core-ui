@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Title } from '@angular/platform-browser';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -15,10 +16,12 @@ export class TodosComponent implements OnInit {
   dataLoaded: boolean = false;
   constructor(
     private sharedSvc: SharedService,
-    public matSnackBar: MatSnackBar
+    public matSnackBar: MatSnackBar,
+    private title: Title
   ) {}
 
   ngOnInit() {
+    this.title.setTitle('Todos');
     this.sharedSvc.fetchData('todos').subscribe((data) => {
       this.todoList = data;
       this.dataLoaded = true;

@@ -7,9 +7,10 @@ import { MaterialModule } from '../material/material.module';
 import { ModalModule } from '../modal/modal.module';
 import { SharedModule } from '../shared/shared.module';
 import { PagesRoutingModule } from './pages-routing.module';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
-  declarations: [HomeComponent, TodosComponent, ArticlesComponent],
+  declarations: [HomeComponent, TodosComponent, ArticlesComponent, ChartComponent],
   imports: [
     CommonModule,
     MaterialModule,

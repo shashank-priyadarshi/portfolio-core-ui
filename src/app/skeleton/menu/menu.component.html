@@ -1,27 +1,7 @@
 <mat-toolbar class="container" color="accent">
-  <div class="container__button" style="width: 50px">
-    <!-- (mouseleave)="showChips = !showChips" -->
-    <div class="container__chips__container" href="https://blog.ssnk.in">
-      <!-- (mouseover)="showChips = !showChips"
-      [hidden]="!showChips" -->
-      blog
-    </div>
-    <!-- <div class="container__chips">
-      <mat-chip
-        [hidden]="showChips"
-        (click)="showChips = !showChips"
-        href="https://blog.ssnk.in"
-        target="_blank"
-        >hashnode</mat-chip
-      >
-      <mat-chip
-        [hidden]="showChips"
-        (click)="showChips = !showChips"
-        [routerLink]="['/page', 'articles']"
-        >#</mat-chip
-      >
-    </div> -->
-  </div>
+  <a href="https://blog.ssnk.in" target="_blank" class="container__button"
+    >articles</a
+  >
   <button
     class="container__button"
     mat-icon-button

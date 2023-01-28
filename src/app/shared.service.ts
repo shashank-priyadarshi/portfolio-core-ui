@@ -11,7 +11,7 @@ export class SharedService {
   public fetchData(endpoint: string): Observable<any> {
     let headers = new HttpHeaders({ 'Referrer-Policy': 'no-referrer' });
 
-    return this.http.get('https://api.ssnk.in/' + endpoint, {
+    return this.http.get('http://localhost:10000/' + endpoint, {
       headers: headers,
     });
   }
@@ -23,7 +23,7 @@ export class SharedService {
       'Content-Length': '3',
     });
 
-    return this.http.post('http://localhost/' + endpoint, formData, {
+    return this.http.post('http://api2.ssnk.in/' + endpoint, formData, {
       headers: headers,
     });
   }

@@ -1,6 +1,43 @@
 <div class="container">
   <mat-card class="container__card container__github-card">
     <mat-card-header>GitHub Activity</mat-card-header>
+    <mat-card-content>
+      <div style="height: 350; width: 600">
+        <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
+      </div>
+    </mat-card-content>
+    <mat-card-content style="margin: 0">
+      <ul style="display: flex">
+        <li
+          style="width: 110px; cursor: pointer"
+          matTooltip="Starred Repos"
+          [matTooltipPosition]="'above'"
+        >
+          Starred Repos
+        </li>
+        <ng-template matTooltipContent>
+          <ul>
+            <li *ngFor="let repo of starredRepos">
+              <a href="{{ repo.link }}" target="_blank">{{ repo.name }}</a>
+            </li>
+          </ul>
+        </ng-template>
+        <li
+          style="cursor: pointer"
+          matTooltip="Open Issues"
+          [matTooltipPosition]="'above'"
+        >
+          Open Issues
+        </li>
+        <ng-template matTooltipContent>
+          <ul>
+            <li *ngFor="let issue of openIssues">
+              {{ issue }}
+            </li>
+          </ul>
+        </ng-template>
+      </ul>
+    </mat-card-content>
   </mat-card>
   <div style="width: 30%">
     <mat-card class="container__card container__other-cards">
