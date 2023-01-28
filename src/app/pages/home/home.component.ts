@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Title } from '@angular/platform-browser';
 import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
