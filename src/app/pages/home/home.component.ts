@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
 import { SharedService } from 'src/app/shared.service';
