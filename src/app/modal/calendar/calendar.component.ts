@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
@@ -17,7 +17,7 @@ interface ScheduleData {
   styleUrls: ['./calendar.component.sass'],
 })
 export class CalendarComponent implements OnInit {
-  public scheduleForm!: FormGroup;
+  public scheduleForm!: UntypedFormGroup;
   message: string = 'Request submitted successfully!';
   action: string = 'Dismiss';
   constructor(
@@ -27,21 +27,21 @@ export class CalendarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.scheduleForm = new FormGroup({
-      name: new FormControl('', [
+    this.scheduleForm = new UntypedFormGroup({
+      name: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(50),
       ]),
-      comment: new FormControl('', [
+      comment: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(150),
       ]),
-      email: new FormControl('', [
+      email: new UntypedFormControl('', [
         Validators.required,
         Validators.email,
         Validators.maxLength(60),
       ]),
-      date: new FormControl('', Validators.required),
+      date: new UntypedFormControl('', Validators.required),
     });
   }
 
