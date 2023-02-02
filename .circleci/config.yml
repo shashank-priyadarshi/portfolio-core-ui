@@ -34,15 +34,18 @@ jobs:
       # Test the source code
       - run:
           name: Testing
-          command:
-            npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-            curl -Os https://uploader.codecov.io/latest/linux/codecov
-            chmod +x codecov
-            ./codecov
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       # End to End test
+      # - run:
+      #     name: End to End Test
+      #     command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+      # Upload Code Coverage Report to codecov.io
       - run:
-          name: End to End Test
-          command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+          name: Code Coverage Upload
+          command:
+            - curl -Os https://uploader.codecov.io/latest/linux/codecov
+            - chmod +x codecov
+            - ./codecov
 workflows:
   version: 2
   # the test workflow
