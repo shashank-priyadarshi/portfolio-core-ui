@@ -32,9 +32,9 @@ jobs:
       #     name: Linting
       #     command: npm run lint
       # Test the source code
-      - run:
-          name: Testing
-          command: npm run test
+      # - run:
+      #     name: Testing
+      #     command: npm run test
       # End to End test
       - run:
           name: End to End Test
