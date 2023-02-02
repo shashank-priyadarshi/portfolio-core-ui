@@ -42,10 +42,8 @@ jobs:
       # Upload Code Coverage Report to codecov.io
       - run:
           name: Code Coverage Upload
-          command:
-            - curl -Os https://uploader.codecov.io/latest/linux/codecov
-            - chmod +x codecov
-            - ./codecov
+          command: sh -c 'curl -Os https://uploader.codecov.io/latest/linux/codecov && chmod +x codecov && ./codecov'
+
 workflows:
   version: 2
   # the test workflow
