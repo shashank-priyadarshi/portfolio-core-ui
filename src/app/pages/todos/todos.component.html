@@ -19,11 +19,8 @@
 <div>
   <mat-card class="container"
     ><mat-card-header class="sub-block">TODO</mat-card-header>
-    <mat-card-content>
-      <div
-        style="justify-content: center; display: flex; margin-top: 6%"
-        *ngIf="!dataLoaded"
-      >
+    <mat-card-content class="sub-block">
+      <div style="align-items: center; display: flex; margin-top: 150px">
         <mat-spinner diameter="60"></mat-spinner>
       </div>
       <ul *ngFor="let task of todoList; let i = index">

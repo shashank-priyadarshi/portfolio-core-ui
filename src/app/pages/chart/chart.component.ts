@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit {
 
   // Chart variables
   multi!: any[];
-  view = [600, 350] as [number, number];
+  view = [600, 300] as [number, number];
   // options
   showXAxis: boolean = true;
   gradient: boolean = true;

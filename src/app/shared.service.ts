@@ -23,7 +23,7 @@ export class SharedService {
       'Content-Length': '3',
     });
 
-    return this.http.post('http://api2.ssnk.in/' + endpoint, formData, {
+    return this.http.post('http://api.ssnk.in/' + endpoint, formData, {
       headers: headers,
     });
   }
