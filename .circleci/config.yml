@@ -54,7 +54,7 @@ workflows:
     jobs:
       - qlty:
           context: 
-            - portfolio-project
+            - portfolio-projects
           filters:
             branches:
               only:
