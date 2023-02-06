@@ -1,22 +1,13 @@
 <style>
-  .mat-card {
-    min-height: 90vw;
-    width: 0 auto;
-  }
-  .mat-card-header {
-    font-size: 25px;
-    font-weight: 410;
-    display: flex;
-    justify-content: center;
-  }
   ul {
     padding: 0;
+    margin: 0.3rem;
   }
 </style>
 
 <div style="display: flex; justify-content: center">
   <mat-card class="container"
-    ><mat-card-header style="justify-content: center">TODO</mat-card-header>
+    ><mat-card-header class="card-header">TODO</mat-card-header>
     <mat-card-content class="sub-block">
       <div style="align-items: center; display: flex" *ngIf="!dataLoaded">
         <mat-spinner diameter="60"></mat-spinner>

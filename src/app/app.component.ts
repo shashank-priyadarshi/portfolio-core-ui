@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   openIssueCount!: number;
   constructor(private sharedService: SharedService) {}
   ngOnInit() {
+    this.welcome();
     this.sharedService.fetchData('biodata').subscribe((data) => {
       let footer = data.footer[0].Value[0];
       let header = data.header;
@@ -73,5 +74,13 @@ export class AppComponent implements OnInit {
       localStorage.setItem('githubdata', JSON.stringify(githubdata));
       return data;
     });
+  }
+
+  welcome() {
+    console.log('Hi! Welcome to my portfolio:-)');
+    console.log(
+      'This webpage is under active development, so feel free to suggest improvements: linkedin.com/in/lalilalox2 & github.com/shashank-priyadarshi'
+    );
+    console.log('Thanks for visiting:-)');
   }
 }

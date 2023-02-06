@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
   }
 
   parseGitHubData(githubdata: SCMData) {
-    console.log(githubdata);
     let prDataList: series[] = [];
     let commitDataList: series[] = [];
     this.starredRepoTooltip = githubdata.starredRepoCount + ' Starred Repos';

@@ -1,6 +1,8 @@
 <div class="container">
   <mat-card class="container__card container__github-card">
-    <mat-card-header>GitHub Activity</mat-card-header>
+    <mat-card-header class="container__card-header"
+      >GitHub Activity</mat-card-header
+    >
     <mat-card-content style="justify-content: center; display: flex">
       <div
         style="
@@ -50,81 +52,84 @@
       </ul>
     </mat-card-content>
   </mat-card>
-  <div style="width: 25vw">
+  <div style="width: 40vw">
     <mat-card class="container__card container__other-cards">
-      <mat-card-header>Projects</mat-card-header>
+      <mat-card-header class="container__card-header">Projects</mat-card-header>
       <mat-card-content style="margin: 5px 0 0 0">
         <table>
           <tr>
-            <td>Infosys-Quality Automation</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
+            <td>Work related:</td>
+            <td>
+              <ul>
+                <li>
+                  Consuming REST APIs from SCM/ALM/Code Quality tools in Go
+                  plugins
+                </li>
+                <li>
+                  Parsing and pushing data to internal microservices, using
+                  GraphQL REST endpoints
+                </li>
+                <li>
+                  Using more GraphQL in Angular web application to fetch from
+                  internal microservices
+                </li>
+                <li>
+                  Using charting libraries, internal NPM packages and Angular
+                  Material to visualise data in Angular web application
+                </li>
+                <li>
+                  Offloading core web application features to Angular Micro
+                  Frontends
+                </li>
+                <li>
+                  Ensuring code quality with semantic analysis, security
+                  analysis, SAST & DAST, using tools like SonarQube, Fortify
+                  SAST, Synopsys BlackDuck, GHAS, CodeQL, etc.
+                </li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td>Portfolio</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
+            <td>
+              <ul>
+                <li>Using Go and MongoDB to implement server</li>
+                <li>
+                  Using Go and MongoDB to implement integrations from GitHub
+                </li>
+                <li>
+                  Using Angular, Angular Material and ngx-charts to develop UI
+                </li>
+                <li>
+                  Using Docker and Docker Compose, and DigitalOcean droplets to
+                  containerise MongoDB and backend services, and nginx to deploy
+                  UI
+                </li>
+                <li>
+                  Using CircleCI and GitHub Actions with tools like
+                  golangci-lint, Cypress, ESLint and SonarQube Cloud for code
+                  quality checks
+                </li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td>Ecommerce website clone</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
+            <td>
+              <ul>
+                <li>Using Angular to clone Amazon landing page</li>
+                <li>
+                  Developing backend services and microservices will involve
+                  NodeJS, Go and Java SpringBoot and Hibernate.
+                </li>
+                <li>Partner in crime: @Aman Verma</li>
+                <li>Stay tuned forupdates</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </mat-card-content>
     </mat-card>
-    <!-- <mat-card class="container__card container__other-cards">
-      <mat-card-header>Hobbies</mat-card-header>
-      <mat-card-content style="margin: 5px 0 0 0">
-        <table>
-          <tr>
-            <td>Reading</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Writing</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Horticulture</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-        </table>
-      </mat-card-content>
-    </mat-card> -->
   </div>
   <mat-card class="container__card container__button-card">
     <mat-card-content
