@@ -1,0 +1,104 @@
+<div class="container">
+  <form
+    [formGroup]="scheduleForm"
+    autocomplete="off"
+    novalidate
+    (ngSubmit)="createSchedule(scheduleForm.value)"
+  >
+    <mat-card-content>
+      <div class="container__form__card__content__div">
+        <mat-form-field
+          appearance="fill"
+          class="container__form__card__content__div__form-field"
+        >
+          <mat-label>Enter your name</mat-label>
+          <input
+            matInput
+            placeholder="Example Pat"
+            formControlName="name"
+            id="name"
+            required
+          />
+          <mat-error *ngIf="hasError('name', 'required')"
+            >Name is required</mat-error
+          >
+          <mat-error *ngIf="hasError('name', 'maxतength')"
+            >Name should not be greater than 50 characters</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="container__form__card__content__div">
+        <mat-form-field
+          appearance="fill"
+          class="container__form__card__content__div__form-field"
+        >
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            id="email"
+            required
+          />
+          <mat-error *ngIf="hasError('email', 'required')"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="hasError('email', 'maxतength')"
+            >Email should not be greater than 60 characters</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="container__form__card__content__div">
+        <mat-form-field
+          appearance="fill"
+          class="container__form__card__content__div__form-field"
+        >
+          <mat-label>Comments</mat-label>
+          <textarea matInput formControlName="comment" id="comment"></textarea>
+          <mat-error *ngIf="hasError('comment', 'maxतength')"
+            >Email should not be greater than 60 characters</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="container__form__card__content__div">
+        <mat-form-field
+          appearance="fill"
+          class="container__form__card__content__div__form-field"
+        >
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="schedule"
+            formControlName="date"
+            id="date"
+            placeholder="DD/MM/YYYY"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="schedule"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #schedule></mat-datepicker>
+          <mat-error *ngIf="hasError('date', 'required')"></mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="container__form__card__actions">
+      <button
+        class="container__form__card__actions__button"
+        [disabled]="!scheduleForm.valid"
+        color="primary"
+        mat-button
+      >
+        Submit
+      </button>
+      <button type="button" mat-button color="warn" (click)="onCancel()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</div>
