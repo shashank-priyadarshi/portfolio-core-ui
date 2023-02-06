@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
   repoData: any;
   repoDataPromise = false;
   showStarredRepos: boolean = false;
+  linkedIn: string = 'https://linkedin.com/in/aman-kumar-verma';
+  githubOrg: string = 'https://github.com/Ecommerce-Clone/Core-UI';
+  portfolioRepo: string =
+    'https://github.com/shashank-priyadarshi/portfolio-core-ui/';
   constructor(
     private matDialog: MatDialog,
     private title: Title,

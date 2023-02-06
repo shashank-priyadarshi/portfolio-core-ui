@@ -33,7 +33,6 @@
           <div>{{ starredRepoTooltip }}</div>
           <ul *ngFor="let todo of starredRepos; index as i">
             <a
-              style="text-decoration: none; color: inherit"
               [href]="todo.url"
               target="_blank"
               >{{ todo.title }}</a
@@ -70,15 +69,15 @@
                   GraphQL REST endpoints
                 </li>
                 <li>
-                  Using more GraphQL in Angular web application to fetch from
-                  internal microservices
+                  Using more GraphQL in Angular web application to fetch data
+                  from internal microservices
                 </li>
                 <li>
                   Using charting libraries, internal NPM packages and Angular
-                  Material to visualise data in Angular web application
+                  Material for data visualisation in Angular web application
                 </li>
                 <li>
-                  Offloading core web application features to Angular Micro
+                  Offloading core web application by creating Angular Micro
                   Frontends
                 </li>
                 <li>
@@ -90,7 +89,9 @@
             </td>
           </tr>
           <tr>
-            <td>Portfolio</td>
+            <td>
+              <a [href]="portfolioRepo">Portfolio</a>
+            </td>
             <td>
               <ul>
                 <li>Using Go and MongoDB to implement server</li>
@@ -102,8 +103,8 @@
                 </li>
                 <li>
                   Using Docker and Docker Compose, and DigitalOcean droplets to
-                  containerise MongoDB and backend services, and nginx to deploy
-                  UI
+                  containerise MongoDB and backend services, and nginx reverse
+                  proxy to deploy UI on Linux based container
                 </li>
                 <li>
                   Using CircleCI and GitHub Actions with tools like
@@ -114,7 +115,9 @@
             </td>
           </tr>
           <tr>
-            <td>Ecommerce website clone</td>
+            <td>
+              <a [href]="githubOrg"> Ecommerce website clone </a>
+            </td>
             <td>
               <ul>
                 <li>Using Angular to clone Amazon landing page</li>
@@ -122,8 +125,11 @@
                   Developing backend services and microservices will involve
                   NodeJS, Go and Java SpringBoot and Hibernate.
                 </li>
-                <li>Partner in crime: @Aman Verma</li>
-                <li>Stay tuned forupdates</li>
+                <li>
+                  Partner in crime:
+                  <a [href]="linkedIn" target="_blank">@Aman Verma</a>
+                </li>
+                <li>Stay tuned for updates</li>
               </ul>
             </td>
           </tr>
