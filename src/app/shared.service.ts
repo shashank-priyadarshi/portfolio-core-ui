@@ -13,7 +13,7 @@ export class SharedService {
       'Referrer-Policy': 'no-referrer',
     });
 
-    return this.http.get('http://localhost:10000/' + endpoint, {
+    return this.http.get('https://api2.ssnk.in/' + endpoint, {
       headers: headers,
     });
   }
@@ -25,7 +25,7 @@ export class SharedService {
       'Content-Length': '3',
     });
 
-    return this.http.post('http://localhost:10000/' + endpoint, formData, {
+    return this.http.post('https://api2.ssnk.in/' + endpoint, formData, {
       headers: headers,
     });
   }
