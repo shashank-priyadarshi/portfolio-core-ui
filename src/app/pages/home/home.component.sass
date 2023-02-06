@@ -1,0 +1,58 @@
+.mat-card-header
+    font-size: 25px
+    font-weight: 410
+    display: flex
+    justify-content: center
+
+.mat-card-content
+    display: flex
+    justify-content: center
+    margin-top: 5%
+
+.container
+    display: flex
+    flex-direction: row
+
+    &__card
+        margin: 15px 5px 0 15px
+        border-radius: 15px
+
+        &:hover
+            box-shadow: 2px 15px 30px 3px #ffd740
+
+    &__github-card
+        width: 70%
+        height: 450px
+
+    &__other-cards
+        width: 85%
+        height: 200px
+
+    &__button-card
+        width: 34px
+        margin: 210px 15px 0 3px
+        height: 250px
+
+        &:hover
+            background-color: #ffd740
+            box-shadow: 2px 15px 30px 3px #ffd740
+
+        &__buttons
+            position: absolute
+            justify-content: left
+
+            &__card
+                background: #ffd740
+                height: 85px
+                width: -webkit-fill-available
+                cursor: pointer
+                border-radius: 15px
+
+                &:hover
+                    background: #f5f5f5
+                    color: #e65c11
+                    box-shadow: 2px 15px 30px 3px #ffd740
+
+                ::ng-deep
+                    .container__button-card__buttons__card__info-icon mat-icon
+                        margin: 30px 0 0 -11px

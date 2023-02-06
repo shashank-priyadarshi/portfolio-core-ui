@@ -1,0 +1,157 @@
+<div class="container">
+  <mat-card class="container__card container__github-card">
+    <mat-card-header>GitHub Activity</mat-card-header>
+    <mat-card-content style="justify-content: center; display: flex">
+      <div
+        style="
+          height: 325px;
+          width: 600px;
+          justify-content: center;
+          display: flex;
+        "
+      >
+        <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
+        <div style="display: flex; align-items: center">
+          <mat-spinner diameter="60" [hidden]="repoDataPromise"></mat-spinner>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content style="margin: 0">
+      <ul style="display: flex; justify-content: center">
+        <li
+          style="width: 110px; cursor: pointer"
+          matTooltip="Starred Repos"
+          [matTooltipPosition]="'above'"
+        >
+          Starred Repos
+        </li>
+        <ng-template matTooltipContent>
+          <ul>
+            <li *ngFor="let repo of starredRepos">
+              <a href="{{ repo[0].Value }}" target="_blank">{{
+                repo[1].Value
+              }}</a>
+            </li>
+          </ul>
+        </ng-template>
+        <li
+          style="cursor: pointer"
+          matTooltip="Open Issues"
+          [matTooltipPosition]="'above'"
+        >
+          Open Issues
+        </li>
+        <ng-template matTooltipContent>
+          <ul>
+            <li *ngFor="let issue of openIssues">
+              {{ issue }}
+            </li>
+          </ul>
+        </ng-template>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <div style="width: 30%">
+    <mat-card class="container__card container__other-cards">
+      <mat-card-header>Projects</mat-card-header>
+      <mat-card-content style="margin: 5px 0 0 0">
+        <table>
+          <tr>
+            <td>Infosys-Quality Automation</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Portfolio</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Ecommerce website clone</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="container__card container__other-cards">
+      <mat-card-header>Hobbies</mat-card-header>
+      <mat-card-content style="margin: 5px 0 0 0">
+        <table>
+          <tr>
+            <td>Reading</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Writing</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+          <tr>
+            <td>Horticulture</td>
+            <button
+              mat-icon-button
+              matTooltip="Info about the action"
+              [matTooltipPosition]="'right'"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-card class="container__card container__button-card">
+    <mat-card-content>
+      <mat-card
+        class="container__button-card__buttons__card"
+        (click)="loadIFrame()"
+        matTooltip="View Resume"
+        [matTooltipPosition]="'left'"
+      >
+        <div class="container__button-card__buttons__card__info-icon">
+          <mat-icon>view_carousel</mat-icon>
+        </div>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-card
+        class="container__button-card__buttons__card"
+        color="primary"
+        (click)="loadCallSchedule()"
+        matTooltip="Schedule a call"
+        [matTooltipPosition]="'left'"
+      >
+        <div class="container__button-card__buttons__card__info-icon">
+          <mat-icon>calendar_today</mat-icon>
+        </div></mat-card
+      >
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,13 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodosComponent } from './todos/todos.component';
-import { TechBlogComponent } from './tech-blog/tech-blog.component';
-import { PageNotExistComponent } from './page-not-exist/page-not-exist.component';
 
 const routes: Routes = [
-  { path: 'todos', component: TodosComponent },
-  { path: 'techblog', component: TechBlogComponent },
-  { path: '**', component: PageNotExistComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+  },
+  {
+    path: 'page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./shared/shared-routing.module').then(
+        (m) => m.SharedRoutingModule
+      ),
+  },
 ];
 
 @NgModule({

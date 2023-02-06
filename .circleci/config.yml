@@ -1,0 +1,66 @@
+version: 2
+jobs:
+  qlty:
+    working_directory: ~/project-name
+    docker:
+      - image: circleci/node:16-browsers
+    steps:
+      - checkout
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+      - restore_cache:
+          key: v1-cypress-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.cache/Cypress
+      - run:
+          name: Install local dependencies
+          command: npm install
+      - run:
+          name: Install Cypress
+          command: npm install cypress
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - save_cache:
+          key: v1-cypress-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.cache/Cypress
+
+      # Lint the source code
+      # - run:
+      #     name: Linting
+      #     command: npm run lint
+      # Test the source code
+      # - run:
+      #     name: Testing
+      #     command: npm run test
+      # End to End test
+      - run:
+          name: End to End Test
+          command: npm run e2e
+      - run:
+          name: Code Coverage Upload
+          command: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
+            chmod +x codecov
+            ./codecov -t $CODECOV_TOKEN
+
+workflows:
+  version: 2
+  build_test:
+    jobs:
+      - qlty:
+          context: 
+            - portfolio-projects
+          filters:
+            branches:
+              only:
+                - dev
+                - main
+                - circleci-project-setup

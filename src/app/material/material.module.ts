@@ -5,6 +5,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -13,10 +26,20 @@ let MATERIAL_MODULES = [
   MatSidenavModule,
   MatIconModule,
   MatButtonModule,
+  MatSelectModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatTooltipModule,
+  MatDialogModule,
+  MatChipsModule,
 ];
 
 @NgModule({
-  imports: [MATERIAL_MODULES],
-  exports: [MATERIAL_MODULES],
+  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
+  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
 })
 export class MaterialModule {}
