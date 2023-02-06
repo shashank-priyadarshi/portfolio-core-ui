@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
+// import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
 import { SharedService } from 'src/app/shared.service';
 import { Title } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private sharedService: SharedService,
     private matDialog: MatDialog,
-    private title: Title
+    private title: Title,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   loadCallSchedule() {
-    this.matDialog.open(CalendarComponent);
+    // this.matDialog.open(CalendarComponent);
+    this.snackBar.open("This action hasn't been enabled yet!", 'OK', {
+      duration: 3000,
+    });
   }
 
   parseGitHubData() {

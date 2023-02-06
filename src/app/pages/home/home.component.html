@@ -12,12 +12,12 @@
       >
         <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
         <div style="display: flex; align-items: center">
-          <mat-spinner diameter="60" [hidden]="repoDataPromise"></mat-spinner>
+          <mat-spinner diameter="60" *ngIf="!repoDataPromise"></mat-spinner>
         </div>
       </div>
     </mat-card-content>
     <mat-card-content style="margin: 0">
-      <ul style="display: flex; justify-content: center">
+      <ul style="display: flex; flex-direction: row">
         <li
           style="width: 110px; cursor: pointer"
           matTooltip="Starred Repos"
@@ -38,20 +38,15 @@
           style="cursor: pointer"
           matTooltip="Open Issues"
           [matTooltipPosition]="'above'"
+          routerLink="/page/todos"
+          routerLinkActive="active"
         >
           Open Issues
         </li>
-        <ng-template matTooltipContent>
-          <ul>
-            <li *ngFor="let issue of openIssues">
-              {{ issue }}
-            </li>
-          </ul>
-        </ng-template>
       </ul>
     </mat-card-content>
   </mat-card>
-  <div style="width: 30%">
+  <div style="width: 25vw">
     <mat-card class="container__card container__other-cards">
       <mat-card-header>Projects</mat-card-header>
       <mat-card-content style="margin: 5px 0 0 0">
@@ -89,7 +84,7 @@
         </table>
       </mat-card-content>
     </mat-card>
-    <mat-card class="container__card container__other-cards">
+    <!-- <mat-card class="container__card container__other-cards">
       <mat-card-header>Hobbies</mat-card-header>
       <mat-card-content style="margin: 5px 0 0 0">
         <table>
@@ -125,22 +120,24 @@
           </tr>
         </table>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
   </div>
   <mat-card class="container__card container__button-card">
-    <mat-card-content>
+    <mat-card-content
+      style="justify-content: center; display: flex; align-items: center"
+    >
       <mat-card
         class="container__button-card__buttons__card"
         (click)="loadIFrame()"
         matTooltip="View Resume"
         [matTooltipPosition]="'left'"
       >
-        <div class="container__button-card__buttons__card__info-icon">
-          <mat-icon>view_carousel</mat-icon>
-        </div>
+        <mat-icon>view_carousel</mat-icon>
       </mat-card>
     </mat-card-content>
-    <mat-card-content>
+    <mat-card-content
+      style="justify-content: center; display: flex; align-items: center"
+    >
       <mat-card
         class="container__button-card__buttons__card"
         color="primary"
@@ -148,10 +145,8 @@
         matTooltip="Schedule a call"
         [matTooltipPosition]="'left'"
       >
-        <div class="container__button-card__buttons__card__info-icon">
-          <mat-icon>calendar_today</mat-icon>
-        </div></mat-card
-      >
+        <mat-icon>calendar_today</mat-icon>
+      </mat-card>
     </mat-card-content>
   </mat-card>
 </div>

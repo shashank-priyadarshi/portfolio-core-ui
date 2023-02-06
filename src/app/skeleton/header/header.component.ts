@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
   selector: 'app-header',
@@ -8,38 +9,35 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class HeaderComponent implements OnInit {
   headerDetails!: string;
-  startTime!: string;
   name!: string;
 
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
-    this.sharedService.fetchData('biodata').subscribe(async (data) => {
-      await data;
-      this.calculateExperience(data[0]);
-      this.fetchDetails(data[0]);
-    });
+    let biodataString = localStorage.getItem('biodata');
+    let biodata: Biodata;
+    if (biodataString) {
+      biodata = JSON.parse(biodataString) as Biodata;
+    } else {
+      this.name = 'UNDEFINED';
+      this.headerDetails = 'Asuvidha ke liye khed hai!';
+      return;
+    }
+    this.fetchDetails(biodata);
   }
 
-  calculateExperience(dojdata: any) {
-    // let previousEmployer = doj[3].Value[4].Value;
-    // if (!previousEmployer.length) {
-    //   this.startTime = doj[3].Value[4].Value[0].Value[2];
-    // }
-    this.startTime = dojdata[3].Value[4].Value[0].Value[2];
-    return new Date().getTime() - new Date(this.startTime).getTime();
+  calculateExperience(dojdata: string) {
+    return new Date().getTime() - new Date(dojdata).getTime();
   }
 
-  fetchDetails(biodata: any) {
-    let header = biodata[1].Value;
-    this.name = header[0].Value;
-    let role = header[1].Value;
+  fetchDetails(biodata: Biodata) {
+    this.name = biodata.name;
     this.headerDetails =
-      role[0] +
+      biodata.role +
       ' | ' +
-      role[1] +
+      biodata.position +
       ' | ' +
-      (this.calculateExperience(biodata) / 31557600000).toFixed(2) +
+      (this.calculateExperience(biodata.doj) / 31557600000).toFixed(2) +
       ' years';
   }
 }
