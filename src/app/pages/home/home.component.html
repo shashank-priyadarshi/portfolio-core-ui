@@ -20,23 +20,25 @@
       <ul style="display: flex; flex-direction: row">
         <li
           style="width: 110px; cursor: pointer"
-          matTooltip="Starred Repos"
+          [matTooltip]="starredRepoTooltip"
           [matTooltipPosition]="'above'"
+          (click)="showStarredRepos = !showStarredRepos"
         >
           Starred Repos
         </li>
-        <ng-template matTooltipContent>
-          <ul>
-            <li *ngFor="let repo of starredRepos">
-              <a href="{{ repo[0].Value }}" target="_blank">{{
-                repo[1].Value
-              }}</a>
-            </li>
+        <ng-template [ngIf]="showStarredRepos">
+          <ul *ngFor="let todo of starredRepos; index as i">
+            <a
+              style="text-decoration: none; color: inherit"
+              [href]="todo.url"
+              target="_blank"
+              >{{ todo.title }}</a
+            >
           </ul>
         </ng-template>
         <li
           style="cursor: pointer"
-          matTooltip="Open Issues"
+          [matTooltip]="openIssueTooltip"
           [matTooltipPosition]="'above'"
           routerLink="/page/todos"
           routerLinkActive="active"

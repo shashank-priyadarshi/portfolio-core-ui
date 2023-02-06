@@ -21,8 +21,13 @@ export class TodosComponent implements OnInit {
     let todosString: string = localStorage.getItem('todos') as string;
     if (todosString) {
       this.todoList = JSON.parse(todosString) as Common[];
-      console.log(this.todoList);
       this.dataLoaded = true;
+      return;
+    } else {
+      window.open(
+        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true',
+        '_self'
+      );
       return;
     }
   }

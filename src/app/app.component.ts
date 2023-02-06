@@ -13,6 +13,7 @@ import {
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit {
+  openIssueCount!: number;
   constructor(private sharedService: SharedService) {}
   ngOnInit() {
     this.sharedService.fetchData('biodata').subscribe((data) => {
@@ -28,6 +29,19 @@ export class AppComponent implements OnInit {
         github: footer[1].Value,
       };
       localStorage.setItem('biodata', JSON.stringify(biodata));
+      return data;
+    });
+    this.sharedService.postData('todos', '').subscribe((data) => {
+      let todos: Common[] = [];
+      this.openIssueCount = data.issues.length;
+      data.issues.forEach((element: string) => {
+        let lastIndex: number = element.lastIndexOf(',');
+        todos.push({
+          title: element.slice(0, lastIndex),
+          url: element.slice(lastIndex + 1),
+        });
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
       return data;
     });
     this.sharedService.fetchData('githubdata').subscribe((data) => {
@@ -50,23 +64,13 @@ export class AppComponent implements OnInit {
         activity.push(<SCMActivity>{
           pr: element[0].Value,
           loc: element[1].Value,
+          date: element[2].Value,
           commits: element[3].Value,
         });
       });
       githubdata.scmActivity = activity;
+      githubdata.openIssueCount = this.openIssueCount;
       localStorage.setItem('githubdata', JSON.stringify(githubdata));
-      return data;
-    });
-    this.sharedService.postData('todos', '').subscribe((data) => {
-      let todos: Common[] = [];
-      data.issues.forEach((element: string) => {
-        let lastIndex: number = element.lastIndexOf(',');
-        todos.push({
-          title: element.slice(0, lastIndex),
-          url: element.slice(lastIndex + 1),
-        });
-      });
-      localStorage.setItem('todos', JSON.stringify(todos));
       return data;
     });
   }

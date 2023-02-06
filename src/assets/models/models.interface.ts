@@ -14,6 +14,7 @@ export interface Biodata {
 
 export interface SCMData {
   starredRepoCount: number;
+  openIssueCount: number;
   list: Common[];
   scmActivity: SCMActivity[];
 }
@@ -22,4 +23,5 @@ export interface SCMActivity {
   loc: number;
   pr: number;
   commits: number;
+  date: any;
 }

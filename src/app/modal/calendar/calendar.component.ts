@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
@@ -46,7 +50,6 @@ export class CalendarComponent implements OnInit {
   }
 
   public onCancel = () => {
-    console.log('cancelled)');
     this.scheduleForm.reset();
     this.router.navigate(['/']);
   };
@@ -74,7 +77,6 @@ export class CalendarComponent implements OnInit {
       email: scheduleForm.email,
       date: scheduleForm.date,
     };
-    console.log(schedule);
     this.sharedSvc.postData('/schedule', schedule).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)

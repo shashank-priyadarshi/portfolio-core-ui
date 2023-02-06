@@ -2,9 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 // import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
 import { ResumeComponent } from 'src/app/modal/resume/resume.component';
-import { SharedService } from 'src/app/shared.service';
 import { Title } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SCMData, SCMActivity } from 'src/assets/models/models.interface';
+
+interface chartData {
+  name: string;
+  series: series[];
+}
+
+interface series {
+  name: string;
+  value: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -14,10 +24,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HomeComponent implements OnInit {
   openIssues: string[] = [];
   starredRepos: any;
+  starredRepoTooltip: string = '';
+  openIssueTooltip: string = '';
   repoData: any;
   repoDataPromise = false;
+  showStarredRepos: boolean = false;
   constructor(
-    private sharedService: SharedService,
     private matDialog: MatDialog,
     private title: Title,
     private snackBar: MatSnackBar
@@ -25,7 +37,43 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Home');
-    this.parseGitHubData();
+    let githubdatastring: string = localStorage.getItem('githubdata') as string;
+    if (githubdatastring) {
+      let githubdata = JSON.parse(githubdatastring) as SCMData;
+      this.parseGitHubData(githubdata);
+    }
+  }
+
+  parseGitHubData(githubdata: SCMData) {
+    console.log(githubdata);
+    let prDataList: series[] = [];
+    let commitDataList: series[] = [];
+    this.starredRepoTooltip = githubdata.starredRepoCount + ' Starred Repos';
+    this.openIssueTooltip = githubdata.openIssueCount + ' Open Issues';
+    // this.starredRepos = githubdata.list;
+    githubdata.scmActivity.forEach((element: SCMActivity) => {
+      prDataList.push(<series>{
+        name: element.date.slice(0, 11),
+        value: element.pr,
+      });
+      commitDataList.push(<series>{
+        name: element.date.slice(0, 11),
+        value: element.commits,
+      });
+    });
+    this.repoData = new Promise((resolve) => {
+      resolve([
+        <chartData>{
+          name: 'Pull Requests',
+          series: prDataList,
+        },
+        <chartData>{
+          name: 'Commits',
+          series: commitDataList,
+        },
+      ]);
+      this.repoDataPromise = true;
+    });
   }
 
   loadIFrame() {
@@ -39,20 +87,6 @@ export class HomeComponent implements OnInit {
     // this.matDialog.open(CalendarComponent);
     this.snackBar.open("This action hasn't been enabled yet!", 'OK', {
       duration: 3000,
-    });
-  }
-
-  parseGitHubData() {
-    this.sharedService.fetchData('githubdata').subscribe((data) => {
-      this.repoData = new Promise((resolve) => {
-        resolve(data);
-        this.repoDataPromise = true;
-      });
-      let rawDataObj = data[0];
-      this.starredRepos = rawDataObj[3].Value[1].Value;
-      this.openIssues = rawDataObj[4].Value;
-      console.log(data[0]);
-      console.log(this.starredRepos);
     });
   }
 }
