@@ -22,11 +22,13 @@
           style="width: 110px; cursor: pointer"
           [matTooltip]="starredRepoTooltip"
           [matTooltipPosition]="'above'"
-          (click)="showStarredRepos = !showStarredRepos"
+          (click)="loadCallSchedule()"
         >
+          <!-- <li style="width: 110px; cursor: pointer" [popover]="repoTemplate"> -->
           Starred Repos
         </li>
-        <ng-template [ngIf]="showStarredRepos">
+        <!-- <ng-template #repoTemplate>
+          <div>{{ starredRepoTooltip }}</div>
           <ul *ngFor="let todo of starredRepos; index as i">
             <a
               style="text-decoration: none; color: inherit"
@@ -35,7 +37,7 @@
               >{{ todo.title }}</a
             >
           </ul>
-        </ng-template>
+        </ng-template> -->
         <li
           style="cursor: pointer"
           [matTooltip]="openIssueTooltip"
