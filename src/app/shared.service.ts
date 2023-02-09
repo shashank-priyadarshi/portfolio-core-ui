@@ -22,7 +22,6 @@ export class SharedService {
     let headers = new HttpHeaders({
       'Referrer-Policy': 'no-referrer',
       'Content-Type': 'text/plain; charset=utf-8',
-      'Content-Length': '3',
     });
 
     return this.http.post('https://api2.ssnk.in/' + endpoint, formData, {

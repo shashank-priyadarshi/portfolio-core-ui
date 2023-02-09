@@ -56,11 +56,9 @@ workflows:
   build_test:
     jobs:
       - qlty:
-          context: 
+          context:
             - portfolio-projects
           filters:
             branches:
               only:
-                - dev
                 - main
-                - circleci-project-setup

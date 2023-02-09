@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
 import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
@@ -12,10 +11,10 @@ export class FooterComponent implements OnInit {
   gitHubURL!: string;
   noResponse: boolean = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    let biodataString = localStorage.getItem('biodata');
+    let biodataString = sessionStorage.getItem('biodata');
     let biodata: Biodata;
     if (biodataString) {
       biodata = JSON.parse(biodataString) as Biodata;

@@ -1,6 +1,5 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Color } from '@swimlane/ngx-charts';
-import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-chart',
@@ -20,7 +19,9 @@ export class ChartComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA', '#ffd700', '#1b7e48'],
   } as string | Color;
 
-  constructor(private sharedService: SharedService) {}
+  constructor() {
+    this.getScreenSize();
+  }
 
   async ngOnInit() {
     await this.gitHubData;
@@ -28,5 +29,14 @@ export class ChartComponent implements OnInit {
       this.multi = response;
       Object.assign(this, { response });
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?: any) {
+    console.log(window.innerWidth, window.innerHeight);
+    this.view = [window.innerWidth / 2.15, window.innerHeight / 2.15] as [
+      number,
+      number
+    ];
   }
 }

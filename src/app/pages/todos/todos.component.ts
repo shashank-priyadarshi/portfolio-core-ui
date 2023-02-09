@@ -18,7 +18,7 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Todos');
-    let todosString: string = localStorage.getItem('todos') as string;
+    let todosString: string = sessionStorage.getItem('todos') as string;
     if (todosString) {
       this.todoList = JSON.parse(todosString) as Common[];
       this.dataLoaded = true;
