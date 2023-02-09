@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { Color } from '@swimlane/ngx-charts';
+// import { Color } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-chart',
@@ -17,7 +17,7 @@ export class ChartComponent implements OnInit {
   gradient: boolean = true;
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA', '#ffd700', '#1b7e48'],
-  } as string | Color;
+  };
 
   constructor() {
     this.getScreenSize();
