@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
+import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
   selector: 'app-footer',
@@ -9,19 +9,27 @@ import { SharedService } from 'src/app/shared.service';
 export class FooterComponent implements OnInit {
   linkedInURL!: string;
   gitHubURL!: string;
+  noResponse: boolean = false;
 
-  constructor(private sharedService: SharedService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.sharedService.fetchData('biodata').subscribe(async (data) => {
-      await data;
-      this.fetchSMLinks(data[0]);
-    });
+    let biodataString = localStorage.getItem('biodata');
+    let biodata: Biodata;
+    if (biodataString) {
+      biodata = JSON.parse(biodataString) as Biodata;
+    } else {
+      this.linkedInURL =
+        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true';
+      this.gitHubURL =
+        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true';
+      return;
+    }
+    this.fetchSMLinks(biodata);
   }
 
-  fetchSMLinks(footer: any) {
-    let footerData = footer[2].Value[0].Value[0];
-    this.linkedInURL = footerData[0].Value;
-    this.gitHubURL = footerData[1].Value;
+  fetchSMLinks(biodata: Biodata) {
+    this.linkedInURL = biodata.linkedin;
+    this.gitHubURL = biodata.github;
   }
 }

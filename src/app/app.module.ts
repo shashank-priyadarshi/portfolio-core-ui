@@ -9,34 +9,27 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { SkeletonModule } from './skeleton/skeleton.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    // DpDatePickerModule
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      { path: '', component: AppComponent },
-      // { path: 'newsletter', loadChildren: () => import('./form/form.module').then(m => m.FormModule) },
-    ]),
+    RouterModule.forRoot([{ path: '', component: AppComponent }], {
+      useHash: true,
+    }),
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    // NgxChartsModule,
     MaterialModule,
     FormsModule,
     SkeletonModule,
   ],
-  // exports: [AuthModule, FormModule],
-  // providers: [],
   bootstrap: [AppComponent],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
 export class AppModule {}

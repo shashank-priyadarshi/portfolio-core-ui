@@ -1,146 +1,165 @@
 <div class="container">
   <mat-card class="container__card container__github-card">
-    <mat-card-header>GitHub Activity</mat-card-header>
-    <mat-card-content style="justify-content: center; display: flex">
-      <div
-        style="
-          height: 325px;
-          width: 600px;
-          justify-content: center;
-          display: flex;
-        "
-      >
+    <mat-card-header class="container__card-header"
+      >GitHub Activity</mat-card-header
+    >
+    <div
+      style="
+        height: 84%;
+        width: 90%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <mat-card-content>
         <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
-        <div style="display: flex; align-items: center">
-          <mat-spinner diameter="60" [hidden]="repoDataPromise"></mat-spinner>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-content style="margin: 0">
-      <ul style="display: flex; justify-content: center">
-        <li
-          style="width: 110px; cursor: pointer"
-          matTooltip="Starred Repos"
-          [matTooltipPosition]="'above'"
-        >
-          Starred Repos
-        </li>
-        <ng-template matTooltipContent>
-          <ul>
-            <li *ngFor="let repo of starredRepos">
-              <a href="{{ repo[0].Value }}" target="_blank">{{
-                repo[1].Value
-              }}</a>
-            </li>
-          </ul>
-        </ng-template>
+        <mat-spinner diameter="60" *ngIf="!repoDataPromise"></mat-spinner>
+      </mat-card-content>
+    </div>
+    <mat-card-content
+      style="margin: 0; display: flex; justify-content: center; width: 80%"
+    >
+      <ul style="display: flex; width: 75%; justify-content: space-around">
         <li
           style="cursor: pointer"
-          matTooltip="Open Issues"
+          [matTooltip]="starredRepoTooltip"
           [matTooltipPosition]="'above'"
+          (click)="loadCallSchedule()"
+        >
+          <!-- <li style="width: 110px; cursor: pointer" [popover]="repoTemplate"> -->
+          Starred Repos
+        </li>
+        <!-- <ng-template #repoTemplate>
+          <div>{{ starredRepoTooltip }}</div>
+          <ul *ngFor="let todo of starredRepos; index as i">
+            <a
+              [href]="todo.url"
+              target="_blank"
+              >{{ todo.title }}</a
+            >
+          </ul>
+        </ng-template> -->
+        <li
+          style="cursor: pointer"
+          [matTooltip]="openIssueTooltip"
+          [matTooltipPosition]="'above'"
+          routerLink="/page/todos"
+          routerLinkActive="active"
         >
           Open Issues
         </li>
-        <ng-template matTooltipContent>
-          <ul>
-            <li *ngFor="let issue of openIssues">
-              {{ issue }}
-            </li>
-          </ul>
-        </ng-template>
       </ul>
     </mat-card-content>
   </mat-card>
-  <div style="width: 30%">
+  <div style="width: 40vw">
     <mat-card class="container__card container__other-cards">
-      <mat-card-header>Projects</mat-card-header>
-      <mat-card-content style="margin: 5px 0 0 0">
-        <table>
-          <tr>
-            <td>Infosys-Quality Automation</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Portfolio</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Ecommerce website clone</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-        </table>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="container__card container__other-cards">
-      <mat-card-header>Hobbies</mat-card-header>
-      <mat-card-content style="margin: 5px 0 0 0">
-        <table>
-          <tr>
-            <td>Reading</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Writing</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-          <tr>
-            <td>Horticulture</td>
-            <button
-              mat-icon-button
-              matTooltip="Info about the action"
-              [matTooltipPosition]="'right'"
-            >
-              <mat-icon>info</mat-icon>
-            </button>
-          </tr>
-        </table>
-      </mat-card-content>
+      <mat-card-header class="container__card-header">Projects</mat-card-header>
+      <div
+        style="
+          height: 90%;
+          width: 90%;
+          justify-content: center;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <mat-card-content style="margin: 0.2rem 0 0 0">
+          <table>
+            <tr>
+              <td>Work related:</td>
+              <td>
+                <ul>
+                  <li>
+                    Consuming REST APIs from SCM/ALM/Code Quality tools in Go
+                    plugins
+                  </li>
+                  <li>
+                    Parsing and pushing data to internal microservices, using
+                    GraphQL REST endpoints
+                  </li>
+                  <li>
+                    Using more GraphQL in Angular web application to fetch data
+                    from internal microservices
+                  </li>
+                  <li>
+                    Using charting libraries, internal NPM packages and Angular
+                    Material for data visualisation in Angular web application
+                  </li>
+                  <li>
+                    Offloading core web application by creating Angular Micro
+                    Frontends
+                  </li>
+                  <li>
+                    Ensuring code quality with semantic analysis, security
+                    analysis, SAST & DAST, using tools like SonarQube, Fortify
+                    SAST, Synopsys BlackDuck, GHAS, CodeQL, etc.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a [href]="portfolioRepo">Portfolio</a>
+              </td>
+              <td>
+                <ul>
+                  <li>Using Go and MongoDB to implement server</li>
+                  <li>
+                    Using Go and MongoDB to implement integrations from GitHub
+                  </li>
+                  <li>
+                    Using Angular, Angular Material and ngx-charts to develop UI
+                  </li>
+                  <li>
+                    Using Docker and Docker Compose, and DigitalOcean droplets
+                    to containerise MongoDB and backend services, and nginx
+                    reverse proxy to deploy UI on Linux based container
+                  </li>
+                  <li>
+                    Using CircleCI and GitHub Actions with tools like
+                    golangci-lint, Cypress, ESLint and SonarQube Cloud for code
+                    quality checks
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a [href]="githubOrg"> Ecommerce website clone </a>
+              </td>
+              <td>
+                <ul>
+                  <li>Using Angular to clone Amazon landing page</li>
+                  <li>
+                    Developing backend services and microservices will involve
+                    NodeJS, Go and Java SpringBoot and Hibernate.
+                  </li>
+                  <li>
+                    Partner in crime:
+                    <a [href]="linkedIn" target="_blank">@Aman Verma</a>
+                  </li>
+                  <li>Stay tuned for updates</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </div>
     </mat-card>
   </div>
   <mat-card class="container__card container__button-card">
-    <mat-card-content>
+    <mat-card-content class="container__button-card__content">
       <mat-card
         class="container__button-card__buttons__card"
         (click)="loadIFrame()"
         matTooltip="View Resume"
         [matTooltipPosition]="'left'"
       >
-        <div class="container__button-card__buttons__card__info-icon">
-          <mat-icon>view_carousel</mat-icon>
-        </div>
+        <mat-icon>view_carousel</mat-icon>
       </mat-card>
     </mat-card-content>
-    <mat-card-content>
+    <mat-card-content class="container__button-card__content">
       <mat-card
         class="container__button-card__buttons__card"
         color="primary"
@@ -148,10 +167,8 @@
         matTooltip="Schedule a call"
         [matTooltipPosition]="'left'"
       >
-        <div class="container__button-card__buttons__card__info-icon">
-          <mat-icon>calendar_today</mat-icon>
-        </div></mat-card
-      >
+        <mat-icon>calendar_today</mat-icon>
+      </mat-card>
     </mat-card-content>
   </mat-card>
 </div>

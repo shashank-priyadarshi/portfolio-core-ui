@@ -1,41 +1,44 @@
-.mat-card-header
-    font-size: 25px
-    font-weight: 410
-    display: flex
-    justify-content: center
-
-.mat-card-content
-    display: flex
-    justify-content: center
-    margin-top: 5%
-
 .container
     display: flex
     flex-direction: row
+    min-width: 100vw
+    justify-content: center
 
     &__card
-        margin: 15px 5px 0 15px
-        border-radius: 15px
+        margin: .5rem .25rem 0 .2rem
+        border-radius: .5rem
 
         &:hover
-            box-shadow: 2px 15px 30px 3px #ffd740
+            box-shadow: .020rem .5rem .4rem .025rem #ffd740
+
+    &__card-header
+        font-size: 1rem
+        font-weight: 500
 
     &__github-card
-        width: 70%
-        height: 450px
+        width: 50vw
+        height: 35vw
+        display: flex
+        align-items: center
 
     &__other-cards
-        width: 85%
-        height: 200px
+        height: 35vw
+        align-items: center
 
     &__button-card
-        width: 34px
-        margin: 210px 15px 0 3px
-        height: 250px
+        width: 3vw
+        height: 16vw
+        margin: 10.3vw 0 0 1vw
+        justify-content: space-around
 
         &:hover
             background-color: #ffd740
-            box-shadow: 2px 15px 30px 3px #ffd740
+            box-shadow: .020rem .5rem .4rem .025rem #ffd740
+
+        &__content
+            justify-content: center
+            display: flex
+            align-items: center
 
         &__buttons
             position: absolute
@@ -43,16 +46,77 @@
 
             &__card
                 background: #ffd740
-                height: 85px
-                width: -webkit-fill-available
+                height: 6vw
                 cursor: pointer
-                border-radius: 15px
+                border-radius: .5rem
+                justify-content: center
 
                 &:hover
                     background: #f5f5f5
                     color: #e65c11
-                    box-shadow: 2px 15px 30px 3px #ffd740
+                    box-shadow: .020rem .5rem .4rem .025rem #ffd740
 
                 ::ng-deep
                     .container__button-card__buttons__card__info-icon mat-icon
-                        margin: 30px 0 0 -11px
+                        margin: .4rem 0 0 -.17rem
+
+a
+    text-decoration: none
+    cursor: pointer
+    color: inherit
+    &:hover
+        text-decoration: underline
+        color: #ffd740
+
+tr ul
+    max-height: 6.7vw
+    overflow: hidden
+    overflow-y: scroll
+
+@media screen and (min-width: 1709px)
+    .container
+        font-size: .75vw
+        &__github-card
+            height: 28vw
+        &__other-cards
+            height: 28vw
+        &__card-header
+            font-size: 2rem
+        &__button-card
+            margin: 9.3vw 0 0 1vw
+            &__buttons
+                &__card
+                    width: 90%
+                    align-items: center
+    li
+        padding: 0.5vh
+        line-height: 1
+
+@media screen and (max-width: 948px)
+    .container
+        flex-direction: column
+        align-content: center
+        flex-wrap: wrap
+
+        &__github-card
+            width: 85vw
+            height: max-content
+        &__other-cards
+            width: 85vw
+            height: max-content
+        &__button-card
+            width: 85vw
+            height: max-content
+            margin: 1rem 0.25rem 0 0.2rem
+            flex-direction: row
+
+            &__content
+                padding: 0 !important
+
+            &__buttons
+                &__card
+                    background: #ffd740
+                    height: max-content
+                    justify-content: center
+                    width: 40vw
+                    align-items: center
