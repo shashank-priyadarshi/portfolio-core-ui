@@ -14,9 +14,16 @@ import {
 })
 export class AppComponent implements OnInit {
   openIssueCount!: number;
+  // dataLoaded: boolean = false;
   constructor(private sharedService: SharedService) {}
   ngOnInit() {
+    this.fetchBiodata();
+    this.fetchtodos();
+    this.fetchGithubdata();
     this.welcome();
+  }
+
+  fetchBiodata() {
     this.sharedService.fetchData('biodata').subscribe((data) => {
       let footer = data.footer[0].Value[0];
       let header = data.header;
@@ -30,21 +37,9 @@ export class AppComponent implements OnInit {
         github: footer[1].Value,
       };
       localStorage.setItem('biodata', JSON.stringify(biodata));
-      return data;
     });
-    this.sharedService.postData('todos', '').subscribe((data) => {
-      let todos: Common[] = [];
-      this.openIssueCount = data.issues.length;
-      data.issues.forEach((element: string) => {
-        let lastIndex: number = element.lastIndexOf(',');
-        todos.push({
-          title: element.slice(0, lastIndex),
-          url: element.slice(lastIndex + 1),
-        });
-      });
-      localStorage.setItem('todos', JSON.stringify(todos));
-      return data;
-    });
+  }
+  fetchGithubdata() {
     this.sharedService.fetchData('githubdata').subscribe((data) => {
       let starredRepos = data.starredrepos;
       let weekData = data.weekdata;
@@ -72,7 +67,20 @@ export class AppComponent implements OnInit {
       githubdata.scmActivity = activity;
       githubdata.openIssueCount = this.openIssueCount;
       localStorage.setItem('githubdata', JSON.stringify(githubdata));
-      return data;
+    });
+  }
+  fetchtodos() {
+    this.sharedService.postData('todos', '').subscribe((data) => {
+      let todos: Common[] = [];
+      this.openIssueCount = data.issues.length;
+      data.issues.forEach((element: string) => {
+        let lastIndex: number = element.lastIndexOf(',');
+        todos.push({
+          title: element.slice(0, lastIndex),
+          url: element.slice(lastIndex + 1),
+        });
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
     });
   }
 
@@ -83,4 +91,9 @@ export class AppComponent implements OnInit {
     );
     console.log('Thanks for visiting:-)');
   }
+
+  // @HostListener('window:resize', ['$event'])
+  // getScreenSize(event?: any) {
+  // console.log(window.innerWidth, window.innerHeight);
+  // }
 }

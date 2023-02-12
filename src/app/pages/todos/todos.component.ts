@@ -18,16 +18,16 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Todos');
-    let todosString: string = sessionStorage.getItem('todos') as string;
+    let todosString: string = localStorage.getItem('todos') as string;
     if (todosString) {
       this.todoList = JSON.parse(todosString) as Common[];
       this.dataLoaded = true;
       return;
     } else {
-      window.open(
-        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true',
-        '_self'
-      );
+      // window.open(
+      //   'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true',
+      //   '_self'
+      // );
       return;
     }
   }

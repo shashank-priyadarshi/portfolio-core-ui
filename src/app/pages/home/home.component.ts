@@ -41,9 +41,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Home');
-    let githubdatastring: string = sessionStorage.getItem(
-      'githubdata'
-    ) as string;
+    let githubdatastring: string = localStorage.getItem('githubdata') as string;
     if (githubdatastring) {
       let githubdata = JSON.parse(githubdatastring) as SCMData;
       this.parseGitHubData(githubdata);

@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    let biodataString = sessionStorage.getItem('biodata');
+    let biodataString = localStorage.getItem('biodata');
     let biodata: Biodata;
     if (biodataString) {
       biodata = JSON.parse(biodataString) as Biodata;

@@ -33,7 +33,6 @@ export class ChartComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?: any) {
-    console.log(window.innerWidth, window.innerHeight);
     this.view = [window.innerWidth / 2.15, window.innerHeight / 2.15] as [
       number,
       number
