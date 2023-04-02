@@ -1,68 +1,64 @@
-<style>
-  .card-container .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .circle-link {
-    margin: 0 0 0 10px;
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin-bottom: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .card-container {
-    display: flex;
-    margin-top: 1rem;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  footer {
-    position: relative;
-    align-items: center;
-  }
-</style>
+<ng-template #resume>
+  <div class="resume">
+    <iframe class="resume__iframe" src="assets/files/resume.pdf"></iframe>
+  </div>
+</ng-template>
 
 <!-- Footer -->
-<footer style="display: flex; justify-content: center">
+<footer>
   <!-- Links -->
   <div class="card-container">
+    <a title="View my resume" href="javascript:void(0)" (click)="loadIFrame()"
+      ><svg
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 96.000000 96.000000"
+        preserveAspectRatio="xMidYMid meet"
+        width="20pt"
+        height="20pt"
+      >
+        <g
+          transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+          fill="#fbc02d"
+          stroke="none"
+        >
+          <path
+            d="M185 855 l-25 -24 0 -351 0 -351 25 -24 24 -25 271 0 271 0 24 25 25
+24 0 351 0 351 -25 24 -24 25 -271 0 -271 0 -24 -25z m235 -115 c11 -11 20
+-29 20 -40 0 -26 -34 -60 -60 -60 -26 0 -60 34 -60 60 0 11 9 29 20 40 11 11
+29 20 40 20 11 0 29 -9 40 -20z m254 -2 c17 -28 -5 -52 -48 -56 -56 -5 -87 33
+-54 66 18 18 89 11 102 -10z m-214 -163 c11 -10 20 -26 20 -37 0 -16 -9 -18
+-100 -18 -91 0 -100 2 -100 18 0 19 23 45 50 55 28 12 110 0 130 -18z m214 3
+c17 -28 -5 -52 -48 -56 -56 -5 -87 33 -54 66 18 18 89 11 102 -10z m0 -160 c8
+-13 8 -23 0 -35 -10 -16 -32 -18 -189 -21 -182 -3 -205 2 -205 37 0 38 18 42
+204 39 158 -3 180 -5 190 -20z m0 -160 c8 -13 8 -23 0 -35 -10 -16 -32 -18
+-189 -21 -182 -3 -205 2 -205 37 0 38 18 42 204 39 158 -3 180 -5 190 -20z"
+          />
+        </g>
+      </svg>
+    </a>
+
+    <a title="Connect over email" href="mailto:hire@ssnk.in">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        width="20pt"
+        height="20pt"
+      >
+        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <g
+          transform="translate(0.000000,512.000000) scale(1,-1)"
+          fill="#fbc02d"
+          stroke="none"
+        >
+          <path
+            d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+          />
+        </g>
+      </svg>
+    </a>
+
     <a
-      class="circle-link"
       title="Message me on LinkedIn"
       href="{{ linkedInURL }}"
       target="_blank"
@@ -71,9 +67,9 @@
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="100.000000pt"
-        height="30.000000pt"
-        viewBox="0 0 192.000000 192.000000"
+        width="20pt"
+        height="20pt"
+        viewBox="0 0 192 192"
         preserveAspectRatio="xMidYMid meet"
       >
         <g
@@ -97,7 +93,6 @@ l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
     </a>
 
     <a
-      class="circle-link"
       title="Check out my GitHub"
       href="{{ gitHubURL }}"
       target="_blank"
@@ -106,8 +101,8 @@ l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="25.000000pt"
-        height="25.000000pt"
+        width="20pt"
+        height="20pt"
         viewBox="0 0 980.000000 980.000000"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -142,6 +137,46 @@ l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
 -1363 930 -561 573 -929 1269 -1090 2059 -51 247 -66 406 -72 721 -10 533 45
 911 201 1384 207 627 550 1173 1032 1645 322 315 643 544 1040 743 467 234
 967 373 1509 420 95 8 579 6 680 -3z"
+          />
+        </g>
+      </svg>
+    </a>
+
+    <a title="Follow me on Medium" href="{{ mediumURL }}" target="_blank">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+        width="20pt"
+        height="20pt"
+      >
+        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <g
+          transform="translate(0.000000,512.000000) scale(1,-1)"
+          fill="#fbc02d"
+          stroke="none"
+        >
+          <path
+            d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
+          />
+        </g>
+      </svg>
+    </a>
+
+    <a title="Follow me on Hashnode" href="{{ hashnodeURL }}" target="_blank">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        width="20pt"
+        height="20pt"
+      >
+        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <g
+          transform="translate(0.000000,512.000000) scale(1,-1)"
+          fill="#fbc02d"
+          stroke="none"
+        >
+          <path
+            d="M35.19 171.1C-11.72 217.1-11.72 294 35.19 340.9L171.1 476.8C217.1 523.7 294 523.7 340.9 476.8L476.8 340.9C523.7 294 523.7 217.1 476.8 171.1L340.9 35.19C294-11.72 217.1-11.72 171.1 35.19L35.19 171.1zM315.5 315.5C282.6 348.3 229.4 348.3 196.6 315.5C163.7 282.6 163.7 229.4 196.6 196.6C229.4 163.7 282.6 163.7 315.5 196.6C348.3 229.4 348.3 282.6 315.5 315.5z"
           />
         </g>
       </svg>

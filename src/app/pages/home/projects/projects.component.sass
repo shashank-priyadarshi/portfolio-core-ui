@@ -1,0 +1,54 @@
+.container
+    display: flex
+    flex-direction: row
+    min-width: 100vw
+    justify-content: center
+
+    &__card
+        margin: .5rem .25rem 0 .2rem
+        border-radius: .5rem
+
+        &:hover
+            box-shadow: .020rem .5rem .4rem .025rem #ffd740
+
+    &__card-header
+        font-size: 1rem
+        font-weight: 500
+
+    &__other-cards
+        height: 35vw
+        align-items: center
+
+a
+    text-decoration: none
+    cursor: pointer
+    color: inherit
+    &:hover
+        text-decoration: underline
+        color: #ffd740
+
+tr ul
+    max-height: 6.7vw
+    overflow: hidden
+    overflow-y: scroll
+
+@media screen and (min-width: 1709px)
+    .container
+        font-size: .75vw
+        &__other-cards
+            height: 28vw
+        &__card-header
+            font-size: 2rem
+    li
+        padding: 0.5vh
+        line-height: 1
+
+@media screen and (max-width: 948px)
+    .container
+        flex-direction: column
+        align-content: center
+        flex-wrap: wrap
+
+        &__other-cards
+            width: 90vw
+            height: max-content

@@ -34,8 +34,6 @@ export class HeaderComponent implements OnInit {
     this.headerDetails =
       biodata.role +
       ' | ' +
-      biodata.position +
-      ' | ' +
       (this.calculateExperience(biodata.doj) / 31557600000).toFixed(2) +
       ' years';
   }

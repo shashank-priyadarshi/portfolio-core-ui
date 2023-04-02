@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportRuler } from '@angular/cdk/scrolling';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
@@ -7,11 +9,18 @@ import { Biodata } from 'src/assets/models/models.interface';
   styleUrls: ['./footer.component.sass'],
 })
 export class FooterComponent implements OnInit {
+  @ViewChild('resume')
+  resume!: TemplateRef<any>;
   linkedInURL!: string;
   gitHubURL!: string;
+  mediumURL!: string;
+  hashnodeURL!: string;
   noResponse: boolean = false;
 
-  constructor() {}
+  constructor(
+    private matDialog: MatDialog,
+    private viewportRuler: ViewportRuler
+  ) {}
 
   ngOnInit(): void {
     let biodataString = localStorage.getItem('biodata');
@@ -31,5 +40,17 @@ export class FooterComponent implements OnInit {
   fetchSMLinks(biodata: Biodata) {
     this.linkedInURL = biodata.linkedin;
     this.gitHubURL = biodata.github;
+    this.mediumURL = 'https://medium.com/@ssnkprydrc';
+    this.hashnodeURL = 'https://blog.ssnk.in';
+  }
+
+  loadIFrame() {
+    const viewportSize = this.viewportRuler.getViewportSize();
+    const height = Math.max(viewportSize.height * 0.8, 400) + 'px'; // set minimum height to 400px
+    const width = Math.max(viewportSize.width * 0.8, 600) + 'px'; // set minimum width to 600px
+    this.matDialog.open(this.resume, {
+      height: height,
+      width: width,
+    });
   }
 }

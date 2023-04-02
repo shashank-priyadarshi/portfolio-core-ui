@@ -10,6 +10,8 @@ export interface Biodata {
   doj: string;
   github: string;
   linkedin: string;
+  medium: string;
+  hashnode: string;
 }
 
 export interface SCMData {
