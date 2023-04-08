@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Common } from 'src/assets/models/models.interface';
@@ -8,16 +8,15 @@ import { Common } from 'src/assets/models/models.interface';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.sass'],
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent {
   message: string = 'You are not authorized to perform this action!';
   action: string = 'Dismiss';
   todoList!: Common[];
   snackBar!: boolean;
   dataLoaded: boolean = false;
-  constructor(public matSnackBar: MatSnackBar, private title: Title) {}
+  constructor(public matSnackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this.title.setTitle('Todos');
     let todosString: string = localStorage.getItem('todos') as string;
     if (todosString) {
       this.todoList = JSON.parse(todosString) as Common[];

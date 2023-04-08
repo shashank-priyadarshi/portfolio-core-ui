@@ -17,39 +17,5 @@
         <mat-spinner diameter="60" *ngIf="!repoDataPromise"></mat-spinner>
       </mat-card-content>
     </div>
-    <mat-card-content
-      style="margin: 0; display: flex; justify-content: center; width: 80%"
-    >
-      <ul style="display: flex; width: 75%; justify-content: space-around">
-        <li
-          style="cursor: pointer"
-          [matTooltip]="starredRepoTooltip"
-          [matTooltipPosition]="'above'"
-          (click)="loadStarredRepos()"
-        >
-          <!-- <li style="width: 110px; cursor: pointer" [popover]="repoTemplate"> -->
-          Starred Repos
-        </li>
-        <!-- <ng-template #repoTemplate>
-          <div>{{ starredRepoTooltip }}</div>
-          <ul *ngFor="let todo of starredRepos; index as i">
-            <a
-              [href]="todo.url"
-              target="_blank"
-              >{{ todo.title }}</a
-            >
-          </ul>
-        </ng-template> -->
-        <li
-          style="cursor: pointer"
-          [matTooltip]="openIssueTooltip"
-          [matTooltipPosition]="'above'"
-          routerLink="/page/todos"
-          routerLinkActive="active"
-        >
-          Open Issues
-        </li>
-      </ul>
-    </mat-card-content>
   </mat-card>
 </div>

@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {
   UntypedFormControl,
@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { SharedService } from 'src/app/shared.service';
+import { PagesService } from '../pages.service';
 
 interface ScheduleData {
   name: string;
@@ -23,7 +23,7 @@ interface ScheduleData {
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.sass'],
 })
-export class AboutComponent {
+export class AboutComponent extends PagesService {
   public scheduleForm!: UntypedFormGroup;
   message: string = 'Request submitted successfully!';
   action: string = 'Dismiss';
@@ -31,8 +31,10 @@ export class AboutComponent {
   constructor(
     private matSnackBar: MatSnackBar,
     private router: Router,
-    private sharedSvc: SharedService
-  ) {}
+    private httpcomp: HttpClient
+  ) {
+    super(httpcomp);
+  }
   ngOnInit(): void {
     this.scheduleForm = new UntypedFormGroup({
       name: new UntypedFormControl('', [
@@ -115,7 +117,7 @@ export class AboutComponent {
       newsletter: scheduleForm.newsletter,
     };
     let responseStatus: number = -1;
-    this.sharedSvc.postData('/schedule', schedule).subscribe((data) => {
+    this.postData('/schedule', schedule).subscribe((data) => {
       responseStatus = data.status;
     });
     this.scheduleForm.reset();

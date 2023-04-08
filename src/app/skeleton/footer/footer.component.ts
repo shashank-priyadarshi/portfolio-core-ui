@@ -40,8 +40,8 @@ export class FooterComponent implements OnInit {
   fetchSMLinks(biodata: Biodata) {
     this.linkedInURL = biodata.linkedin;
     this.gitHubURL = biodata.github;
-    this.mediumURL = 'https://medium.com/@ssnkprydrc';
-    this.hashnodeURL = 'https://blog.ssnk.in';
+    this.mediumURL = biodata.medium;
+    this.hashnodeURL = biodata.hashnode;
   }
 
   loadIFrame() {

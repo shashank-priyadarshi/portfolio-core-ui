@@ -27,3 +27,8 @@ export interface SCMActivity {
   commits: number;
   date: any;
 }
+
+export interface WeekData {
+  Key: string;
+  Value: string;
+}
