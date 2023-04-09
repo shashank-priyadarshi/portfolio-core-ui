@@ -18,7 +18,8 @@ export class BearerInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // Get the access token from local storage
-    const accessToken = localStorage.getItem('access_token');
+    const accessToken = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
 
     // Check if the request is for the auth endpoint
     if (request.url.endsWith('/credentials')) {
@@ -29,7 +30,7 @@ export class BearerInterceptor implements HttpInterceptor {
     if (accessToken) {
       const authRequest = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${user}:${accessToken}`,
         },
       });
       return next.handle(authRequest);

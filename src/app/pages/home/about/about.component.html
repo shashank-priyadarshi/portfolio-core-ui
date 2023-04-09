@@ -1,28 +1,40 @@
 <div class="container">
   <mat-card class="container__card">
-    <mat-card-content>
-      <mat-card-header> About Me: </mat-card-header>
-      <div>
-        <h2>I am Shashank.</h2>
-        <h3>
-          I am a Full Stack Web Developer, working from ...... somewhere in
-          India.
-        </h3>
+    <mat-card-content class="container__card__content">
+      <mat-card-header class="container__card__content__header">
+        About Me:
+      </mat-card-header>
+      <div class="container__card__content__body">
         <p>
-          The quintessential engineer from the Indian middle class, but with a
-          genuine interest for anything technology. Graduated in the year 2021,
-          and since, have worked full time as a web dev.
+          I am a Full Stack Web Developer based in India.<br />
+          Graduated in the year 2021, and since, have worked full time as a web
+          dev.
         </p>
         <p>
           Outside work, I mostly spend my time tinkering with software and
           electronics. I also like to learn new languages, read books, and play
           bad chess.
         </p>
+        <div>
+          <p>Send me a message if you want to:</p>
+          <ul>
+            <li>Collaborate on a web development project,</li>
+            <li>Schedule a meeting,</li>
+            <li>Play chess, or</li>
+            <li>Learn a new language together.</li>
+          </ul>
+          <p>
+            You can also check out other links in the footer for articles
+            related to all things web dev(mostly Angular and Go).
+          </p>
+        </div>
       </div>
     </mat-card-content>
 
-    <mat-card-content>
-      <mat-card-header>Send a message: </mat-card-header>
+    <mat-card-content class="container__card__content">
+      <mat-card-header class="container__card__content__header"
+        >Send a message:
+      </mat-card-header>
       <div class="message_container">
         <form
           [formGroup]="scheduleForm"
@@ -47,7 +59,7 @@
                 <mat-error *ngIf="hasError('name', 'required')"
                   >Name is required</mat-error
                 >
-                <mat-error *ngIf="hasError('name', 'maxतength')"
+                <mat-error *ngIf="hasError('name', 'maxlength')"
                   >Name should not be greater than 50 characters</mat-error
                 >
               </mat-form-field>
@@ -134,13 +146,12 @@
             <div>
               <mat-checkbox
                 formControlName="meeting"
-                (click)="showDatepicker = !showDatepicker"
-                [checked]="showDatepicker"
+                (click)="datepickerToggle()"
               >
                 Request a meeting!</mat-checkbox
               >
               <mat-checkbox formControlName="newsletter"
-                >Subsribe to my newsletter!</mat-checkbox
+                >Subscribe to my newsletter!</mat-checkbox
               >
             </div>
           </div>

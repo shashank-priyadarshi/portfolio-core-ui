@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Title } from '@angular/platform-browser';
 import { Common } from 'src/assets/models/models.interface';
 
 @Component({
@@ -9,7 +8,7 @@ import { Common } from 'src/assets/models/models.interface';
   styleUrls: ['./todos.component.sass'],
 })
 export class TodosComponent {
-  message: string = 'You are not authorized to perform this action!';
+  message: string = 'Action not enabled!';
   action: string = 'Dismiss';
   todoList!: Common[];
   snackBar!: boolean;

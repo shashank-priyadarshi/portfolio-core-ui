@@ -10,10 +10,32 @@
         &:hover
             box-shadow: .02rem .5rem .4rem .025rem #ffd740
 
+        &__content
+            display: flex
+            flex-direction: column
+            align-items: center
+            width: 45%
+            padding: 5%
+            padding-top: 0 !important
+
+            &__header
+                font-size: 1rem
+                font-weight: 500
+
+            &__body
+                display: flex
+                flex-direction: column
+                align-items: center
+
 @media screen and (max-width: 768px)
     .container
         &__card
             flex-direction: column
+            align-items: center
+
+            &__content
+                width: 90%
+                padding: unset
 
 ::ng-deep mat-datepicker-toggle mat-datepicker
     width: 10px !important

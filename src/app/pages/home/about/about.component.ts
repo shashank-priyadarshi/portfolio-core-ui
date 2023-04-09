@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {
   UntypedFormControl,
   UntypedFormGroup,
@@ -62,6 +62,15 @@ export class AboutComponent extends PagesService {
       meeting: new UntypedFormControl(false),
       newsletter: new UntypedFormControl(false),
     });
+  }
+
+  public datepickerToggle() {
+    this.showDatepicker = !this.showDatepicker;
+    if (this.showDatepicker) {
+      this.scheduleForm.controls['date'].enable();
+    } else {
+      this.scheduleForm.controls['date'].disable();
+    }
   }
 
   public onCancel = () => {

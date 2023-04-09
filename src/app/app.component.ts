@@ -14,8 +14,11 @@ export class AppComponent extends SharedService implements OnInit {
   //   super();
   // }
   ngOnInit() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      this.fetchtodos();
+    }
     this.fetchBiodata();
-    this.fetchtodos();
     this.fetchGraphData();
     this.welcome();
   }
@@ -38,12 +41,14 @@ export class AppComponent extends SharedService implements OnInit {
       localStorage.setItem('biodata', JSON.stringify(biodata));
     });
   }
+
   fetchGraphData() {
     this.fetchData('graphdata').subscribe((data) => {
       let graphdata: Array<WeekData[]> = data.weekdata;
       localStorage.setItem('githubdata', JSON.stringify(graphdata));
     });
   }
+
   fetchtodos() {
     this.postData('todos', '').subscribe((data) => {
       let todos: Common[] = [];
