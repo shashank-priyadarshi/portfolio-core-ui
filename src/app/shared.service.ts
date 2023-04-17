@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
+import { CustomError } from 'src/assets/models/custom-error.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   protected fetchData(endpoint: string): Observable<any> {
     let headers = new HttpHeaders({
@@ -35,9 +36,11 @@ export class SharedService {
         headers: headers,
       })
       .pipe(
-        catchError(() => {
-          return of(null);
+        catchError((err) => {
+          const customError = new CustomError(`An error occurred: ${err.message}`);
+          return of(customError);
         })
       );
   }
 }
+

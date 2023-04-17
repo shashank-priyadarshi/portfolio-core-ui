@@ -21,7 +21,7 @@ export class ActivityComponent {
   repoDataPromise = false;
 
   ngOnInit(): void {
-    let githubdatastring: string = localStorage.getItem('githubdata') as string;
+    let githubdatastring: string = localStorage.getItem('graphdata') as string;
     if (githubdatastring) {
       let githubdata = JSON.parse(githubdatastring) as Array<WeekData[]>;
       this.parseGitHubData(githubdata);

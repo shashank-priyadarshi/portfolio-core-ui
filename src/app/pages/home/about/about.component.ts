@@ -8,6 +8,7 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PagesService } from '../pages.service';
+import { CustomError } from 'src/assets/models/custom-error.model';
 
 interface ScheduleData {
   name: string;
@@ -107,7 +108,7 @@ export class AboutComponent extends PagesService {
 
   public createSchedule = (scheduleForm: ScheduleData) => {
     if (this.scheduleForm.valid) {
-      if (this.executeScheduleCreation(scheduleForm) > 299) {
+      if (this.executeScheduleCreation(scheduleForm) instanceof CustomError) {
         this.formSnackBar('Error submitting request', 'Dismiss');
       } else {
         this.formSnackBar(this.message, this.action);
@@ -116,7 +117,7 @@ export class AboutComponent extends PagesService {
     }
   };
 
-  private executeScheduleCreation = (scheduleForm: ScheduleData): number => {
+  private executeScheduleCreation = (scheduleForm: ScheduleData) => {
     let schedule: ScheduleData = {
       name: scheduleForm.name,
       comment: scheduleForm.comment,
@@ -125,12 +126,13 @@ export class AboutComponent extends PagesService {
       meeting: scheduleForm.meeting,
       newsletter: scheduleForm.newsletter,
     };
-    let responseStatus: number = -1;
-    this.postData('/schedule', schedule).subscribe((data) => {
-      responseStatus = data.status;
-    });
     this.scheduleForm.reset();
-    return responseStatus;
+    return this.postData('/schedule', schedule).subscribe((data) => {
+      if (data instanceof CustomError) {
+        return data;
+      }
+      return data.status;
+    });
   };
 
   formSnackBar(message: string, action: string) {

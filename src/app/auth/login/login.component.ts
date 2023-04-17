@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Token } from 'src/assets/models/models.interface';
 import { HttpClient } from '@angular/common/http';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomError } from 'src/assets/models/custom-error.model';
 
 interface LoginData {
   username: string;
@@ -70,7 +70,7 @@ export class LoginComponent extends AuthService implements OnInit, OnDestroy {
     localStorage.setItem('user', logindata.username);
     logindata.action = 1;
     this.postData('/credentials', logindata).subscribe((res) => {
-      if (res && res.token) {
+      if (!(res instanceof CustomError) && res && res.token) {
         localStorage.setItem('token', res.token);
         this.snackBar.open('Logged in successfully!', 'OK', { duration: 1500 });
         this.router.navigate(['/page/admin']);

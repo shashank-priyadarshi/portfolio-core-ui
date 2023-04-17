@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
@@ -38,6 +39,7 @@ let MATERIAL_MODULES = [
   MatDialogModule,
   MatChipsModule,
   MatCheckboxModule,
+  MatListModule
 ];
 
 @NgModule({

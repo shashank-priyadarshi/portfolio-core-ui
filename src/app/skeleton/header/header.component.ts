@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   headerDetails!: string;
   name!: string;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     let biodataString = localStorage.getItem('biodata');

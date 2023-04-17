@@ -1,1 +1,9 @@
-<app-todos></app-todos>
+<div class="container">
+  <div class="container__row">
+    <app-list [dataField]="'todos'" [isRepoList]="false"></app-list>
+    <app-list [dataField]="'githubdata'" [isRepoList]="true"></app-list>
+  </div>
+  <div class="container__row">
+    <app-actions></app-actions>
+  </div>
+</div>

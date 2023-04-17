@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared.service';
 import { Common, Biodata, WeekData } from 'src/assets/models/models.interface';
+import { CustomError } from 'src/assets/models/custom-error.model';
 
 @Component({
   selector: 'app-root',
@@ -45,13 +46,13 @@ export class AppComponent extends SharedService implements OnInit {
   fetchGraphData() {
     this.fetchData('graphdata').subscribe((data) => {
       let graphdata: Array<WeekData[]> = data.weekdata;
-      localStorage.setItem('githubdata', JSON.stringify(graphdata));
+      localStorage.setItem('graphdata', JSON.stringify(graphdata));
     });
   }
 
   fetchtodos() {
     this.postData('todos', '').subscribe((data) => {
-      if (data) {
+      if (!(data instanceof CustomError)) {
         let todos: Common[] = [];
         this.openIssueCount = data.issues.length;
         data.issues.forEach((element: string) => {
