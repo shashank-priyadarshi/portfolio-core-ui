@@ -11,6 +11,7 @@ import { Biodata } from 'src/assets/models/models.interface';
 export class FooterComponent implements OnInit {
   @ViewChild('resume')
   resume!: TemplateRef<any>;
+  currentYear!: number;
   linkedInURL!: string;
   gitHubURL!: string;
   mediumURL!: string;
@@ -20,7 +21,9 @@ export class FooterComponent implements OnInit {
   constructor(
     private matDialog: MatDialog,
     private viewportRuler: ViewportRuler
-  ) {}
+  ) {
+    this.currentYear = new Date().getFullYear();
+  }
 
   ngOnInit(): void {
     let biodataString = localStorage.getItem('biodata');

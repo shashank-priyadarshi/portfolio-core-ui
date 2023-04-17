@@ -51,16 +51,21 @@ export class AppComponent extends SharedService implements OnInit {
 
   fetchtodos() {
     this.postData('todos', '').subscribe((data) => {
-      let todos: Common[] = [];
-      this.openIssueCount = data.issues.length;
-      data.issues.forEach((element: string) => {
-        let lastIndex: number = element.lastIndexOf(',');
-        todos.push({
-          title: element.slice(0, lastIndex),
-          url: element.slice(lastIndex + 1),
+      if (data) {
+        let todos: Common[] = [];
+        this.openIssueCount = data.issues.length;
+        data.issues.forEach((element: string) => {
+          let lastIndex: number = element.lastIndexOf(',');
+          todos.push({
+            title: element.slice(0, lastIndex),
+            url: element.slice(lastIndex + 1),
+          });
         });
-      });
-      localStorage.setItem('todos', JSON.stringify(todos));
+        localStorage.setItem('todos', JSON.stringify(todos));
+      } else {
+        localStorage.removeItem('todos');
+        localStorage.removeItem('token');
+      }
     });
   }
 

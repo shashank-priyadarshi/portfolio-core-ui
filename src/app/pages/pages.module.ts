@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './home/about/about.component';
 import { ProjectsComponent } from './home/projects/projects.component';
 import { ActivityComponent } from './home/activity/activity.component';
+import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ActivityComponent } from './home/activity/activity.component';
     AboutComponent,
     ProjectsComponent,
     ActivityComponent,
+    PolicyComponent,
   ],
   imports: [
     CommonModule,

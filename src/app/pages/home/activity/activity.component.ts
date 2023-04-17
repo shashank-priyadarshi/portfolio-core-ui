@@ -45,11 +45,11 @@ export class ActivityComponent {
     this.repoData = new Promise((resolve) => {
       resolve([
         <chartData>{
-          name: 'Pull Requests',
+          name: 'PR',
           series: prDataList,
         },
         <chartData>{
-          name: 'Commits',
+          name: 'Cmit',
           series: commitDataList,
         },
       ]);

@@ -5,11 +5,13 @@ import { ArticlesComponent } from './articles/articles.component';
 import { HomeComponent } from './home/home.component';
 import { Title } from '@angular/platform-browser';
 import { AuthGuard } from '../auth/auth.guard';
+import { PolicyComponent } from './policy/policy.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'articles', component: ArticlesComponent },
+  { path: 'policies', component: PolicyComponent },
   {
     path: 'admin',
     loadChildren: () =>

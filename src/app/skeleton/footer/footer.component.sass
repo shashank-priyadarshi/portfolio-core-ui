@@ -19,6 +19,8 @@
 .card-container
     display: flex
     justify-content: center
+    align-items: center
+    flex-direction: column
 
     a
         color: #fff
@@ -35,6 +37,16 @@
 
 .card-container .card:not(.highlight-card):hover .material-icons path
     fill: rgb(105, 103, 103)
+
+.card-container
+    &__link-container
+        display: flex
+        margin: 0.25rem
+        align-items: center
+    &__policy-container
+        display: flex
+        color: #fff
+        align-items: center
 
 footer
     position: relative

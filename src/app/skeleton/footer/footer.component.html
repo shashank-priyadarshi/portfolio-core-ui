@@ -8,22 +8,23 @@
 <footer>
   <!-- Links -->
   <div class="card-container">
-    <a title="View my resume" href="javascript:void(0)" (click)="loadIFrame()"
-      ><svg
-        version="1.0"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 96.000000 96.000000"
-        preserveAspectRatio="xMidYMid meet"
-        width="20pt"
-        height="20pt"
-      >
-        <g
-          transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
-          fill="#fbc02d"
-          stroke="none"
+    <div class="card-container__link-container">
+      <a title="View my resume" href="javascript:void(0)" (click)="loadIFrame()"
+        ><svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 96.000000 96.000000"
+          preserveAspectRatio="xMidYMid meet"
+          width="20pt"
+          height="20pt"
         >
-          <path
-            d="M185 855 l-25 -24 0 -351 0 -351 25 -24 24 -25 271 0 271 0 24 25 25
+          <g
+            transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M185 855 l-25 -24 0 -351 0 -351 25 -24 24 -25 271 0 271 0 24 25 25
 24 0 351 0 351 -25 24 -24 25 -271 0 -271 0 -24 -25z m235 -115 c11 -11 20
 -29 20 -40 0 -26 -34 -60 -60 -60 -26 0 -60 34 -60 60 0 11 9 29 20 40 11 11
 29 20 40 20 11 0 29 -9 40 -20z m254 -2 c17 -28 -5 -52 -48 -56 -56 -5 -87 33
@@ -33,52 +34,52 @@ c17 -28 -5 -52 -48 -56 -56 -5 -87 33 -54 66 18 18 89 11 102 -10z m0 -160 c8
 -13 8 -23 0 -35 -10 -16 -32 -18 -189 -21 -182 -3 -205 2 -205 37 0 38 18 42
 204 39 158 -3 180 -5 190 -20z m0 -160 c8 -13 8 -23 0 -35 -10 -16 -32 -18
 -189 -21 -182 -3 -205 2 -205 37 0 38 18 42 204 39 158 -3 180 -5 190 -20z"
-          />
-        </g>
-      </svg>
-    </a>
+            />
+          </g>
+        </svg>
+      </a>
 
-    <a title="Connect over email" href="mailto:hire@ssnk.in">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
-        width="20pt"
-        height="20pt"
-      >
-        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-        <g
-          transform="translate(0.000000,512.000000) scale(1,-1)"
-          fill="#fbc02d"
-          stroke="none"
+      <a title="Connect over email" href="mailto:hire@ssnk.in">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="20pt"
+          height="20pt"
         >
-          <path
-            d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
-          />
-        </g>
-      </svg>
-    </a>
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+            />
+          </g>
+        </svg>
+      </a>
 
-    <a
-      title="Message me on LinkedIn"
-      href="{{ linkedInURL }}"
-      target="_blank"
-      rel="noopener"
-    >
-      <svg
-        version="1.0"
-        xmlns="http://www.w3.org/2000/svg"
-        width="20pt"
-        height="20pt"
-        viewBox="0 0 192 192"
-        preserveAspectRatio="xMidYMid meet"
+      <a
+        title="Message me on LinkedIn"
+        href="{{ linkedInURL }}"
+        target="_blank"
+        rel="noopener"
       >
-        <g
-          transform="translate(0.000000,192.000000) scale(0.100000,-0.100000)"
-          fill="#fbc02d"
-          stroke="none"
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20pt"
+          height="20pt"
+          viewBox="0 0 192 192"
+          preserveAspectRatio="xMidYMid meet"
         >
-          <path
-            d="M861 1750 c-330 -46 -586 -273 -672 -595 -29 -112 -29 -280 0 -390
+          <g
+            transform="translate(0.000000,192.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M861 1750 c-330 -46 -586 -273 -672 -595 -29 -112 -29 -280 0 -390
 62 -230 210 -414 418 -519 207 -104 477 -106 690 -6 216 101 371 288 434 525
 32 121 30 291 -5 408 -69 233 -218 409 -429 507 -127 60 -304 88 -436 70z
 m-161 -370 c13 -13 20 -33 20 -60 0 -27 -7 -47 -20 -60 -13 -13 -33 -20 -60
@@ -87,32 +88,32 @@ m-161 -370 c13 -13 20 -33 20 -60 0 -27 -7 -47 -20 -60 -13 -13 -33 -20 -60
 -42 28 27 c83 79 235 75 314 -9 53 -57 58 -84 58 -319 l0 -215 -79 0 -79 0 -4
 179 c-3 164 -5 182 -24 208 -29 39 -83 56 -131 40 -70 -24 -78 -45 -81 -248
 l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
-          />
-        </g>
-      </svg>
-    </a>
+            />
+          </g>
+        </svg>
+      </a>
 
-    <a
-      title="Check out my GitHub"
-      href="{{ gitHubURL }}"
-      target="_blank"
-      rel="noopener"
-    >
-      <svg
-        version="1.0"
-        xmlns="http://www.w3.org/2000/svg"
-        width="20pt"
-        height="20pt"
-        viewBox="0 0 980.000000 980.000000"
-        preserveAspectRatio="xMidYMid meet"
+      <a
+        title="Check out my GitHub"
+        href="{{ gitHubURL }}"
+        target="_blank"
+        rel="noopener"
       >
-        <g
-          transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
-          fill="#fbc02d"
-          stroke="none"
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20pt"
+          height="20pt"
+          viewBox="0 0 980.000000 980.000000"
+          preserveAspectRatio="xMidYMid meet"
         >
-          <path
-            d="M4560 9789 c-1035 -75 -1998 -463 -2800 -1128 -150 -123 -501 -475
+          <g
+            transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M4560 9789 c-1035 -75 -1998 -463 -2800 -1128 -150 -123 -501 -475
 -622 -621 -881 -1068 -1270 -2403 -1098 -3765 119 -934 501 -1801 1124 -2545
 98 -117 370 -393 496 -504 1328 -1166 3158 -1531 4825 -962 895 305 1700 879
 2281 1627 735 946 1100 2126 1024 3314 -70 1094 -491 2109 -1216 2935 -112
@@ -137,49 +138,61 @@ l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
 -1363 930 -561 573 -929 1269 -1090 2059 -51 247 -66 406 -72 721 -10 533 45
 911 201 1384 207 627 550 1173 1032 1645 322 315 643 544 1040 743 467 234
 967 373 1509 420 95 8 579 6 680 -3z"
-          />
-        </g>
-      </svg>
-    </a>
+            />
+          </g>
+        </svg>
+      </a>
 
-    <a title="Follow me on Medium" href="{{ mediumURL }}" target="_blank">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 640 512"
-        width="20pt"
-        height="20pt"
-      >
-        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-        <g
-          transform="translate(0.000000,512.000000) scale(1,-1)"
-          fill="#fbc02d"
-          stroke="none"
+      <a title="Follow me on Medium" href="{{ mediumURL }}" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 512"
+          width="20pt"
+          height="20pt"
         >
-          <path
-            d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
-          />
-        </g>
-      </svg>
-    </a>
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
+            />
+          </g>
+        </svg>
+      </a>
 
-    <a title="Follow me on Hashnode" href="{{ hashnodeURL }}" target="_blank">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
-        width="20pt"
-        height="20pt"
-      >
-        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-        <g
-          transform="translate(0.000000,512.000000) scale(1,-1)"
-          fill="#fbc02d"
-          stroke="none"
+      <a title="Follow me on Hashnode" href="{{ hashnodeURL }}" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="20pt"
+          height="20pt"
         >
-          <path
-            d="M35.19 171.1C-11.72 217.1-11.72 294 35.19 340.9L171.1 476.8C217.1 523.7 294 523.7 340.9 476.8L476.8 340.9C523.7 294 523.7 217.1 476.8 171.1L340.9 35.19C294-11.72 217.1-11.72 171.1 35.19L35.19 171.1zM315.5 315.5C282.6 348.3 229.4 348.3 196.6 315.5C163.7 282.6 163.7 229.4 196.6 196.6C229.4 163.7 282.6 163.7 315.5 196.6C348.3 229.4 348.3 282.6 315.5 315.5z"
-          />
-        </g>
-      </svg>
-    </a>
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M35.19 171.1C-11.72 217.1-11.72 294 35.19 340.9L171.1 476.8C217.1 523.7 294 523.7 340.9 476.8L476.8 340.9C523.7 294 523.7 217.1 476.8 171.1L340.9 35.19C294-11.72 217.1-11.72 171.1 35.19L35.19 171.1zM315.5 315.5C282.6 348.3 229.4 348.3 196.6 315.5C163.7 282.6 163.7 229.4 196.6 196.6C229.4 163.7 282.6 163.7 315.5 196.6C348.3 229.4 348.3 282.6 315.5 315.5z"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <div class="card-container__policy-container">
+      <div style="width: 10rem">
+        &copy; {{ currentYear }} <br />
+        Shashank Priyadarshi.<br />
+        All rights reserved.
+      </div>
+      <text [routerLink]="['/page', 'policies']" style="cursor: pointer"
+        >Policies</text
+      >
+    </div>
   </div>
 </footer>
