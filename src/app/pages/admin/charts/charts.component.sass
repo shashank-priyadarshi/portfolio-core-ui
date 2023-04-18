@@ -15,12 +15,7 @@
 .sub-block
     display: flex
     justify-content: center
-    flex-direction: column
-
-    ul, a
-        &:hover
-            text-decoration: underline
-            color: cadetblue
+    flex-direction: row
 
 .card-header
     font-size: 1rem
@@ -32,12 +27,9 @@
         font-size: 1vw
     .card-header
         font-size: 2rem
-    ul
-        padding: .5vh
-        line-height: 1
 
 @media screen and (max-width: 768px)
     .container
         &__card
             width: 90vw
-            
+            height: 80vh
