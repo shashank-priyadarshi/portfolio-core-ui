@@ -1,1 +1,11 @@
-<p>games works!</p>
+<div class="container"><app-admin></app-admin>
+  <div style="display: flex; justify-content: center">
+    <mat-card class="container__card" id="chessboardcontainer"
+      ><mat-card-header class="card-header">games</mat-card-header>
+      <mat-card-content class="sub-block">
+        <a href="">View original game</a>
+        <ngx-chess-board [size]="getElementDimensions()"></ngx-chess-board>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

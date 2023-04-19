@@ -45,7 +45,7 @@ export class SharedService {
   }
 
   protected getGames(): Observable<CustomError | Game[]> {
-    return this.http.get<Game[]>('src/assets/data/games.json').pipe(catchError((err) => {
+    return this.http.get<Game[]>('assets/data/games.json').pipe(catchError((err) => {
       const customError = new CustomError(`An error occurred while reading games: ${err.message}`);
       return of(customError);
     }));

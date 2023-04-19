@@ -20,6 +20,7 @@ import {MatListModule} from '@angular/material/list';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
+import { NgxChessBoardModule } from "ngx-chess-board";
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -43,7 +44,7 @@ let MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
-  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
+  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
+  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
 })
 export class MaterialModule {}
