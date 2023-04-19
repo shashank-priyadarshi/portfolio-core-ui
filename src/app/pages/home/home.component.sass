@@ -1,1 +1,117 @@
+.container
+    min-width: 100vw
+    background-size: 150%
+    background-position: center
+    background-repeat: no-repeat
+    background: #ffd740
+    &__name
+        font-size: 3rem
+        justify-content: center
+        color: #fff
+        // color: #e1d3d3bd
+    &__details
+        justify-content: center
+        font-size: 1.5rem
+        margin-top: -.8rem
+        color: #fff
+        // color: #e1d3d3bd
 
+    @media screen and (max-width: 535px)
+        .container
+            &__name
+                font-size: 1.35rem
+                margin-top: -0.25rem
+            &__details
+                font-size: .75rem
+                margin: -1.5rem 0px -1rem 0
+
+    @media screen and (min-width: 1330px)
+        .container
+            &__name
+                font-size: 3.75rem
+
+    @media screen and (min-width: 2400px) and (max-width: 3000px)
+        .container
+            &__details
+                font-size: 1.8rem
+
+    @media screen and (min-width: 3000px)
+        .container
+            &__name
+                font-size: 4.5rem
+            &__details
+                font-size: 2rem
+
+.resume
+    position: relative
+    overflow: hidden
+    width: 100%
+    padding-top: 56.25%
+
+    &__iframe
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        width: 100%
+        height: 100%
+
+.card-container .material-icons path
+    fill: rgb(105, 103, 103)
+
+.card-container
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    a
+        color: #fff
+
+    & .card:not(:last-child)
+        margin-right: 0
+
+.card-container .card:not(.highlight-card)
+    cursor: pointer
+
+.card-container .card:not(.highlight-card):hover
+    transform: translateY(-3px)
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35)
+
+.card-container .card:not(.highlight-card):hover .material-icons path
+    fill: rgb(105, 103, 103)
+
+.card-container
+    &__link-container
+        display: flex
+        margin: 0.25rem
+        align-items: center
+    &__policy-container
+        display: flex
+        color: #fff
+        align-items: center
+
+footer
+    position: relative
+    height: fit-content
+    background: #000
+    margin: 1vh 0 0 0
+
+    a
+        margin: .1rem
+        height: 2rem
+        width: 2rem
+        border-radius: 50%
+        background-color: white
+        border: 1px solid #eeeeee
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+        transition: 1s ease-out
+
+        &:hover
+            transform: translateY(-0.25rem)
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2)

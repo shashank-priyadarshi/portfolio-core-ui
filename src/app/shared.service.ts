@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
 import { CustomError } from 'src/assets/models/custom-error.model';
+import { Game } from 'src/assets/models/models.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,13 @@ export class SharedService {
           return of(customError);
         })
       );
+  }
+
+  protected getGames(): Observable<CustomError | Game[]> {
+    return this.http.get<Game[]>('src/assets/data/games.json').pipe(catchError((err) => {
+      const customError = new CustomError(`An error occurred while reading games: ${err.message}`);
+      return of(customError);
+    }));
   }
 }
 
