@@ -24,12 +24,11 @@ export class ActionsComponent extends PagesService {
   ngOnInit(): void {
     this.plugins.push({
       name: 'GitHub Integration',
-      endpoint: '/trigger'
+      endpoint: 'trigger'
     });
   }
 
   trigger(endpoint: string) {
-    console.log("trigger plugin")
     this.postData(endpoint, '').subscribe((data) => {
       let message: string;
       if (data instanceof CustomError) {
