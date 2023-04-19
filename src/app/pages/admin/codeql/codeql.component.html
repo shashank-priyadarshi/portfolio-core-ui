@@ -1,0 +1,21 @@
+<div class="container">
+    <div style="display: flex; justify-content: center">
+      <mat-card class="container__card"
+        ><mat-card-header class="card-header">codeql plugins</mat-card-header>
+        <mat-card-content class="sub-block">
+          <mat-form-field appearance="fill">
+            <mat-label>Select an Option: </mat-label>
+            <mat-select [(value)]="selectedOption">
+              <mat-option
+                *ngFor="let option of plugins"
+                [value]="option.value"
+              >
+                {{ option.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

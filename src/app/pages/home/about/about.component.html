@@ -1,0 +1,176 @@
+<div class="container">
+  <mat-card class="container__card">
+    <mat-card-content class="container__card__content">
+      <mat-card-header class="container__card__content__header">
+        About Me:
+      </mat-card-header>
+      <div class="container__card__content__body">
+        <p>
+          I am a Full Stack Web Developer based in India.<br />
+          Graduated in the year 2021, and since, have worked full time as a web
+          dev.
+        </p>
+        <p>
+          Outside work, I mostly spend my time tinkering with software and
+          electronics. I also like to learn new languages, read books, and play
+          bad chess.
+        </p>
+        <div>
+          <p>Send me a message if you want to:</p>
+          <ul>
+            <li>Collaborate on a web development project,</li>
+            <li>Schedule a meeting,</li>
+            <li>Play chess, or</li>
+            <li>Learn a new language together.</li>
+          </ul>
+          <p>
+            You can also check out other links in the footer for articles
+            related to all things web dev(mostly Angular and Go).
+          </p>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-content class="container__card__content">
+      <mat-card-header class="container__card__content__header"
+        >Send a message:
+      </mat-card-header>
+      <div class="message_container">
+        <form
+          [formGroup]="scheduleForm"
+          autocomplete="off"
+          novalidate
+          (ngSubmit)="createSchedule(scheduleForm.value)"
+        >
+          <div>
+            <div class="message_container__form__card__content__div">
+              <mat-form-field
+                appearance="fill"
+                class="message_container__form__card__content__div__form-field"
+              >
+                <mat-label>Enter your name</mat-label>
+                <input
+                  matInput
+                  placeholder="Example Pat"
+                  formControlName="name"
+                  id="name"
+                  required
+                />
+                <mat-error *ngIf="hasError('name', 'required')"
+                  >Name is required</mat-error
+                >
+                <mat-error *ngIf="hasError('name', 'maxlength')"
+                  >Name should not be greater than 50 characters</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div class="message_container__form__card__content__div">
+              <mat-form-field
+                appearance="fill"
+                class="message_container__form__card__content__div__form-field"
+              >
+                <mat-label>Enter your email</mat-label>
+                <input
+                  matInput
+                  placeholder="pat@example.com"
+                  formControlName="email"
+                  id="email"
+                  required
+                />
+                <mat-error *ngIf="hasError('email', 'required')"
+                  >Email is required</mat-error
+                >
+                <mat-error *ngIf="hasError('email', 'maxlength')"
+                  >Email should not be greater than 60 characters</mat-error
+                >
+                <mat-error *ngIf="hasError('email', 'minLength')"
+                  >Enter a valid email</mat-error
+                >
+                <mat-error *ngIf="hasError('email', 'provider')"
+                  >Email provider not supported</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div class="message_container__form__card__content__div">
+              <mat-form-field
+                appearance="fill"
+                class="message_container__form__card__content__div__form-field"
+              >
+                <mat-label>Messsage</mat-label>
+                <textarea
+                  matInput
+                  formControlName="comment"
+                  id="comment"
+                ></textarea>
+                <mat-error *ngIf="hasError('comment', 'required')"
+                  >Message is required</mat-error
+                >
+                <mat-error *ngIf="hasError('comment', 'maxlength')"
+                  >Message should not be greater than 150 characters</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div
+              *ngIf="showDatepicker"
+              class="message_container__form__card__content__div"
+            >
+              <mat-form-field
+                appearance="fill"
+                class="message_container__form__card__content__div__form-field"
+              >
+                <mat-label>Choose a date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="schedule"
+                  formControlName="date"
+                  id="date"
+                  placeholder="DD/MM/YYYY"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="schedule"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #schedule></mat-datepicker>
+                <mat-error *ngIf="hasError('date', 'invalidDate')"
+                  >Propose a valid date for meeting</mat-error
+                >
+                <mat-error *ngIf="hasError('date', 'required')"
+                  >Date is required</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-checkbox
+                formControlName="meeting"
+                (click)="datepickerToggle()"
+              >
+                Request a meeting!</mat-checkbox
+              >
+              <mat-checkbox formControlName="newsletter"
+                >Subscribe to my newsletter!</mat-checkbox
+              >
+            </div>
+          </div>
+
+          <mat-card-actions class="message_container__form__card__actions">
+            <button
+              class="message_container__form__card__actions__button"
+              [disabled]="!scheduleForm.valid"
+              color="primary"
+              mat-button
+            >
+              Submit
+            </button>
+            <button type="button" mat-button color="warn" (click)="onCancel()">
+              Cancel
+            </button>
+          </mat-card-actions>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,20 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportRuler } from '@angular/cdk/scrolling';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-// import { CalendarComponent } from 'src/app/modal/calendar/calendar.component';
-import { ResumeComponent } from 'src/app/modal/resume/resume.component';
 import { Title } from '@angular/platform-browser';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { SCMData, SCMActivity } from 'src/assets/models/models.interface';
-
-interface chartData {
-  name: string;
-  series: series[];
-}
-
-interface series {
-  name: string;
-  value: number;
-}
+import { Biodata } from 'src/assets/models/models.interface';
 
 @Component({
   selector: 'app-home',
@@ -22,74 +10,76 @@ interface series {
   styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent implements OnInit {
-  openIssues: string[] = [];
-  starredRepos: any;
-  starredRepoTooltip: string = '';
-  openIssueTooltip: string = '';
-  repoData: any;
-  repoDataPromise = false;
-  showStarredRepos: boolean = false;
-  linkedIn: string = 'https://linkedin.com/in/aman-kumar-verma';
-  githubOrg: string = 'https://github.com/Ecommerce-Clone/Core-UI';
-  portfolioRepo: string =
-    'https://github.com/shashank-priyadarshi/portfolio-core-ui/';
+  @ViewChild('resume')
+  resume!: TemplateRef<any>;
+  headerDetails!: string;
+  name!: string;
+  currentYear!: number;
+  linkedInURL!: string;
+  gitHubURL!: string;
+  mediumURL!: string;
+  hashnodeURL!: string;
+  noResponse: boolean = false;
+
   constructor(
     private matDialog: MatDialog,
-    private title: Title,
-    private snackBar: MatSnackBar
-  ) {}
+    private viewportRuler: ViewportRuler,
+    private title: Title
+  ) {
+    this.currentYear = new Date().getFullYear();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Home');
-    let githubdatastring: string = localStorage.getItem('githubdata') as string;
-    if (githubdatastring) {
-      let githubdata = JSON.parse(githubdatastring) as SCMData;
-      this.parseGitHubData(githubdata);
+    let biodataString = localStorage.getItem('biodata');
+    let biodata: Biodata;
+    if (biodataString) {
+      biodata = JSON.parse(biodataString) as Biodata;
+    } else {
+      this.name = 'UNDEFINED';
+      this.headerDetails = 'Asuvidha ke liye khed hai!';
+      return;
     }
+    this.fetchDetails(biodata);
+    if (biodataString) {
+      biodata = JSON.parse(biodataString) as Biodata;
+    } else {
+      this.linkedInURL =
+        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true';
+      this.gitHubURL =
+        'https://github.com/shashank-priyadarshi/MyFiles/blob/main/server_crash.jpg?raw=true';
+      return;
+    }
+    this.fetchSMLinks(biodata);
   }
 
-  parseGitHubData(githubdata: SCMData) {
-    let prDataList: series[] = [];
-    let commitDataList: series[] = [];
-    this.starredRepoTooltip = githubdata.starredRepoCount + ' Starred Repos';
-    this.openIssueTooltip = githubdata.openIssueCount + ' Open Issues';
-    // this.starredRepos = githubdata.list;
-    githubdata.scmActivity.forEach((element: SCMActivity) => {
-      prDataList.push(<series>{
-        name: element.date.slice(0, 11),
-        value: element.pr,
-      });
-      commitDataList.push(<series>{
-        name: element.date.slice(0, 11),
-        value: element.commits,
-      });
-    });
-    this.repoData = new Promise((resolve) => {
-      resolve([
-        <chartData>{
-          name: 'Pull Requests',
-          series: prDataList,
-        },
-        <chartData>{
-          name: 'Commits',
-          series: commitDataList,
-        },
-      ]);
-      this.repoDataPromise = true;
-    });
+  calculateExperience(dojdata: string) {
+    return new Date().getTime() - new Date(dojdata).getTime();
+  }
+
+  fetchDetails(biodata: Biodata) {
+    this.name = biodata.name;
+    this.headerDetails =
+      biodata.role +
+      ' | ' +
+      (this.calculateExperience(biodata.doj) / 31557600000).toFixed(2) +
+      ' years';
+  }
+
+  fetchSMLinks(biodata: Biodata) {
+    this.linkedInURL = biodata.linkedin;
+    this.gitHubURL = biodata.github;
+    this.mediumURL = biodata.medium;
+    this.hashnodeURL = biodata.hashnode;
   }
 
   loadIFrame() {
-    this.matDialog.open(ResumeComponent, {
-      height: '600px',
-      width: '1200px',
-    });
-  }
-
-  loadCallSchedule() {
-    // this.matDialog.open(CalendarComponent);
-    this.snackBar.open("This action hasn't been enabled yet!", 'OK', {
-      duration: 3000,
+    const viewportSize = this.viewportRuler.getViewportSize();
+    const height = Math.max(viewportSize.height * 0.8, 400) + 'px'; // set minimum height to 400px
+    const width = Math.max(viewportSize.width * 0.8, 600) + 'px'; // set minimum width to 600px
+    this.matDialog.open(this.resume, {
+      height: height,
+      width: width,
     });
   }
 }

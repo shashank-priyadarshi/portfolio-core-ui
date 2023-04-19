@@ -1,0 +1,31 @@
+<div class="container">
+  <div style="display: flex; justify-content: center">
+    <mat-card class="container__card" id="chessboardcontainer"
+      ><mat-card-header class="card-header">games</mat-card-header>
+      <mat-card-content class="sub-block" *ngIf="gameLoaded">
+        <a style="color: #fff" [href]="games[currentGame].gameurl" target="_blank">View original game</a>
+        <div style="display: flex; flex-direction: row; align-items: center; margin: 1rem">
+          <button mat-raised-button (click)="previousGame()">&laquo;</button>
+          <ngx-chess-board
+          #board
+          [size]="getElementDimensions()"
+          ></ngx-chess-board>
+          <button mat-raised-button (click)="nextGame()">&raquo;</button>
+        </div>
+      </mat-card-content>
+      <mat-card-content *ngIf="!gameLoaded">
+        <mat-spinner diameter="60"></mat-spinner>
+      </mat-card-content>
+      <mat-card-content>
+        <button mat-raised-button (click)="getFirstMove()">
+          &laquo;&laquo;
+        </button>
+        <button mat-raised-button (click)="getPreviousMove()">&laquo;</button>
+        <button mat-raised-button (click)="getNextMove()">&raquo;</button>
+        <button mat-raised-button (click)="getLastMove()">
+          &raquo;&raquo;
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

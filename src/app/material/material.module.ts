@@ -15,9 +15,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
+import { NgxChessBoardModule } from "ngx-chess-board";
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -36,10 +39,12 @@ let MATERIAL_MODULES = [
   MatTooltipModule,
   MatDialogModule,
   MatChipsModule,
+  MatCheckboxModule,
+  MatListModule
 ];
 
 @NgModule({
-  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
-  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule],
+  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
+  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
 })
 export class MaterialModule {}

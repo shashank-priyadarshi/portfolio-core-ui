@@ -1,0 +1,40 @@
+.container
+    display: contents
+    &__card
+        margin-top: 1vw
+        border-radius: 15px
+        align-items: center
+        width: 45vw
+        height: 80vh
+        overflow: hidden
+        overflow-y: scroll
+        background-image: url(https://live.staticflickr.com/65535/52829245116_0ab7b8b39e_b.jpg)
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+        // overflow-x: scroll
+        &:hover
+            box-shadow: 2px 15px 30px 3px #ffd740
+
+.sub-block
+    display: flex
+    justify-content: center
+    flex-direction: column
+    color: #fff
+
+.card-header
+    font-size: 1rem
+    font-weight: 500
+    justify-content: center
+    color: #fff
+
+@media screen and ( min-width: 1282px)
+    .container
+        font-size: 1vw
+    .card-header
+        font-size: 2rem
+
+@media screen and (max-width: 768px)
+    .container
+        &__card
+            width: 90vw

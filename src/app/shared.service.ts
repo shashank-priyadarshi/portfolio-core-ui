@@ -1,31 +1,54 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+import { CustomError } from 'src/assets/models/custom-error.model';
+import { Game } from 'src/assets/models/models.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  public fetchData(endpoint: string): Observable<any> {
+  protected fetchData(endpoint: string): Observable<any> {
     let headers = new HttpHeaders({
       'Referrer-Policy': 'no-referrer',
     });
 
-    return this.http.get('https://api2.ssnk.in/' + endpoint, {
-      headers: headers,
-    });
+    return this.http
+      .get('https://api.ssnk.in/' + endpoint, {
+        headers: headers,
+      })
+      .pipe(
+        catchError(() => {
+          return of(null);
+        })
+      );
   }
 
-  public postData(endpoint: string, formData: any): Observable<any> {
+  protected postData(endpoint: string, formData: any): Observable<any> {
     let headers = new HttpHeaders({
       'Referrer-Policy': 'no-referrer',
       'Content-Type': 'text/plain; charset=utf-8',
     });
 
-    return this.http.post('https://api2.ssnk.in/' + endpoint, formData, {
-      headers: headers,
-    });
+    return this.http
+      .post('https://api.ssnk.in/' + endpoint, formData, {
+        headers: headers,
+      })
+      .pipe(
+        catchError((err) => {
+          const customError = new CustomError(`An error occurred: ${err.message}`);
+          return of(customError);
+        })
+      );
+  }
+
+  protected getGames(): Observable<CustomError | Game[]> {
+    return this.http.get<Game[]>('assets/data/games.json').pipe(catchError((err) => {
+      const customError = new CustomError(`An error occurred while reading games: ${err.message}`);
+      return of(customError);
+    }));
   }
 }
+

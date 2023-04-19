@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared.service';
-import {
-  Common,
-  Biodata,
-  SCMActivity,
-  SCMData,
-} from 'src/assets/models/models.interface';
+import { Common, Biodata, WeekData } from 'src/assets/models/models.interface';
+import { CustomError } from 'src/assets/models/custom-error.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends SharedService implements OnInit {
   openIssueCount!: number;
   // dataLoaded: boolean = false;
-  constructor(private sharedService: SharedService) {}
+  // constructor() {
+  //   super();
+  // }
   ngOnInit() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      this.fetchtodos();
+    }
     this.fetchBiodata();
-    this.fetchtodos();
-    this.fetchGithubdata();
+    this.fetchGraphData();
     this.welcome();
   }
 
   fetchBiodata() {
-    this.sharedService.fetchData('biodata').subscribe((data) => {
+    this.fetchData('biodata').subscribe((data) => {
       let footer = data.footer[0].Value[0];
       let header = data.header;
       let role = header[1].Value;
@@ -35,52 +36,37 @@ export class AppComponent implements OnInit {
         doj: role[2],
         linkedin: footer[0].Value,
         github: footer[1].Value,
+        medium: 'https://medium.com/@ssnkprydrc',
+        hashnode: 'https://blog.ssnk.in',
       };
       localStorage.setItem('biodata', JSON.stringify(biodata));
     });
   }
-  fetchGithubdata() {
-    this.sharedService.fetchData('githubdata').subscribe((data) => {
-      let starredRepos = data.starredrepos;
-      let weekData = data.weekdata;
-      let githubdata = <SCMData>{
-        starredRepoCount: starredRepos[0].Value,
-      };
-      let list: Common[] = [];
-      starredRepos[1].Value.forEach((element: string) => {
-        let lastIndex: number = element.lastIndexOf(',');
-        list.push(<Common>{
-          title: element.slice(0, lastIndex),
-          url: element.slice(lastIndex + 1),
-        });
-      });
-      githubdata.list = list;
-      let activity: SCMActivity[] = [];
-      weekData.forEach((element: { key: string; Value: number }[]) => {
-        activity.push(<SCMActivity>{
-          pr: element[0].Value,
-          loc: element[1].Value,
-          date: element[2].Value,
-          commits: element[3].Value,
-        });
-      });
-      githubdata.scmActivity = activity;
-      githubdata.openIssueCount = this.openIssueCount;
-      localStorage.setItem('githubdata', JSON.stringify(githubdata));
+
+  fetchGraphData() {
+    this.fetchData('graphdata').subscribe((data) => {
+      let graphdata: Array<WeekData[]> = data.weekdata;
+      localStorage.setItem('graphdata', JSON.stringify(graphdata));
     });
   }
+
   fetchtodos() {
-    this.sharedService.postData('todos', '').subscribe((data) => {
-      let todos: Common[] = [];
-      this.openIssueCount = data.issues.length;
-      data.issues.forEach((element: string) => {
-        let lastIndex: number = element.lastIndexOf(',');
-        todos.push({
-          title: element.slice(0, lastIndex),
-          url: element.slice(lastIndex + 1),
+    this.postData('todos', '').subscribe((data) => {
+      if (!(data instanceof CustomError)) {
+        let todos: Common[] = [];
+        this.openIssueCount = data.issues.length;
+        data.issues.forEach((element: string) => {
+          let lastIndex: number = element.lastIndexOf(',');
+          todos.push({
+            title: element.slice(0, lastIndex),
+            url: element.slice(lastIndex + 1),
+          });
         });
-      });
-      localStorage.setItem('todos', JSON.stringify(todos));
+        localStorage.setItem('todos', JSON.stringify(todos));
+      } else {
+        localStorage.removeItem('todos');
+        localStorage.removeItem('token');
+      }
     });
   }
 

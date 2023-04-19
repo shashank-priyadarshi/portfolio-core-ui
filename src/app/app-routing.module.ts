@@ -13,6 +13,10 @@ const routes: Routes = [
       import('./pages/pages.module').then((m) => m.PagesModule),
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./shared/shared-routing.module').then(

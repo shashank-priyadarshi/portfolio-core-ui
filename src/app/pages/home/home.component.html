@@ -1,174 +1,209 @@
-<div class="container">
-  <mat-card class="container__card container__github-card">
-    <mat-card-header class="container__card-header"
-      >GitHub Activity</mat-card-header
-    >
-    <div
-      style="
-        height: 84%;
-        width: 90%;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-      "
-    >
-      <mat-card-content>
-        <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
-        <mat-spinner diameter="60" *ngIf="!repoDataPromise"></mat-spinner>
-      </mat-card-content>
-    </div>
-    <mat-card-content
-      style="margin: 0; display: flex; justify-content: center; width: 80%"
-    >
-      <ul style="display: flex; width: 75%; justify-content: space-around">
-        <li
-          style="cursor: pointer"
-          [matTooltip]="starredRepoTooltip"
-          [matTooltipPosition]="'above'"
-          (click)="loadCallSchedule()"
-        >
-          <!-- <li style="width: 110px; cursor: pointer" [popover]="repoTemplate"> -->
-          Starred Repos
-        </li>
-        <!-- <ng-template #repoTemplate>
-          <div>{{ starredRepoTooltip }}</div>
-          <ul *ngFor="let todo of starredRepos; index as i">
-            <a
-              [href]="todo.url"
-              target="_blank"
-              >{{ todo.title }}</a
-            >
-          </ul>
-        </ng-template> -->
-        <li
-          style="cursor: pointer"
-          [matTooltip]="openIssueTooltip"
-          [matTooltipPosition]="'above'"
-          routerLink="/page/todos"
-          routerLinkActive="active"
-        >
-          Open Issues
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
-  <div style="width: 40vw">
-    <mat-card class="container__card container__other-cards">
-      <mat-card-header class="container__card-header">Projects</mat-card-header>
-      <div
-        style="
-          height: 90%;
-          width: 90%;
-          justify-content: center;
-          display: flex;
-          align-items: center;
-        "
-      >
-        <mat-card-content style="margin: 0.2rem 0 0 0">
-          <table>
-            <tr>
-              <td>Work related:</td>
-              <td>
-                <ul>
-                  <li>
-                    Consuming REST APIs from SCM/ALM/Code Quality tools in Go
-                    plugins
-                  </li>
-                  <li>
-                    Parsing and pushing data to internal microservices, using
-                    GraphQL REST endpoints
-                  </li>
-                  <li>
-                    Using more GraphQL in Angular web application to fetch data
-                    from internal microservices
-                  </li>
-                  <li>
-                    Using charting libraries, internal NPM packages and Angular
-                    Material for data visualisation in Angular web application
-                  </li>
-                  <li>
-                    Offloading core web application by creating Angular Micro
-                    Frontends
-                  </li>
-                  <li>
-                    Ensuring code quality with semantic analysis, security
-                    analysis, SAST & DAST, using tools like SonarQube, Fortify
-                    SAST, Synopsys BlackDuck, GHAS, CodeQL, etc.
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a [href]="portfolioRepo">Portfolio</a>
-              </td>
-              <td>
-                <ul>
-                  <li>Using Go and MongoDB to implement server</li>
-                  <li>
-                    Using Go and MongoDB to implement integrations from GitHub
-                  </li>
-                  <li>
-                    Using Angular, Angular Material and ngx-charts to develop UI
-                  </li>
-                  <li>
-                    Using Docker and Docker Compose, and DigitalOcean droplets
-                    to containerise MongoDB and backend services, and nginx
-                    reverse proxy to deploy UI on Linux based container
-                  </li>
-                  <li>
-                    Using CircleCI and GitHub Actions with tools like
-                    golangci-lint, Cypress, ESLint and SonarQube Cloud for code
-                    quality checks
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a [href]="githubOrg"> Ecommerce website clone </a>
-              </td>
-              <td>
-                <ul>
-                  <li>Using Angular to clone Amazon landing page</li>
-                  <li>
-                    Developing backend services and microservices will involve
-                    NodeJS, Go and Java SpringBoot and Hibernate.
-                  </li>
-                  <li>
-                    Co-developer:
-                    <a [href]="linkedIn" target="_blank">@Aman Verma</a>
-                  </li>
-                  <li>Stay tuned for updates</li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-        </mat-card-content>
-      </div>
-    </mat-card>
+<mat-toolbar class="container">
+  <mat-toolbar-row class="container__name">{{ name }}</mat-toolbar-row>
+  <mat-toolbar-row class="container__details">{{
+    headerDetails
+  }}</mat-toolbar-row>
+</mat-toolbar>
+
+<app-projects></app-projects>
+<app-activity></app-activity>
+<app-about></app-about>
+
+<ng-template #resume>
+  <div class="resume">
+    <iframe class="resume__iframe" src="assets/files/resume.pdf"></iframe>
   </div>
-  <mat-card class="container__card container__button-card">
-    <mat-card-content class="container__button-card__content">
-      <mat-card
-        class="container__button-card__buttons__card"
-        (click)="loadIFrame()"
-        matTooltip="View Resume"
-        [matTooltipPosition]="'left'"
+</ng-template>
+
+<!-- Footer -->
+<footer>
+  <!-- Links -->
+  <div class="card-container">
+    <div class="card-container__link-container">
+      <a title="View my resume" href="javascript:void(0)" (click)="loadIFrame()"
+        ><svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 96.000000 96.000000"
+          preserveAspectRatio="xMidYMid meet"
+          width="20pt"
+          height="20pt"
+        >
+          <g
+            transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M185 855 l-25 -24 0 -351 0 -351 25 -24 24 -25 271 0 271 0 24 25 25
+  24 0 351 0 351 -25 24 -24 25 -271 0 -271 0 -24 -25z m235 -115 c11 -11 20
+  -29 20 -40 0 -26 -34 -60 -60 -60 -26 0 -60 34 -60 60 0 11 9 29 20 40 11 11
+  29 20 40 20 11 0 29 -9 40 -20z m254 -2 c17 -28 -5 -52 -48 -56 -56 -5 -87 33
+  -54 66 18 18 89 11 102 -10z m-214 -163 c11 -10 20 -26 20 -37 0 -16 -9 -18
+  -100 -18 -91 0 -100 2 -100 18 0 19 23 45 50 55 28 12 110 0 130 -18z m214 3
+  c17 -28 -5 -52 -48 -56 -56 -5 -87 33 -54 66 18 18 89 11 102 -10z m0 -160 c8
+  -13 8 -23 0 -35 -10 -16 -32 -18 -189 -21 -182 -3 -205 2 -205 37 0 38 18 42
+  204 39 158 -3 180 -5 190 -20z m0 -160 c8 -13 8 -23 0 -35 -10 -16 -32 -18
+  -189 -21 -182 -3 -205 2 -205 37 0 38 18 42 204 39 158 -3 180 -5 190 -20z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <a title="Connect over email" href="mailto:hire@ssnk.in">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="20pt"
+          height="20pt"
+        >
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <a
+        title="Message me on LinkedIn"
+        href="{{ linkedInURL }}"
+        target="_blank"
+        rel="noopener"
       >
-        <mat-icon>view_carousel</mat-icon>
-      </mat-card>
-    </mat-card-content>
-    <mat-card-content class="container__button-card__content">
-      <mat-card
-        class="container__button-card__buttons__card"
-        color="primary"
-        (click)="loadCallSchedule()"
-        matTooltip="Schedule a call"
-        [matTooltipPosition]="'left'"
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20pt"
+          height="20pt"
+          viewBox="0 0 192 192"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <g
+            transform="translate(0.000000,192.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M861 1750 c-330 -46 -586 -273 -672 -595 -29 -112 -29 -280 0 -390
+  62 -230 210 -414 418 -519 207 -104 477 -106 690 -6 216 101 371 288 434 525
+  32 121 30 291 -5 408 -69 233 -218 409 -429 507 -127 60 -304 88 -436 70z
+  m-161 -370 c13 -13 20 -33 20 -60 0 -27 -7 -47 -20 -60 -13 -13 -33 -20 -60
+  -20 -27 0 -47 7 -60 20 -13 13 -20 33 -20 60 0 53 27 80 80 80 27 0 47 -7 60
+  -20z m20 -520 l0 -300 -80 0 -80 0 0 300 0 300 80 0 80 0 0 -300z m280 258 l0
+  -42 28 27 c83 79 235 75 314 -9 53 -57 58 -84 58 -319 l0 -215 -79 0 -79 0 -4
+  179 c-3 164 -5 182 -24 208 -29 39 -83 56 -131 40 -70 -24 -78 -45 -81 -248
+  l-4 -179 -79 0 -79 0 0 300 0 300 80 0 80 0 0 -42z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <a
+        title="Check out my GitHub"
+        href="{{ gitHubURL }}"
+        target="_blank"
+        rel="noopener"
       >
-        <mat-icon>calendar_today</mat-icon>
-      </mat-card>
-    </mat-card-content>
-  </mat-card>
-</div>
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20pt"
+          height="20pt"
+          viewBox="0 0 980.000000 980.000000"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <g
+            transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M4560 9789 c-1035 -75 -1998 -463 -2800 -1128 -150 -123 -501 -475
+  -622 -621 -881 -1068 -1270 -2403 -1098 -3765 119 -934 501 -1801 1124 -2545
+  98 -117 370 -393 496 -504 1328 -1166 3158 -1531 4825 -962 895 305 1700 879
+  2281 1627 735 946 1100 2126 1024 3314 -70 1094 -491 2109 -1216 2935 -112
+  128 -386 398 -509 501 -763 642 -1665 1026 -2665 1134 -174 19 -664 27 -840
+  14z m695 -789 c969 -88 1849 -495 2528 -1168 231 -229 391 -422 552 -667 355
+  -541 561 -1100 652 -1773 22 -163 25 -779 5 -942 -103 -819 -393 -1514 -890
+  -2135 -129 -161 -466 -497 -629 -627 -305 -242 -636 -438 -989 -587 -98 -41
+  -346 -131 -360 -131 -2 0 -4 195 -4 433 0 459 -6 537 -51 683 -49 159 -160
+  326 -279 420 l-62 48 139 18 c475 59 917 203 1206 391 309 201 556 514 687
+  867 18 47 49 153 70 236 101 394 125 872 59 1211 -55 284 -190 569 -377 792
+  -34 40 -62 79 -62 86 0 6 9 38 20 69 51 150 65 250 65 471 -1 189 -3 222 -27
+  332 -15 67 -45 177 -68 246 l-41 124 -52 7 c-122 14 -212 3 -377 -50 -240 -75
+  -498 -202 -764 -374 -51 -33 -100 -60 -109 -60 -9 0 -71 14 -139 30 -149 37
+  -352 73 -548 97 -204 25 -761 25 -972 0 -192 -23 -404 -60 -552 -97 -65 -17
+  -125 -30 -133 -30 -8 0 -79 41 -156 90 -78 50 -232 135 -342 190 -286 141
+  -445 191 -660 205 -147 10 -145 11 -194 -138 -22 -68 -52 -182 -67 -253 -25
+  -115 -28 -150 -28 -324 0 -211 15 -312 69 -469 l25 -74 -39 -43 c-157 -169
+  -291 -411 -366 -659 -55 -182 -67 -274 -72 -540 -6 -276 10 -460 57 -695 91
+  -452 251 -764 531 -1035 219 -212 415 -326 764 -445 231 -78 439 -124 738
+  -163 l98 -12 -61 -50 c-117 -96 -217 -247 -268 -405 -48 -145 -54 -219 -59
+  -692 -3 -247 -9 -448 -13 -448 -18 0 -281 95 -392 141 -520 217 -959 516
+  -1363 930 -561 573 -929 1269 -1090 2059 -51 247 -66 406 -72 721 -10 533 45
+  911 201 1384 207 627 550 1173 1032 1645 322 315 643 544 1040 743 467 234
+  967 373 1509 420 95 8 579 6 680 -3z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <a title="Follow me on Medium" href="{{ mediumURL }}" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 512"
+          width="20pt"
+          height="20pt"
+        >
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <a title="Follow me on Hashnode" href="{{ hashnodeURL }}" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="20pt"
+          height="20pt"
+        >
+          <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+          <g
+            transform="translate(0.000000,512.000000) scale(1,-1)"
+            fill="#fbc02d"
+            stroke="none"
+          >
+            <path
+              d="M35.19 171.1C-11.72 217.1-11.72 294 35.19 340.9L171.1 476.8C217.1 523.7 294 523.7 340.9 476.8L476.8 340.9C523.7 294 523.7 217.1 476.8 171.1L340.9 35.19C294-11.72 217.1-11.72 171.1 35.19L35.19 171.1zM315.5 315.5C282.6 348.3 229.4 348.3 196.6 315.5C163.7 282.6 163.7 229.4 196.6 196.6C229.4 163.7 282.6 163.7 315.5 196.6C348.3 229.4 348.3 282.6 315.5 315.5z"
+            />
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <div class="card-container__policy-container">
+      <div style="width: 10rem">
+        &copy; {{ currentYear }} <br />
+        Shashank Priyadarshi.<br />
+        All rights reserved.
+      </div>
+      <text [routerLink]="['/page', 'policies']" style="cursor: pointer"
+        >Policies</text
+      >
+    </div>
+  </div>
+</footer>

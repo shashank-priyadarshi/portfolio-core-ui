@@ -1,0 +1,34 @@
+<style>
+  ul {
+    padding: 0;
+    margin: 0.3rem;
+  }
+</style>
+
+<div class="container">
+  <div style="display: flex; justify-content: center">
+    <mat-card class="container__card"
+      ><mat-card-header class="card-header">{{ dataField }}:{{dataCount}}</mat-card-header>
+      <mat-card-content class="sub-block">
+        <div style="align-items: center; display: flex" *ngIf="!dataLoaded">
+          <mat-spinner diameter="60"></mat-spinner>
+        </div>
+        <ul [hidden]="!dataLoaded" *ngFor="let item of list; index as i">
+          <input
+            [hidden]="isRepoList"
+            type="checkbox"
+            (click)="initSnackBar($event)"
+          />
+          <a
+            [href]="item.url"
+            target="_blank"
+            style="text-decoration: none; color: inherit"
+            disabled
+            (click)="initSnackBar($event)"
+            >{{ item.title }}</a
+          >
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <mat-card class="container__card container__github-card">
+    <mat-card-header class="container__card-header"
+      >GitHub Activity</mat-card-header
+    >
+    <div
+      style="
+        height: 84%;
+        width: 90%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <mat-card-content>
+        <app-chart *ngIf="repoDataPromise" [gitHubData]="repoData"></app-chart>
+        <mat-spinner diameter="60" *ngIf="!repoDataPromise"></mat-spinner>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
