@@ -19,7 +19,7 @@ jobs:
             - /home/circleci/.cache/Cypress
       - run:
           name: Install local dependencies
-          command: npm install
+          command: npm install --force --legacy-peer-deps --verbose
       - run:
           name: Install Cypress
           command: npm install cypress
