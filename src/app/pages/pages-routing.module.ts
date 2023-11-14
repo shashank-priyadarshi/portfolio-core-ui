@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CanActivate, Router, RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { ArticlesComponent } from './articles/articles.component';
 import { HomeComponent } from './home/home.component';
 import { Title } from '@angular/platform-browser';
@@ -25,7 +25,7 @@ const routes: Routes = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule implements CanActivate {
+export class PagesRoutingModule  {
   constructor(private title: Title, private router: Router) {}
   canActivate() {
     const title =
