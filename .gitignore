@@ -43,3 +43,6 @@ Thumbs.db
 # Cypress
 /cypress/downloads/
 /cypress/videos/
+
+# NX
+.nx
