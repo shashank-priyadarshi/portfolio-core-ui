@@ -1,0 +1,39 @@
+name: Sync to Monorepo
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout current repo
+      uses: actions/checkout@v2
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'Shashank Priyadarshi'
+        git config --global user.email 'shashank9163882019@gmail.com'
+
+    - name: Clone monorepo
+      run: |
+        git clone https://github.com/shashank-priyadarshi/projects.git
+        cd projects
+        git checkout dev
+
+    - name: Copy changes to monorepo
+      run: |
+        ls
+        rm -rf projects/portfolio/portfolio-core-ui/*
+        cp -R ./* projects/portfolio/portfolio-core-ui/
+        cd projects
+        rm -rf .git .gitignore
+
+    - name: Push changes to monorepo
+      run: |
+        git add .
+        git commit -m "Sync changes from standalone repo"
+        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/shashank-priyadarshi/projects.git
