@@ -25,16 +25,19 @@ jobs:
         cd projects
         git checkout dev
         rm -rf ../projects/portfolio/portfolio-core-ui/*
+        pwd
 
     - name: Copy changes to monorepo
       run: |
-        ls
+        pwd
         rm -rf .git .gitignore
         cp -R ./* ../projects/portfolio/portfolio-core-ui/
         cd ../projects
+        pwd
 
     - name: Push changes to monorepo
       run: |
+        pwd
         git add .
         git commit -m "Sync changes from standalone repo"
         git push https://${{ secrets.GITHUB_TOKEN }}@github.com/shashank-priyadarshi/projects.git
