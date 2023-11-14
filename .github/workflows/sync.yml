@@ -36,4 +36,4 @@ jobs:
         cd ../projects
         git add .
         git commit -m "Sync changes from standalone repo"
-        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/shashank-priyadarshi/projects.git
+        git push https://${{ secrets.MONOREPO_SYNC_TOKEN }}@github.com/shashank-priyadarshi/projects.git
