@@ -1,5 +1,4 @@
 .container
-    display: flex
     flex-direction: row
     min-width: 100vw
     justify-content: center
@@ -8,16 +7,39 @@
         margin: .5rem .25rem 0 .2rem
         border-radius: .5rem
 
-        &:hover
-            box-shadow: .020rem .5rem .4rem .025rem #ffd740
-
     &__card-header
         font-size: 1rem
         font-weight: 500
 
     &__other-cards
-        height: 35vw
+        height: 45vw
         align-items: center
+        justify-content: center
+
+.experience
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.experience-tasks
+  align-items: center
+  display: flex
+  flex-direction: column
+  line-height: 1.5rem
+
+.role-title
+  font-weight: 500
+
+.experience-role
+  justify-content: center
+  display: flex
+
+.experience-tasks, .experience-role, .role-title, .experience-company
+  margin: 0
+
+::-webkit-scrollbar
+  width: 0
+  //background: transparent
 
 a
     text-decoration: none
@@ -25,30 +47,12 @@ a
     color: inherit
     &:hover
         text-decoration: underline
-        color: #ffd740
+        color: #000000
 
 tr ul
     max-height: 6.7vw
     overflow: hidden
     overflow-y: scroll
 
-@media screen and (min-width: 1709px)
-    .container
-        font-size: .75vw
-        &__other-cards
-            height: 28vw
-        &__card-header
-            font-size: 2rem
-    li
-        padding: 0.5vh
-        line-height: 1
-
-@media screen and (max-width: 948px)
-    .container
-        flex-direction: column
-        align-content: center
-        flex-wrap: wrap
-
-        &__other-cards
-            width: 90vw
-            height: max-content
+ng-container, span
+  cursor: pointer

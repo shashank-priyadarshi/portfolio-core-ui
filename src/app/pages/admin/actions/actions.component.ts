@@ -4,9 +4,16 @@ import { CustomError } from 'src/assets/models/custom-error.model';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-interface Plugin {
+interface name {
   name: string;
-  endpoint: string;
+}
+
+interface label {
+  label: string;
+}
+
+interface source {
+  source: string;
 }
 
 @Component({
@@ -15,17 +22,32 @@ interface Plugin {
   styleUrls: ['./actions.component.sass']
 })
 export class ActionsComponent extends PagesService {
-  plugins: Array<Plugin> = [];
+  actions: (name & source)[] = [];
+  chartSrcOptions: (name & label & source)[] = [];
+  plugins: (name & label)[]= [];
 
   constructor(private snackbar: MatSnackBar, private httpclient: HttpClient) {
     super(httpclient);
   }
 
   ngOnInit(): void {
-    this.plugins.push({
+    this.actions.push({
       name: 'GitHub Integration',
-      endpoint: 'trigger'
+      source: 'trigger'
     });
+    this.plugins.push(
+      { name: "sonar", label: "SonarQube" },
+      { name: "stackhawk", label: "StackHawk" },
+      { name: "circleci", label: "CircleCI" },
+      { name: "deepsource", label: "DeepSource" },
+      { name: "github", label: "GitHub" }
+    );
+    this.chartSrcOptions.push(
+      { name: "categories", label: "Categories", source: "https://wakatime.com/share/@a6a86545-e882-487e-a007-4dcc8b053d30/70e78b12-d1ec-42c4-8fa2-5a7732bceb76.svg" },
+      { name: "languages", label: "Languages", source: "https://wakatime.com/share/@a6a86545-e882-487e-a007-4dcc8b053d30/d2b1061a-9748-4152-bacb-e2d80d360a71.svg" },
+      { name: "os", label: "OS", source: "https://wakatime.com/share/@a6a86545-e882-487e-a007-4dcc8b053d30/d7550462-9064-42f2-8cb1-bb2cd775b7f4.svg" },
+      { name: "activity", label: "Coding Activity", source: "https://wakatime.com/share/@a6a86545-e882-487e-a007-4dcc8b053d30/c2aa8944-895a-4b4d-9f72-cff37f1fd0fa.svg" }
+    );
   }
 
   trigger(endpoint: string) {

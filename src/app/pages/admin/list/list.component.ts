@@ -43,7 +43,7 @@ export class ListComponent extends PagesService {
   }
 
   fetchDataList() {
-    this.postData("/" + this.dataField, '').subscribe((data) => {
+    this.postData(this.dataField, '').subscribe((data) => {
       if (data instanceof CustomError) {
         this.matSnackBar.open("Error fetching data for "+this.dataField+" : \n\n"+data.message, this.action, {
           duration: 3000

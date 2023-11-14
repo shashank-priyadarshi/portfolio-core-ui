@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ArticlesComponent } from './articles/articles.component';
 import { HomeComponent } from './home/home.component';
-import { Title } from '@angular/platform-browser';
 import { AuthGuard } from '../auth/auth.guard';
 import { PolicyComponent } from './policy/policy.component';
 
@@ -25,16 +24,4 @@ const routes: Routes = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule  {
-  constructor(private title: Title, private router: Router) {}
-  canActivate() {
-    const title =
-      this.router.url === '' || this.router.url === '/home'
-        ? 'Home'
-        : this.router.url === '/todos'
-        ? 'Todos'
-        : 'Articles';
-    this.title.setTitle(title);
-    return true;
-  }
-}
+export class PagesRoutingModule {}

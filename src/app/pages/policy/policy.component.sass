@@ -1,5 +1,4 @@
 .container
-    display: flex
     justify-content: center
     align-items: center
     flex-direction: column
@@ -10,7 +9,7 @@
         width: 90vw
 
         &:hover
-            box-shadow: 2px 15px 30px 3px #ffd740
+            box-shadow: 2px 15px 30px 3px #000000
 
         mat-card-content
             display: flex
@@ -25,22 +24,3 @@
         mat-card-content mat-card-header
             font-size: .85rem
             font-weight: 500
-
-.sub-block
-    display: flex
-    justify-content: center
-    flex-direction: column
-
-.card-header
-    font-size: 1rem
-    font-weight: 500
-    justify-content: center
-
-@media screen and ( min-width: 1282px)
-    .container
-        font-size: 1vw
-    .card-header
-        font-size: 2rem
-    ul
-        padding: .5vh
-        line-height: 1

@@ -1,13 +1,13 @@
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard  {
+export class AuthGuard implements CanActivate {
   constructor(
     // private router: Router,
     private viewportRuler: ViewportRuler,

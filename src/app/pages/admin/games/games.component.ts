@@ -4,7 +4,7 @@ import { Game } from 'src/assets/models/models.interface';
 import { CustomError } from 'src/assets/models/custom-error.model';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NgxChessBoardView } from 'ngx-chess-board';
+// import { NgxChessBoardView } from 'ngx-chess-board';
 
 interface ChessMove {
   move: string;
@@ -16,7 +16,8 @@ interface ChessMove {
   styleUrls: ['./games.component.sass']
 })
 export class GamesComponent extends PagesService {
-  @ViewChild('board', { static: false }) board!: NgxChessBoardView;
+  // @ViewChild('board', { static: false }) board!: NgxChessBoardView;
+  board: any;
   element!: HTMLElement | null;
   games!: Game[];
   parsedGame!: ChessMove[];
@@ -35,7 +36,7 @@ export class GamesComponent extends PagesService {
   }
 
   ngAfterViewInit(): void {
-    this.board = { setPGN(pgn: string): void { }, } as NgxChessBoardView;
+    // this.board = { setPGN(pgn: string): void { }, } as NgxChessBoardView;
     this.parseGames();
   }
 

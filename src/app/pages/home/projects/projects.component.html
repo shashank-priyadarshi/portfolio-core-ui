@@ -1,98 +1,44 @@
 <div class="container">
   <div style="width: 90vw">
     <mat-card class="container__card container__other-cards">
-      <mat-card-header class="container__card-header">Projects</mat-card-header>
-      <div
-        style="
-          height: 90%;
-          width: 90%;
-          justify-content: center;
-          display: flex;
-          align-items: center;
-        "
-      >
-        <mat-card-content style="margin: 0.2rem 0 0 0; padding: 0">
-          <table>
-            <tr>
-              <td>Work related:</td>
-              <td>
-                <ul>
-                  <li>
-                    Consuming REST APIs from SCM/ALM/Code Quality tools in Go
-                    plugins
-                  </li>
-                  <li>
-                    Parsing and pushing data to internal microservices, using
-                    GraphQL REST endpoints
-                  </li>
-                  <li>
-                    Using more GraphQL in Angular web application to fetch data
-                    from internal microservices
-                  </li>
-                  <li>
-                    Using charting libraries, internal NPM packages and Angular
-                    Material for data visualisation in Angular web application
-                  </li>
-                  <li>
-                    Offloading core web application by creating Angular Micro
-                    Frontends
-                  </li>
-                  <li>
-                    Ensuring code quality with semantic analysis, security
-                    analysis, SAST & DAST, using tools like SonarQube, Fortify
-                    SAST, Synopsys BlackDuck, GHAS, CodeQL, etc.
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a [href]="portfolioRepo">Portfolio</a>
-              </td>
-              <td>
-                <ul>
-                  <li>Using Go and MongoDB to implement server</li>
-                  <li>
-                    Using Go and MongoDB to implement integrations from GitHub
-                  </li>
-                  <li>
-                    Using Angular, Angular Material and ngx-charts to develop UI
-                  </li>
-                  <li>
-                    Using Docker and Docker Compose, and DigitalOcean droplets
-                    to containerise MongoDB and backend services, and nginx
-                    reverse proxy to deploy UI on Linux based container
-                  </li>
-                  <li>
-                    Using CircleCI and GitHub Actions with tools like
-                    golangci-lint, Cypress, ESLint and SonarQube Cloud for code
-                    quality checks
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a [href]="githubOrg"> Ecommerce website clone </a>
-              </td>
-              <td>
-                <ul>
-                  <li>Using Angular to clone Amazon landing page</li>
-                  <li>
-                    Developing backend services and microservices will involve
-                    NodeJS, Go and Java SpringBoot and Hibernate.
-                  </li>
-                  <li>
-                    Co-developer:
-                    <a [href]="linkedIn" target="_blank">&#64;Aman Verma</a>
-                  </li>
-                  <li>Stay tuned for updates</li>
-                </ul>
-              </td>
-            </tr>
-          </table>
+        <mat-card-content style="margin: 0.2rem 0 0 0; padding: 0; overflow-y: scroll;">
+          <div style="font-family: Arial, sans-serif; line-height: 1.5rem; align-items: center; display: flex; flex-direction: column;">
+            <p (click)="toggleContent()" style="cursor: pointer;">
+              <span><strong style="font-size: 1rem;"> Hi, I am Shashank Priyadarshi. {{isExpanded ? '-' : '+'}}</strong></span>
+            </p>
+
+            <ng-container *ngIf="isExpanded">
+              <p style="margin: 0;">Graduated in 2021, and since, have worked full time as a software developer.</p>
+              <p style="margin: 0;">I have a total experience of {{totalExperienceInYears}} years: View my relevant experience and past and current employments below.</p>
+<!--              <p style="margin: 0;">In my leisure time, I love exploring new software tools and technologies, and tinkering with electronics.</p>-->
+<!--              <p style="margin: 0;">I also like to learn new languages, read books, and play bad chess.</p>-->
+<!--              <p style="margin: 0;">Send me a message if you want to:</p>-->
+<!--              <ul style="margin: 0;">-->
+<!--                <li style="margin: 0;">Collaborate on a software development project,</li>-->
+<!--                <li style="margin: 0;">Interview me for a job opening,</li>-->
+<!--                <li style="margin: 0;">Play a round of chess,</li>-->
+<!--                <li style="margin: 0;">Learn a new language together.</li>-->
+<!--              </ul>-->
+<!--              <p style="margin: 0;">Also, be sure to check out other links in the footer for articles related to all things web dev - mostly Angular and Go.</p>-->
+              <div class="experience" *ngFor="let experience of experiences; let i = index">
+                <div class="experience-company" (click)="toggleExperience(i)" style="font-size: 1rem; font-weight: 900;">
+                  <span *ngIf="expandedStates[i]">-</span><span *ngIf="!expandedStates[i]">+</span>
+                  {{ experience.company }}
+                </div>
+                <ng-container *ngIf="expandedStates[i]">
+                  <div *ngFor="let role of experience.roles; let j = index">
+                    <div class="experience-role">
+                      <h3 class="role-title">{{role.title}}: <span class="role-duration">{{role.duration}}</span></h3>
+                    </div>
+                    <ul class="experience-tasks">
+                      <li class="task" *ngFor="let task of role.tasks">{{task}}</li>
+                    </ul>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
         </mat-card-content>
-      </div>
     </mat-card>
   </div>
 </div>

@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="container__row">
-    <app-list [dataField]="'todos'" [isRepoList]="false"></app-list>
+  <div>
+<!--    <app-list [dataField]="'todos'" [isRepoList]="false"></app-list>-->
     <app-list [dataField]="'githubdata'" [isRepoList]="true"></app-list>
   </div>
 
-  <div class="container__row">
+  <div>
     <app-actions></app-actions>
-    <app-charts></app-charts>
   </div>
 
-  <div class="container__row">
-    <app-codeql></app-codeql>
+  <div>
     <app-time></app-time>
   </div>
 
-  <div class="container__row">
+  <div>
     <app-games></app-games>
   </div>
 </div>

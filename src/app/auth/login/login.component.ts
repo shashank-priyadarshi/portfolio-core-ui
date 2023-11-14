@@ -69,7 +69,7 @@ export class LoginComponent extends AuthService implements OnInit, OnDestroy {
   login(logindata: LoginData) {
     localStorage.setItem('user', logindata.username);
     logindata.action = 1;
-    this.postData('/credentials', logindata).subscribe((res) => {
+    this.postData('credentials', logindata).subscribe((res) => {
       if (!(res instanceof CustomError) && res && res.token) {
         localStorage.setItem('token', res.token);
         this.snackBar.open('Logged in successfully!', 'OK', { duration: 1500 });

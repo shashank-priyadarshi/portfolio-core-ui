@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
 import { CustomError } from 'src/assets/models/custom-error.model';
 import { Game } from 'src/assets/models/models.interface';
+import {environment } from "../environments/environment";
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,12 @@ export class SharedService {
   constructor(private http: HttpClient) { }
 
   protected fetchData(endpoint: string): Observable<any> {
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Referrer-Policy': 'no-referrer',
     });
 
     return this.http
-      .get('https://api.ssnk.in/' + endpoint, {
+      .get(environment.apiURL + endpoint, {
         headers: headers,
       })
       .pipe(
@@ -27,13 +28,13 @@ export class SharedService {
   }
 
   protected postData(endpoint: string, formData: any): Observable<any> {
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Referrer-Policy': 'no-referrer',
       'Content-Type': 'text/plain; charset=utf-8',
     });
 
     return this.http
-      .post('https://api.ssnk.in/' + endpoint, formData, {
+      .post(environment.apiURL + endpoint, formData, {
         headers: headers,
       })
       .pipe(

@@ -18,9 +18,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
-import { NgxChessBoardModule } from "ngx-chess-board";
 
 let MATERIAL_MODULES = [
   MatToolbarModule,
@@ -44,7 +42,7 @@ let MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  imports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
-  exports: [MATERIAL_MODULES, NgxChartsModule, MtxTooltipModule, NgxChessBoardModule],
+  imports: [MATERIAL_MODULES, MtxTooltipModule],
+  exports: [MATERIAL_MODULES, MtxTooltipModule],
 })
 export class MaterialModule {}
