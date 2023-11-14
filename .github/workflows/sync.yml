@@ -20,17 +20,18 @@ jobs:
 
     - name: Clone monorepo
       run: |
+        cd ..
         git clone https://github.com/shashank-priyadarshi/projects.git
         cd projects
         git checkout dev
+        rm -rf ../projects/portfolio/portfolio-core-ui/*
 
     - name: Copy changes to monorepo
       run: |
         ls
-        rm -rf projects/portfolio/portfolio-core-ui/*
-        cp -R ./* projects/portfolio/portfolio-core-ui/
-        cd projects
         rm -rf .git .gitignore
+        cp -R ./* ../projects/portfolio/portfolio-core-ui/
+        cd ../projects
 
     - name: Push changes to monorepo
       run: |
