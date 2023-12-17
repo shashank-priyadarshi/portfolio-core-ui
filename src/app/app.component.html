@@ -1,0 +1,8 @@
+<mat-toolbar class="toolbar"><span>ssnk.in</span></mat-toolbar>
+
+<mat-tab-group>
+    <mat-tab *ngFor="let item of tabItems" label="{{item.label}}" [routerLink]="item.route" routerLinkActive="active">
+    </mat-tab>
+</mat-tab-group>
+
+<!-- <router-outlet></router-outlet> -->
