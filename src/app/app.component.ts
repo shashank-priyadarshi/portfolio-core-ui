@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
@@ -14,19 +14,23 @@ import { MatTabsModule } from '@angular/material/tabs';
 })
 
 export class AppComponent {
+  @Output() selectedTabChange!: EventEmitter<MatTabChangeEvent>;
+
   title = 'ssnk.in';
 
   tabItems = [{
       label: 'Home',
-      route: '',
     }, {
       label: 'Books',
-      route: 'books',
     }, {
       label: 'Resume',
-      route: 'resume',
     }, {
       label: 'Contact',
-      route: 'contact',
     }];
+
+    constructor(private router: Router){}
+
+    navigateTo(event: MatTabChangeEvent){
+      this.router.navigate(["/"+event.tab.textLabel.toLowerCase()]);
+    }
 }

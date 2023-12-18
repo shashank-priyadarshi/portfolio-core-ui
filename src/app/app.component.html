@@ -1,8 +1,11 @@
-<mat-toolbar class="toolbar"><span>ssnk.in</span></mat-toolbar>
+<mat-toolbar class="toolbar"><span class="toolbar__header" >ssnk.in</span></mat-toolbar>
 
-<mat-tab-group>
-    <mat-tab *ngFor="let item of tabItems" label="{{item.label}}" [routerLink]="item.route" routerLinkActive="active">
-    </mat-tab>
+<mat-tab-group class="tabs" (selectedTabChange)="navigateTo($event);" preserveContent>
+    @for (item of tabItems; track $index) {
+        <mat-tab #tab_items class="tabs__components" label="{{item.label}}" >
+        </mat-tab>
+    }
 </mat-tab-group>
 
 <!-- <router-outlet></router-outlet> -->
+<mat-toolbar class="toolbar footer"></mat-toolbar>
