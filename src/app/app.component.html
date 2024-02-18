@@ -1,11 +1,10 @@
-<mat-toolbar class="toolbar"><span class="toolbar__header" >ssnk.in</span></mat-toolbar>
+<mat-toolbar class="toolbar"><span class="toolbar__header"></span></mat-toolbar>
 
-<mat-tab-group class="tabs" (selectedTabChange)="navigateTo($event);" preserveContent>
+<mat-tab-group class="tabs" (selectedTabChange)="loadTab($event);" preserveContent>
     @for (item of tabItems; track $index) {
         <mat-tab #tab_items class="tabs__components" label="{{item.label}}" >
+            <router-outlet name="{{item.label}}"></router-outlet>
         </mat-tab>
     }
 </mat-tab-group>
-
-<!-- <router-outlet></router-outlet> -->
 <mat-toolbar class="toolbar footer"></mat-toolbar>

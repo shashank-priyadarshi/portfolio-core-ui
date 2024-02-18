@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, Router, ActivatedRoute } from '@angular/router';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
@@ -28,9 +28,11 @@ export class AppComponent {
       label: 'Contact',
     }];
 
-    constructor(private router: Router){}
+    constructor(private route: ActivatedRoute, private router: Router){}
 
-    navigateTo(event: MatTabChangeEvent){
-      this.router.navigate(["/"+event.tab.textLabel.toLowerCase()]);
+    loadTab(event: MatTabChangeEvent){
+      const outlet = event.tab.textLabel;
+      const tabRoute = outlet.toLowerCase();
+      this.router.navigate([{ outlets: { [outlet]: [tabRoute] } }]);
     }
 }
