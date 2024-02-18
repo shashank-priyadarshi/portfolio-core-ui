@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  portfolio:
+    container_name: portfolio
+    image: nathukaka/portfolio:v0.0.1
+    # build: .
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./certificates:/certs
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    environment:
+      - NGINX_HOST=ssnk.in
