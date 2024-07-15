@@ -27,7 +27,7 @@
     "@angular/router": "^15.1.2",
     "@cypress/schematic": "^2.5.0",
     "@ng-matero/extensions": "^15.0.2",
-    "@nguniversal/express-engine": "^15.1.0",
+    "@nguniversal/express-engine": "^16.2.0",
     "@swimlane/ngx-charts": "^20.4.1",
     "ngx-chess-board": "^2.2.3",
     "rxjs": "~7.5.0",
